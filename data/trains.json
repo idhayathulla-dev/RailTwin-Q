@@ -1,0 +1,26 @@
+[
+  {
+    "train_no": 12623,
+    "name": "Chennai Mail",
+    "route_id": 1,
+    "current_station_id": 1,
+    "speed": 85,
+    "delay": 0
+  },
+  {
+    "train_no": 12625,
+    "name": "Kerala Express",
+    "route_id": 1,
+    "current_station_id": 1,
+    "speed": 90,
+    "delay": 0
+  },
+  {
+    "train_no": 16057,
+    "name": "Sapthagiri Express",
+    "route_id": 1,
+    "current_station_id": 2,
+    "speed": 75,
+    "delay": 10
+  }
+]

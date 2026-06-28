@@ -1,0 +1,161 @@
+{
+    "future_delay_15_v1": {
+        "version": "future_delay_15_v1",
+        "training_date": "2026-06-27 14:18:04",
+        "dataset_version": "synthetic_datasets_v2",
+        "feature_count": 69,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 16.5706,
+                "RMSE": 20.2523,
+                "R2": -0.006,
+                "MAPE": 306.32
+            },
+            "Linear Regression": {
+                "MAE": 1.5827,
+                "RMSE": 2.3304,
+                "R2": 0.9867,
+                "MAPE": 16.55
+            },
+            "Random Forest": {
+                "MAE": 2.3705,
+                "RMSE": 3.2463,
+                "R2": 0.9742,
+                "MAPE": 16.38
+            },
+            "LightGBM": {
+                "MAE": 1.506,
+                "RMSE": 2.1782,
+                "R2": 0.9884,
+                "MAPE": 12.6
+            },
+            "XGBoost": {
+                "MAE": 1.5839,
+                "RMSE": 2.3704,
+                "R2": 0.9862,
+                "MAPE": 12.77
+            },
+            "Ensemble (Selected)": {
+                "MAE": 1.4335,
+                "RMSE": 2.0729,
+                "R2": 0.9895,
+                "MAPE": 12.16
+            }
+        },
+        "hyperparameters": {
+            "subsample": 1.0,
+            "num_leaves": 63,
+            "n_estimators": 150,
+            "min_child_samples": 50,
+            "max_depth": 4,
+            "learning_rate": 0.15,
+            "colsample_bytree": 0.9
+        }
+    },
+    "future_delay_30_v1": {
+        "version": "future_delay_30_v1",
+        "training_date": "2026-06-27 14:18:26",
+        "dataset_version": "synthetic_datasets_v2",
+        "feature_count": 69,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 16.4695,
+                "RMSE": 20.4104,
+                "R2": -0.0082,
+                "MAPE": 261.58
+            },
+            "Linear Regression": {
+                "MAE": 3.4141,
+                "RMSE": 4.8036,
+                "R2": 0.9442,
+                "MAPE": 30.59
+            },
+            "Random Forest": {
+                "MAE": 4.1405,
+                "RMSE": 5.7123,
+                "R2": 0.921,
+                "MAPE": 27.01
+            },
+            "LightGBM": {
+                "MAE": 3.1927,
+                "RMSE": 4.554,
+                "R2": 0.9498,
+                "MAPE": 28.96
+            },
+            "XGBoost": {
+                "MAE": 3.3882,
+                "RMSE": 5.0658,
+                "R2": 0.9379,
+                "MAPE": 22.55
+            },
+            "Ensemble (Selected)": {
+                "MAE": 3.1047,
+                "RMSE": 4.4687,
+                "R2": 0.9517,
+                "MAPE": 25.63
+            }
+        },
+        "hyperparameters": {
+            "subsample": 1.0,
+            "num_leaves": 63,
+            "n_estimators": 150,
+            "min_child_samples": 50,
+            "max_depth": 4,
+            "learning_rate": 0.15,
+            "colsample_bytree": 0.9
+        }
+    },
+    "future_delay_60_v1": {
+        "version": "future_delay_60_v1",
+        "training_date": "2026-06-27 14:18:50",
+        "dataset_version": "synthetic_datasets_v2",
+        "feature_count": 69,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 16.0961,
+                "RMSE": 20.4341,
+                "R2": -0.0116,
+                "MAPE": 227.9
+            },
+            "Linear Regression": {
+                "MAE": 6.1306,
+                "RMSE": 8.6036,
+                "R2": 0.8207,
+                "MAPE": 46.07
+            },
+            "Random Forest": {
+                "MAE": 7.3303,
+                "RMSE": 10.0742,
+                "R2": 0.7541,
+                "MAPE": 42.01
+            },
+            "LightGBM": {
+                "MAE": 6.0166,
+                "RMSE": 8.8048,
+                "R2": 0.8122,
+                "MAPE": 43.36
+            },
+            "XGBoost": {
+                "MAE": 6.6733,
+                "RMSE": 10.1361,
+                "R2": 0.7511,
+                "MAPE": 41.56
+            },
+            "Ensemble (Selected)": {
+                "MAE": 5.8984,
+                "RMSE": 8.6309,
+                "R2": 0.8195,
+                "MAPE": 39.91
+            }
+        },
+        "hyperparameters": {
+            "subsample": 1.0,
+            "num_leaves": 63,
+            "n_estimators": 150,
+            "min_child_samples": 100,
+            "max_depth": 10,
+            "learning_rate": 0.05,
+            "colsample_bytree": 0.7
+        }
+    }
+}

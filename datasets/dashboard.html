@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="1">
+    <title>RailTwin-Q Live Digital Twin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-purple: #8b5cf6;
+            --accent-indigo: #6366f1;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-header {
+            color: var(--text-muted);
+            margin: 3px 0 0 0;
+            font-size: 0.95rem;
+        }
+
+        .clock-box {
+            text-align: right;
+        }
+
+        .clock-val {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+        }
+
+        .clock-tick {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .badge-green { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); border: 1px solid var(--accent-green); }
+        .badge-yellow { background: rgba(245, 158, 11, 0.15); color: var(--accent-yellow); border: 1px solid var(--accent-yellow); }
+        .badge-red { background: rgba(239, 68, 68, 0.15); color: var(--accent-red); border: 1px solid var(--accent-red); }
+        .badge-blue { background: rgba(99, 102, 241, 0.15); color: var(--accent-indigo); border: 1px solid var(--accent-indigo); }
+
+        /* Schematic Map Styles */
+        .map-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px 40px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .map-line-container {
+            position: relative;
+            height: 60px;
+            margin: 30px 0;
+        }
+
+        .map-line {
+            position: absolute;
+            top: 25px;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+
+        .station-node {
+            position: absolute;
+            top: 15px;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .node-dot {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: var(--accent-indigo);
+            border: 4px solid var(--bg-color);
+            z-index: 2;
+        }
+
+        .node-label {
+            margin-top: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .node-plat {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        .train-marker {
+            position: absolute;
+            top: 18px;
+            font-size: 1.4rem;
+            z-index: 10;
+            cursor: pointer;
+            transition: left 0.5s ease-in-out;
+        }
+
+        .marker-label {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.65rem;
+            background: rgba(0,0,0,0.8);
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+
+        /* Train Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .train-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .card-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .card-body {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-info {
+            flex-grow: 1;
+        }
+
+        .card-info p {
+            margin: 5px 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .card-info p strong {
+            color: var(--text-main);
+        }
+
+        .predictions-box {
+            background: rgba(0,0,0,0.2);
+            border-radius: 6px;
+            padding: 8px 12px;
+            margin-left: 15px;
+            min-width: 110px;
+        }
+
+        .predictions-box h4 {
+            margin: 0 0 5px 0;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--accent-purple);
+            letter-spacing: 0.05em;
+        }
+
+        .pred-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            margin-bottom: 3px;
+        }
+
+        .pred-row strong {
+            color: var(--accent-yellow);
+        }
+
+        .conf-box {
+            border: 2px solid;
+            border-radius: 50%;
+            width: 54px;
+            height: 54px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-left: 15px;
+        }
+
+        .conf-val {
+            font-size: 0.95rem;
+            font-weight: 700;
+        }
+
+        .conf-lbl {
+            font-size: 0.5rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .card-footer {
+            border-top: 1px solid var(--border-color);
+            margin-top: 15px;
+            padding-top: 10px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .delay-high {
+            color: var(--accent-red);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <h1>RailTwin-Q Live Digital Twin</h1>
+                <p class="sub-header">Live Railway Map & AI Delay Predictions Dashboard</p>
+            </div>
+            <div class="clock-box">
+                <div class="clock-val">10:00</div>
+                <div class="clock-tick">Simulation Minute: 120</div>
+            </div>
+        </header>
+
+        <!-- Live Schematic Map -->
+        <div class="map-card">
+            <h2>Live Schematic Railway Line</h2>
+            <div style="margin-bottom: 10px;">
+                <strong>Active Anomalies:</strong> <span class='badge badge-green'>Normal Operations</span>
+            </div>
+            <div class="map-line-container">
+                <div class="map-line"></div>
+                
+                <!-- Chennai Central Node -->
+                <div class="station-node" style="left: 0%;">
+                    <div class="node-dot"></div>
+                    <div class="node-label">Chennai Central</div>
+                    <div class="node-plat">Plats: 0/12</div>
+                </div>
+
+                <!-- Arakkonam Node -->
+                <div class="station-node" style="left: 30%;">
+                    <div class="node-dot"></div>
+                    <div class="node-label">Arakkonam</div>
+                    <div class="node-plat">Plats: 0/8</div>
+                </div>
+
+                <!-- Katpadi Node -->
+                <div class="station-node" style="left: 65%;">
+                    <div class="node-dot"></div>
+                    <div class="node-label">Katpadi</div>
+                    <div class="node-plat">Plats: 0/5</div>
+                </div>
+
+                <!-- Jolarpettai Node -->
+                <div class="station-node" style="left: 100%;">
+                    <div class="node-dot"></div>
+                    <div class="node-label">Jolarpettai</div>
+                    <div class="node-plat">Plats: 0/5</div>
+                </div>
+
+                <!-- Dynamic Train Markers -->
+                
+        <div class='train-marker' style='left: 67.36111111111111%; transform: translate(-50%, 18px);' title='Train 12623'>
+            🚆<span class='marker-label'>12623</span>
+        </div>
+        
+        <div class='train-marker' style='left: 65.0%; transform: translate(-50%, 6px);' title='Train 12625'>
+            🚆<span class='marker-label'>12625</span>
+        </div>
+        
+        <div class='train-marker' style='left: 92.08333333333336%; transform: translate(-50%, 6px);' title='Train 16057'>
+            🚆<span class='marker-label'>16057</span>
+        </div>
+        
+            </div>
+        </div>
+
+        <!-- Train Cards -->
+        <h2>Active Train Predictions</h2>
+        <div class="cards-grid">
+            
+            <div class='train-card'>
+                <div class='card-header'>
+                    <h3>Train 12623 - Chennai Mail</h3>
+                    <span class='badge badge-blue'>SUPERFAST</span>
+                </div>
+                <div class='card-body'>
+                    <div class='card-info'>
+                        <p><strong>Status:</strong> MOVING</p>
+                        <p><strong>Speed:</strong> 85.0 km/h</p>
+                        <p><strong>Position:</strong> Moving Katpadi -> Jolarpettai (6.7%)</p>
+                        <p><strong>Current Delay:</strong> <span class='delay-high'>16.6 mins</span></p>
+                    </div>
+                    <div class='predictions-box'>
+                        <h4>AI Delay Projections</h4>
+                        <div class='pred-row'><span>+15 mins:</span><strong>20.7m</strong></div>
+                        <div class='pred-row'><span>+30 mins:</span><strong>23.9m</strong></div>
+                        <div class='pred-row'><span>+60 mins:</span><strong>28.9m</strong></div>
+                    </div>
+                    <div class='conf-box' style='border-color: var(--accent-green);'>
+                        <div class='conf-val' style='color: var(--accent-green);'>94%</div>
+                        <div class='conf-lbl'>Confidence</div>
+                    </div>
+                </div>
+                <div class='card-footer'>
+                    <strong>Top Delay Factors:</strong> Remaining Distance, Speed, Station Congestion Delay
+                </div>
+            </div>
+            
+            <div class='train-card'>
+                <div class='card-header'>
+                    <h3>Train 12625 - Kerala Express</h3>
+                    <span class='badge badge-blue'>EXPRESS</span>
+                </div>
+                <div class='card-body'>
+                    <div class='card-info'>
+                        <p><strong>Status:</strong> WAITING</p>
+                        <p><strong>Speed:</strong> 0.0 km/h</p>
+                        <p><strong>Position:</strong> At Katpadi</p>
+                        <p><strong>Current Delay:</strong> <span class='delay-high'>27.0 mins</span></p>
+                    </div>
+                    <div class='predictions-box'>
+                        <h4>AI Delay Projections</h4>
+                        <div class='pred-row'><span>+15 mins:</span><strong>31.1m</strong></div>
+                        <div class='pred-row'><span>+30 mins:</span><strong>34.0m</strong></div>
+                        <div class='pred-row'><span>+60 mins:</span><strong>37.8m</strong></div>
+                    </div>
+                    <div class='conf-box' style='border-color: var(--accent-green);'>
+                        <div class='conf-val' style='color: var(--accent-green);'>86%</div>
+                        <div class='conf-lbl'>Confidence</div>
+                    </div>
+                </div>
+                <div class='card-footer'>
+                    <strong>Top Delay Factors:</strong> Speed, Progress, Station Congestion Delay
+                </div>
+            </div>
+            
+            <div class='train-card'>
+                <div class='card-header'>
+                    <h3>Train 16057 - Sapthagiri Express</h3>
+                    <span class='badge badge-blue'>EXPRESS</span>
+                </div>
+                <div class='card-body'>
+                    <div class='card-info'>
+                        <p><strong>Status:</strong> MOVING</p>
+                        <p><strong>Speed:</strong> 75.0 km/h</p>
+                        <p><strong>Position:</strong> Moving Katpadi -> Jolarpettai (77.4%)</p>
+                        <p><strong>Current Delay:</strong> <span class='delay-high'>25.6 mins</span></p>
+                    </div>
+                    <div class='predictions-box'>
+                        <h4>AI Delay Projections</h4>
+                        <div class='pred-row'><span>+15 mins:</span><strong>29.2m</strong></div>
+                        <div class='pred-row'><span>+30 mins:</span><strong>29.6m</strong></div>
+                        <div class='pred-row'><span>+60 mins:</span><strong>28.8m</strong></div>
+                    </div>
+                    <div class='conf-box' style='border-color: var(--accent-green);'>
+                        <div class='conf-val' style='color: var(--accent-green);'>87%</div>
+                        <div class='conf-lbl'>Confidence</div>
+                    </div>
+                </div>
+                <div class='card-footer'>
+                    <strong>Top Delay Factors:</strong> Distance Travelled, Progress, Station Congestion Delay
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>

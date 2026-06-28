@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "source_station_id": 1,
+    "destination_station_id": 2,
+    "distance": 69,
+    "max_speed": 110,
+    "capacity": 5
+  },
+  {
+    "id": 2,
+    "source_station_id": 2,
+    "destination_station_id": 3,
+    "distance": 61,
+    "max_speed": 110,
+    "capacity": 4
+  },
+  {
+    "id": 3,
+    "source_station_id": 3,
+    "destination_station_id": 4,
+    "distance": 84,
+    "max_speed": 110,
+    "capacity": 4
+  }
+]

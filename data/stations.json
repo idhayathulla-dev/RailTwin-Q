@@ -1,0 +1,30 @@
+[
+  {
+    "station_id": 1,
+    "name": "Chennai Central",
+    "latitude": 13.0827,
+    "longitude": 80.2707,
+    "platforms": 12
+  },
+  {
+    "station_id": 2,
+    "name": "Arakkonam",
+    "latitude": 13.0846,
+    "longitude": 79.6704,
+    "platforms": 8
+  },
+  {
+    "station_id": 3,
+    "name": "Katpadi",
+    "latitude": 12.9818,
+    "longitude": 79.1396,
+    "platforms": 5
+  },
+  {
+    "station_id": 4,
+    "name": "Jolarpettai",
+    "latitude": 12.5694,
+    "longitude": 78.5833,
+    "platforms": 5
+  }
+]
