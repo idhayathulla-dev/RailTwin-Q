@@ -100,7 +100,6 @@ RailTwin-Q/
 ├── assets/
 ├── requirements.txt
 ├── README.md
-└── LICENSE
 ```
 
 ---
