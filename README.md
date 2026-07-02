@@ -99,7 +99,7 @@ RailTwin-Q/
 ├── notebooks/
 ├── assets/
 ├── requirements.txt
-├── README.md
+|── README.md
 ```
 
 ---
