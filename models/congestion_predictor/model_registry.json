@@ -1,0 +1,932 @@
+{
+    "station_15_v1": {
+        "version": "station_15_v1",
+        "training_date": "2026-07-07 19:58:23",
+        "dataset_version": "synthetic_datasets_congestion_v1",
+        "feature_count": 66,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 3.3569,
+                "RMSE": 5.4935,
+                "R2": -0.0007,
+                "MAPE": 184.04
+            },
+            "Linear Regression": {
+                "MAE": 2.2574,
+                "RMSE": 4.0726,
+                "R2": 0.45,
+                "MAPE": 146.13
+            },
+            "Random Forest": {
+                "MAE": 1.062,
+                "RMSE": 3.328,
+                "R2": 0.6327,
+                "MAPE": 44.94
+            },
+            "LightGBM": {
+                "MAE": 1.1064,
+                "RMSE": 3.4102,
+                "R2": 0.6144,
+                "MAPE": 54.46
+            },
+            "XGBoost": {
+                "MAE": 1.0035,
+                "RMSE": 3.2628,
+                "R2": 0.647,
+                "MAPE": 48.07
+            },
+            "Ensemble (Selected)": {
+                "MAE": 1.0131,
+                "RMSE": 3.1344,
+                "R2": 0.6742,
+                "MAPE": 48.97
+            }
+        },
+        "hyperparameters": {
+            "subsample": 1.0,
+            "n_estimators": 100,
+            "max_depth": 10,
+            "learning_rate": 0.1,
+            "colsample_bytree": 1.0
+        }
+    },
+    "station_30_v1": {
+        "version": "station_30_v1",
+        "training_date": "2026-07-07 19:58:57",
+        "dataset_version": "synthetic_datasets_congestion_v1",
+        "feature_count": 66,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 4.3363,
+                "RMSE": 6.6106,
+                "R2": -0.0022,
+                "MAPE": 242.7
+            },
+            "Linear Regression": {
+                "MAE": 3.3902,
+                "RMSE": 5.2283,
+                "R2": 0.3731,
+                "MAPE": 211.57
+            },
+            "Random Forest": {
+                "MAE": 1.8682,
+                "RMSE": 4.453,
+                "R2": 0.5452,
+                "MAPE": 87.94
+            },
+            "LightGBM": {
+                "MAE": 1.5751,
+                "RMSE": 3.9252,
+                "R2": 0.6467,
+                "MAPE": 73.46
+            },
+            "XGBoost": {
+                "MAE": 1.6768,
+                "RMSE": 4.4389,
+                "R2": 0.5481,
+                "MAPE": 87.9
+            },
+            "Ensemble (Selected)": {
+                "MAE": 1.6063,
+                "RMSE": 3.9795,
+                "R2": 0.6368,
+                "MAPE": 78.53
+            }
+        },
+        "hyperparameters": {
+            "subsample": 1.0,
+            "num_leaves": 63,
+            "n_estimators": 150,
+            "max_depth": 10,
+            "learning_rate": 0.05,
+            "colsample_bytree": 0.9
+        }
+    },
+    "station_60_v1": {
+        "version": "station_60_v1",
+        "training_date": "2026-07-07 19:59:20",
+        "dataset_version": "synthetic_datasets_congestion_v1",
+        "feature_count": 66,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 6.664,
+                "RMSE": 9.0233,
+                "R2": -0.0032,
+                "MAPE": 372.17
+            },
+            "Linear Regression": {
+                "MAE": 4.4223,
+                "RMSE": 6.6403,
+                "R2": 0.4567,
+                "MAPE": 271.29
+            },
+            "Random Forest": {
+                "MAE": 3.2253,
+                "RMSE": 6.4061,
+                "R2": 0.4944,
+                "MAPE": 167.57
+            },
+            "LightGBM": {
+                "MAE": 3.1495,
+                "RMSE": 6.3424,
+                "R2": 0.5044,
+                "MAPE": 162.31
+            },
+            "XGBoost": {
+                "MAE": 3.2368,
+                "RMSE": 6.8779,
+                "R2": 0.4171,
+                "MAPE": 171.12
+            },
+            "Ensemble (Selected)": {
+                "MAE": 3.096,
+                "RMSE": 6.16,
+                "R2": 0.5325,
+                "MAPE": 159.51
+            }
+        },
+        "hyperparameters": {
+            "subsample": 1.0,
+            "num_leaves": 63,
+            "n_estimators": 150,
+            "max_depth": 10,
+            "learning_rate": 0.05,
+            "colsample_bytree": 0.9
+        }
+    },
+    "track_15_v1": {
+        "version": "track_15_v1",
+        "training_date": "2026-07-07 19:59:43",
+        "dataset_version": "synthetic_datasets_congestion_v1",
+        "feature_count": 22,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 19.8005,
+                "RMSE": 24.2478,
+                "R2": -0.0159,
+                "MAPE": 779.15
+            },
+            "Linear Regression": {
+                "MAE": 11.7741,
+                "RMSE": 15.1241,
+                "R2": 0.6048,
+                "MAPE": 320.65
+            },
+            "Random Forest": {
+                "MAE": 10.1695,
+                "RMSE": 14.034,
+                "R2": 0.6597,
+                "MAPE": 205.95
+            },
+            "LightGBM": {
+                "MAE": 8.8102,
+                "RMSE": 12.3893,
+                "R2": 0.7348,
+                "MAPE": 175.71
+            },
+            "XGBoost": {
+                "MAE": 8.741,
+                "RMSE": 12.6634,
+                "R2": 0.7229,
+                "MAPE": 177.83
+            },
+            "Ensemble (Selected)": {
+                "MAE": 8.7036,
+                "RMSE": 12.5818,
+                "R2": 0.7265,
+                "MAPE": 172.9
+            }
+        },
+        "hyperparameters": {
+            "subsample": 1.0,
+            "n_estimators": 100,
+            "max_depth": 10,
+            "learning_rate": 0.1,
+            "colsample_bytree": 1.0
+        }
+    },
+    "track_30_v1": {
+        "version": "track_30_v1",
+        "training_date": "2026-07-07 20:00:04",
+        "dataset_version": "synthetic_datasets_congestion_v1",
+        "feature_count": 22,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 20.8197,
+                "RMSE": 25.8193,
+                "R2": -0.0209,
+                "MAPE": 808.77
+            },
+            "Linear Regression": {
+                "MAE": 15.8816,
+                "RMSE": 19.9363,
+                "R2": 0.3913,
+                "MAPE": 517.91
+            },
+            "Random Forest": {
+                "MAE": 12.419,
+                "RMSE": 16.7932,
+                "R2": 0.5681,
+                "MAPE": 342.15
+            },
+            "LightGBM": {
+                "MAE": 10.8511,
+                "RMSE": 14.9981,
+                "R2": 0.6555,
+                "MAPE": 282.92
+            },
+            "XGBoost": {
+                "MAE": 10.6107,
+                "RMSE": 15.0674,
+                "R2": 0.6523,
+                "MAPE": 265.74
+            },
+            "Ensemble (Selected)": {
+                "MAE": 10.7188,
+                "RMSE": 15.0767,
+                "R2": 0.6519,
+                "MAPE": 272.53
+            }
+        },
+        "hyperparameters": {
+            "subsample": 1.0,
+            "n_estimators": 100,
+            "max_depth": 10,
+            "learning_rate": 0.1,
+            "colsample_bytree": 1.0
+        }
+    },
+    "track_60_v1": {
+        "version": "track_60_v1",
+        "training_date": "2026-07-07 20:00:23",
+        "dataset_version": "synthetic_datasets_congestion_v1",
+        "feature_count": 22,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 22.0462,
+                "RMSE": 28.1971,
+                "R2": -0.0219,
+                "MAPE": 905.45
+            },
+            "Linear Regression": {
+                "MAE": 17.3304,
+                "RMSE": 22.7478,
+                "R2": 0.3349,
+                "MAPE": 506.4
+            },
+            "Random Forest": {
+                "MAE": 13.6366,
+                "RMSE": 19.5097,
+                "R2": 0.5108,
+                "MAPE": 332.93
+            },
+            "LightGBM": {
+                "MAE": 12.6003,
+                "RMSE": 18.4622,
+                "R2": 0.5619,
+                "MAPE": 275.07
+            },
+            "XGBoost": {
+                "MAE": 12.7373,
+                "RMSE": 19.0854,
+                "R2": 0.5318,
+                "MAPE": 270.82
+            },
+            "Ensemble (Selected)": {
+                "MAE": 12.4676,
+                "RMSE": 18.0391,
+                "R2": 0.5817,
+                "MAPE": 277.15
+            }
+        },
+        "hyperparameters": {
+            "subsample": 0.9,
+            "num_leaves": 127,
+            "n_estimators": 50,
+            "max_depth": 10,
+            "learning_rate": 0.15,
+            "colsample_bytree": 0.9
+        }
+    },
+    "network_network_congestion_15_v1": {
+        "version": "network_network_congestion_15_v1",
+        "training_date": "2026-07-07 20:00:41",
+        "dataset_version": "synthetic_datasets_congestion_v1",
+        "feature_count": 29,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 5.0478,
+                "RMSE": 5.5466,
+                "R2": -0.1191,
+                "MAPE": 33.42
+            },
+            "Linear Regression": {
+                "MAE": 2.5616,
+                "RMSE": 3.3926,
+                "R2": 0.5813,
+                "MAPE": 17.45
+            },
+            "Random Forest": {
+                "MAE": 2.4853,
+                "RMSE": 3.5938,
+                "R2": 0.5302,
+                "MAPE": 17.68
+            },
+            "LightGBM": {
+                "MAE": 2.3749,
+                "RMSE": 3.4602,
+                "R2": 0.5645,
+                "MAPE": 16.84
+            },
+            "XGBoost": {
+                "MAE": 2.5231,
+                "RMSE": 3.6221,
+                "R2": 0.5228,
+                "MAPE": 18.1
+            },
+            "Ensemble (Selected)": {
+                "MAE": 2.3762,
+                "RMSE": 3.4585,
+                "R2": 0.5649,
+                "MAPE": 16.79
+            }
+        },
+        "hyperparameters": {
+            "subsample": 1.0,
+            "num_leaves": 63,
+            "n_estimators": 150,
+            "max_depth": 10,
+            "learning_rate": 0.05,
+            "colsample_bytree": 0.9
+        }
+    },
+    "network_network_congestion_30_v1": {
+        "version": "network_network_congestion_30_v1",
+        "training_date": "2026-07-07 20:00:59",
+        "dataset_version": "synthetic_datasets_congestion_v1",
+        "feature_count": 29,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 5.2585,
+                "RMSE": 5.7685,
+                "R2": -0.1561,
+                "MAPE": 35.23
+            },
+            "Linear Regression": {
+                "MAE": 3.2046,
+                "RMSE": 4.1472,
+                "R2": 0.4024,
+                "MAPE": 22.42
+            },
+            "Random Forest": {
+                "MAE": 2.3443,
+                "RMSE": 3.839,
+                "R2": 0.4879,
+                "MAPE": 17.38
+            },
+            "LightGBM": {
+                "MAE": 2.3858,
+                "RMSE": 3.842,
+                "R2": 0.4871,
+                "MAPE": 17.32
+            },
+            "XGBoost": {
+                "MAE": 2.3902,
+                "RMSE": 3.876,
+                "R2": 0.478,
+                "MAPE": 17.42
+            },
+            "Ensemble (Selected)": {
+                "MAE": 2.3581,
+                "RMSE": 3.8032,
+                "R2": 0.4974,
+                "MAPE": 17.2
+            }
+        },
+        "hyperparameters": {
+            "subsample": 1.0,
+            "num_leaves": 63,
+            "n_estimators": 150,
+            "max_depth": 10,
+            "learning_rate": 0.05,
+            "colsample_bytree": 0.9
+        }
+    },
+    "network_network_congestion_60_v1": {
+        "version": "network_network_congestion_60_v1",
+        "training_date": "2026-07-07 20:01:16",
+        "dataset_version": "synthetic_datasets_congestion_v1",
+        "feature_count": 29,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 5.1891,
+                "RMSE": 5.8111,
+                "R2": -0.1783,
+                "MAPE": 35.54
+            },
+            "Linear Regression": {
+                "MAE": 3.2867,
+                "RMSE": 4.1285,
+                "R2": 0.4053,
+                "MAPE": 24.09
+            },
+            "Random Forest": {
+                "MAE": 3.0823,
+                "RMSE": 4.298,
+                "R2": 0.3554,
+                "MAPE": 21.8
+            },
+            "LightGBM": {
+                "MAE": 3.0281,
+                "RMSE": 4.1653,
+                "R2": 0.3946,
+                "MAPE": 21.8
+            },
+            "XGBoost": {
+                "MAE": 2.9944,
+                "RMSE": 4.0609,
+                "R2": 0.4246,
+                "MAPE": 21.22
+            },
+            "Ensemble (Selected)": {
+                "MAE": 2.9979,
+                "RMSE": 4.085,
+                "R2": 0.4177,
+                "MAPE": 21.29
+            }
+        },
+        "hyperparameters": {
+            "subsample": 0.7,
+            "n_estimators": 100,
+            "max_depth": 4,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.7
+        }
+    },
+    "network_platform_utilization_15_v1": {
+        "version": "network_platform_utilization_15_v1",
+        "training_date": "2026-07-07 20:01:28",
+        "dataset_version": "synthetic_datasets_congestion_v1",
+        "feature_count": 29,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 1.3981,
+                "RMSE": 1.5429,
+                "R2": -0.0455,
+                "MAPE": 101.11
+            },
+            "Linear Regression": {
+                "MAE": 0.9818,
+                "RMSE": 1.3622,
+                "R2": 0.1851,
+                "MAPE": 66.52
+            },
+            "Random Forest": {
+                "MAE": 0.8417,
+                "RMSE": 1.2744,
+                "R2": 0.2868,
+                "MAPE": 53.43
+            },
+            "LightGBM": {
+                "MAE": 0.844,
+                "RMSE": 1.301,
+                "R2": 0.2567,
+                "MAPE": 54.08
+            },
+            "XGBoost": {
+                "MAE": 0.8618,
+                "RMSE": 1.308,
+                "R2": 0.2486,
+                "MAPE": 55.1
+            },
+            "Ensemble (Selected)": {
+                "MAE": 0.8471,
+                "RMSE": 1.2965,
+                "R2": 0.2618,
+                "MAPE": 54.24
+            }
+        },
+        "hyperparameters": {
+            "subsample": 1.0,
+            "num_leaves": 63,
+            "n_estimators": 150,
+            "max_depth": 10,
+            "learning_rate": 0.05,
+            "colsample_bytree": 0.9
+        }
+    },
+    "network_platform_utilization_30_v1": {
+        "version": "network_platform_utilization_30_v1",
+        "training_date": "2026-07-07 20:01:42",
+        "dataset_version": "synthetic_datasets_congestion_v1",
+        "feature_count": 29,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 1.7386,
+                "RMSE": 1.8662,
+                "R2": -0.0583,
+                "MAPE": 125.46
+            },
+            "Linear Regression": {
+                "MAE": 0.8644,
+                "RMSE": 1.2331,
+                "R2": 0.5379,
+                "MAPE": 57.02
+            },
+            "Random Forest": {
+                "MAE": 0.724,
+                "RMSE": 1.2758,
+                "R2": 0.5054,
+                "MAPE": 46.88
+            },
+            "LightGBM": {
+                "MAE": 0.7677,
+                "RMSE": 1.3147,
+                "R2": 0.4747,
+                "MAPE": 49.98
+            },
+            "XGBoost": {
+                "MAE": 0.7819,
+                "RMSE": 1.3452,
+                "R2": 0.4501,
+                "MAPE": 52.7
+            },
+            "Ensemble (Selected)": {
+                "MAE": 0.7533,
+                "RMSE": 1.297,
+                "R2": 0.4888,
+                "MAPE": 48.98
+            }
+        },
+        "hyperparameters": {
+            "subsample": 1.0,
+            "num_leaves": 63,
+            "n_estimators": 150,
+            "max_depth": 10,
+            "learning_rate": 0.05,
+            "colsample_bytree": 0.9
+        }
+    },
+    "network_platform_utilization_60_v1": {
+        "version": "network_platform_utilization_60_v1",
+        "training_date": "2026-07-07 20:01:54",
+        "dataset_version": "synthetic_datasets_congestion_v1",
+        "feature_count": 29,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 2.1974,
+                "RMSE": 2.5664,
+                "R2": -0.0497,
+                "MAPE": 152.93
+            },
+            "Linear Regression": {
+                "MAE": 1.681,
+                "RMSE": 2.0526,
+                "R2": 0.3286,
+                "MAPE": 104.15
+            },
+            "Random Forest": {
+                "MAE": 1.5532,
+                "RMSE": 1.9386,
+                "R2": 0.401,
+                "MAPE": 100.31
+            },
+            "LightGBM": {
+                "MAE": 1.5741,
+                "RMSE": 2.0386,
+                "R2": 0.3377,
+                "MAPE": 98.6
+            },
+            "XGBoost": {
+                "MAE": 1.5821,
+                "RMSE": 2.0799,
+                "R2": 0.3106,
+                "MAPE": 99.93
+            },
+            "Ensemble (Selected)": {
+                "MAE": 1.5558,
+                "RMSE": 2.0194,
+                "R2": 0.3501,
+                "MAPE": 96.53
+            }
+        },
+        "hyperparameters": {
+            "subsample": 0.9,
+            "num_leaves": 127,
+            "n_estimators": 50,
+            "max_depth": 10,
+            "learning_rate": 0.15,
+            "colsample_bytree": 0.9
+        }
+    },
+    "network_track_utilization_15_v1": {
+        "version": "network_track_utilization_15_v1",
+        "training_date": "2026-07-07 20:02:07",
+        "dataset_version": "synthetic_datasets_congestion_v1",
+        "feature_count": 29,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 8.6193,
+                "RMSE": 9.611,
+                "R2": -0.1273,
+                "MAPE": 35.34
+            },
+            "Linear Regression": {
+                "MAE": 4.6294,
+                "RMSE": 6.0156,
+                "R2": 0.5584,
+                "MAPE": 19.58
+            },
+            "Random Forest": {
+                "MAE": 4.6418,
+                "RMSE": 6.4333,
+                "R2": 0.4949,
+                "MAPE": 20.65
+            },
+            "LightGBM": {
+                "MAE": 4.3462,
+                "RMSE": 6.0902,
+                "R2": 0.5474,
+                "MAPE": 19.13
+            },
+            "XGBoost": {
+                "MAE": 4.5464,
+                "RMSE": 6.4096,
+                "R2": 0.4986,
+                "MAPE": 20.28
+            },
+            "Ensemble (Selected)": {
+                "MAE": 4.3807,
+                "RMSE": 6.0818,
+                "R2": 0.5486,
+                "MAPE": 18.98
+            }
+        },
+        "hyperparameters": {
+            "subsample": 1.0,
+            "num_leaves": 63,
+            "n_estimators": 150,
+            "max_depth": 10,
+            "learning_rate": 0.05,
+            "colsample_bytree": 0.9
+        }
+    },
+    "network_track_utilization_30_v1": {
+        "version": "network_track_utilization_30_v1",
+        "training_date": "2026-07-07 20:02:22",
+        "dataset_version": "synthetic_datasets_congestion_v1",
+        "feature_count": 29,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 9.1538,
+                "RMSE": 10.184,
+                "R2": -0.1642,
+                "MAPE": 39.16
+            },
+            "Linear Regression": {
+                "MAE": 5.5789,
+                "RMSE": 7.2184,
+                "R2": 0.4151,
+                "MAPE": 24.41
+            },
+            "Random Forest": {
+                "MAE": 4.5057,
+                "RMSE": 6.9825,
+                "R2": 0.4527,
+                "MAPE": 20.97
+            },
+            "LightGBM": {
+                "MAE": 4.3123,
+                "RMSE": 6.7769,
+                "R2": 0.4845,
+                "MAPE": 19.52
+            },
+            "XGBoost": {
+                "MAE": 4.4592,
+                "RMSE": 6.952,
+                "R2": 0.4575,
+                "MAPE": 20.1
+            },
+            "Ensemble (Selected)": {
+                "MAE": 4.3845,
+                "RMSE": 6.7843,
+                "R2": 0.4834,
+                "MAPE": 19.97
+            }
+        },
+        "hyperparameters": {
+            "subsample": 1.0,
+            "num_leaves": 63,
+            "n_estimators": 150,
+            "max_depth": 10,
+            "learning_rate": 0.05,
+            "colsample_bytree": 0.9
+        }
+    },
+    "network_track_utilization_60_v1": {
+        "version": "network_track_utilization_60_v1",
+        "training_date": "2026-07-07 20:02:37",
+        "dataset_version": "synthetic_datasets_congestion_v1",
+        "feature_count": 29,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 9.1492,
+                "RMSE": 10.6179,
+                "R2": -0.1792,
+                "MAPE": 43.02
+            },
+            "Linear Regression": {
+                "MAE": 6.1623,
+                "RMSE": 7.5891,
+                "R2": 0.3976,
+                "MAPE": 29.96
+            },
+            "Random Forest": {
+                "MAE": 5.884,
+                "RMSE": 7.7758,
+                "R2": 0.3676,
+                "MAPE": 27.97
+            },
+            "LightGBM": {
+                "MAE": 6.0255,
+                "RMSE": 7.8991,
+                "R2": 0.3474,
+                "MAPE": 28.01
+            },
+            "XGBoost": {
+                "MAE": 5.7159,
+                "RMSE": 7.4404,
+                "R2": 0.4209,
+                "MAPE": 27.03
+            },
+            "Ensemble (Selected)": {
+                "MAE": 5.7644,
+                "RMSE": 7.4389,
+                "R2": 0.4212,
+                "MAPE": 27.12
+            }
+        },
+        "hyperparameters": {
+            "subsample": 0.7,
+            "n_estimators": 100,
+            "max_depth": 4,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.7
+        }
+    },
+    "network_average_delay_15_v1": {
+        "version": "network_average_delay_15_v1",
+        "training_date": "2026-07-07 20:02:51",
+        "dataset_version": "synthetic_datasets_congestion_v1",
+        "feature_count": 29,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 11.8579,
+                "RMSE": 13.8354,
+                "R2": -0.0011,
+                "MAPE": 187.48
+            },
+            "Linear Regression": {
+                "MAE": 1.1305,
+                "RMSE": 1.5828,
+                "R2": 0.9869,
+                "MAPE": 13.83
+            },
+            "Random Forest": {
+                "MAE": 1.5553,
+                "RMSE": 2.0383,
+                "R2": 0.9783,
+                "MAPE": 17.82
+            },
+            "LightGBM": {
+                "MAE": 1.3347,
+                "RMSE": 1.7309,
+                "R2": 0.9843,
+                "MAPE": 17.73
+            },
+            "XGBoost": {
+                "MAE": 1.3664,
+                "RMSE": 1.7738,
+                "R2": 0.9835,
+                "MAPE": 17.2
+            },
+            "Ensemble (Selected)": {
+                "MAE": 1.3544,
+                "RMSE": 1.7639,
+                "R2": 0.9837,
+                "MAPE": 17.45
+            }
+        },
+        "hyperparameters": {
+            "subsample": 0.9,
+            "num_leaves": 63,
+            "n_estimators": 100,
+            "max_depth": 4,
+            "learning_rate": 0.1,
+            "colsample_bytree": 1.0
+        }
+    },
+    "network_average_delay_30_v1": {
+        "version": "network_average_delay_30_v1",
+        "training_date": "2026-07-07 20:03:03",
+        "dataset_version": "synthetic_datasets_congestion_v1",
+        "feature_count": 29,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 12.4188,
+                "RMSE": 14.344,
+                "R2": -0.0044,
+                "MAPE": 132.62
+            },
+            "Linear Regression": {
+                "MAE": 2.3759,
+                "RMSE": 3.1686,
+                "R2": 0.951,
+                "MAPE": 21.44
+            },
+            "Random Forest": {
+                "MAE": 2.9072,
+                "RMSE": 3.7663,
+                "R2": 0.9308,
+                "MAPE": 24.08
+            },
+            "LightGBM": {
+                "MAE": 2.6779,
+                "RMSE": 3.5767,
+                "R2": 0.9376,
+                "MAPE": 26.1
+            },
+            "XGBoost": {
+                "MAE": 2.8206,
+                "RMSE": 3.8532,
+                "R2": 0.9275,
+                "MAPE": 27.85
+            },
+            "Ensemble (Selected)": {
+                "MAE": 2.6706,
+                "RMSE": 3.6201,
+                "R2": 0.936,
+                "MAPE": 26.55
+            }
+        },
+        "hyperparameters": {
+            "subsample": 0.9,
+            "num_leaves": 63,
+            "n_estimators": 100,
+            "max_depth": 4,
+            "learning_rate": 0.1,
+            "colsample_bytree": 1.0
+        }
+    },
+    "network_average_delay_60_v1": {
+        "version": "network_average_delay_60_v1",
+        "training_date": "2026-07-07 20:03:16",
+        "dataset_version": "synthetic_datasets_congestion_v1",
+        "feature_count": 29,
+        "evaluation_metrics": {
+            "Mean Predictor": {
+                "MAE": 12.4862,
+                "RMSE": 14.4235,
+                "R2": -0.0143,
+                "MAPE": 67.84
+            },
+            "Linear Regression": {
+                "MAE": 4.8655,
+                "RMSE": 6.3591,
+                "R2": 0.8028,
+                "MAPE": 24.04
+            },
+            "Random Forest": {
+                "MAE": 5.7623,
+                "RMSE": 7.6314,
+                "R2": 0.716,
+                "MAPE": 27.37
+            },
+            "LightGBM": {
+                "MAE": 5.3553,
+                "RMSE": 7.4444,
+                "R2": 0.7298,
+                "MAPE": 28.49
+            },
+            "XGBoost": {
+                "MAE": 5.259,
+                "RMSE": 7.1826,
+                "R2": 0.7485,
+                "MAPE": 27.72
+            },
+            "Ensemble (Selected)": {
+                "MAE": 5.2731,
+                "RMSE": 7.0873,
+                "R2": 0.7551,
+                "MAPE": 28.06
+            }
+        },
+        "hyperparameters": {
+            "subsample": 0.7,
+            "n_estimators": 100,
+            "max_depth": 4,
+            "learning_rate": 0.1,
+            "colsample_bytree": 0.7
+        }
+    }
+}

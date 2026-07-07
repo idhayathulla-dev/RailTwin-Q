@@ -1,0 +1,77 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Decision Reasoning Report</title>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <style>
+            :root { --bg-color: #0f172a; --card-bg: rgba(30, 41, 59, 0.7); --border-color: rgba(255,255,255,0.1); --text-main: #f8fafc; --text-muted: #94a3b8; --accent-indigo: #6366f1; --accent-blue: #3b82f6; }
+            body { background-color: var(--bg-color); color: var(--text-main); font-family: 'Outfit', sans-serif; padding: 40px; }
+            .card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; }
+            table { width:100%; border-collapse:collapse; text-align:left; }
+            th { border-bottom: 2px solid var(--border-color); padding: 10px; color: var(--text-muted); }
+            td { padding: 12px 10px; }
+            .badge { padding: 3px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+            .badge-blue { background: rgba(99, 102, 241, 0.15); color: var(--accent-indigo); border: 1px solid var(--accent-indigo); }
+        </style></head>
+        <body><div class="card">
+            <h1 style="margin-top:0; color:var(--accent-indigo);">Decision Reasoning Trace Report</h1>
+            <p style="color:var(--text-muted);">Causal chain evaluation pathways generated for active candidate actions.</p>
+            <table>
+                <thead><tr><th>ID</th><th>Action</th><th>Target</th><th>Causal Chain Reasoning</th><th>Confidence</th></tr></thead>
+                <tbody>
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>1</strong></td>
+                <td><span class="badge badge-blue">REROUTE</span></td>
+                <td>Chennai Mail</td>
+                <td><div style="font-size:0.75rem; color:var(--text-muted);">Downstream track segment congested or blocked -> Train Chennai Mail progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Chennai Mail -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes</div></td>
+                <td><strong>91%</strong></td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>2</strong></td>
+                <td><span class="badge badge-blue">REROUTE</span></td>
+                <td>Sapthagiri Express</td>
+                <td><div style="font-size:0.75rem; color:var(--text-muted);">Downstream track segment congested or blocked -> Train Sapthagiri Express progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Sapthagiri Express -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes</div></td>
+                <td><strong>91%</strong></td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>3</strong></td>
+                <td><span class="badge badge-blue">HOLD</span></td>
+                <td>Chennai Mail</td>
+                <td><div style="font-size:0.75rem; color:var(--text-muted);">Upstream delay cascade seed detected -> Holding Train Chennai Mail at current station to allow leading train to clear -> Prevails safety signal spacing block conflicts -> Downstream delay transfer avoided for trailing trains -> Total cascade severity index drops by 7.2%</div></td>
+                <td><strong>85%</strong></td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>4</strong></td>
+                <td><span class="badge badge-blue">HOLD</span></td>
+                <td>Kerala Express</td>
+                <td><div style="font-size:0.75rem; color:var(--text-muted);">Upstream delay cascade seed detected -> Holding Train Kerala Express at current station to allow leading train to clear -> Prevails safety signal spacing block conflicts -> Downstream delay transfer avoided for trailing trains -> Total cascade severity index drops by 7.2%</div></td>
+                <td><strong>85%</strong></td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>5</strong></td>
+                <td><span class="badge badge-blue">HOLD</span></td>
+                <td>Sapthagiri Express</td>
+                <td><div style="font-size:0.75rem; color:var(--text-muted);">Upstream delay cascade seed detected -> Holding Train Sapthagiri Express at current station to allow leading train to clear -> Prevails safety signal spacing block conflicts -> Downstream delay transfer avoided for trailing trains -> Total cascade severity index drops by 7.2%</div></td>
+                <td><strong>85%</strong></td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>6</strong></td>
+                <td><span class="badge badge-blue">SPEED_ADJUST</span></td>
+                <td>Chennai Mail</td>
+                <td><div style="font-size:0.75rem; color:var(--text-muted);">Operational spacing optimal -> Dynamic speed adjustments matched to safety profiles -> Minimal network propagation delay expected</div></td>
+                <td><strong>93%</strong></td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>7</strong></td>
+                <td><span class="badge badge-blue">SPEED_ADJUST</span></td>
+                <td>Sapthagiri Express</td>
+                <td><div style="font-size:0.75rem; color:var(--text-muted);">Operational spacing optimal -> Dynamic speed adjustments matched to safety profiles -> Minimal network propagation delay expected</div></td>
+                <td><strong>93%</strong></td>
+            </tr>
+            </tbody>
+            </table>
+            <p style="text-align:center; font-size:0.8rem; color:var(--text-muted); margin-top:30px;">Generated at 2026-07-07 22:22:38</p>
+        </div></body></html>

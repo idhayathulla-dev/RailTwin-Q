@@ -1,0 +1,128 @@
+{
+    "1": {
+        "action_id": 1,
+        "action": "REROUTE",
+        "target": "Chennai Mail",
+        "expected_effects": {
+            "delay_reduction_minutes": 14.2,
+            "station_congestion_reduction": 0.0,
+            "track_congestion_reduction": 25.0,
+            "network_congestion_reduction": 10.2,
+            "cascade_severity_reduction": 15.5,
+            "expected_recovery_reduction": 12,
+            "affected_trains_reduced": 2,
+            "affected_stations_reduced": 0,
+            "affected_tracks_reduced": 1
+        },
+        "confidence": 0.91,
+        "explanation": "Action REROUTE for Chennai Mail. Expected delay reduction: 14.2 mins. Trade-off: Operational stability cost of 1.8. Confidence: 91.0%"
+    },
+    "2": {
+        "action_id": 2,
+        "action": "REROUTE",
+        "target": "Sapthagiri Express",
+        "expected_effects": {
+            "delay_reduction_minutes": 14.2,
+            "station_congestion_reduction": 0.0,
+            "track_congestion_reduction": 25.0,
+            "network_congestion_reduction": 10.2,
+            "cascade_severity_reduction": 15.5,
+            "expected_recovery_reduction": 12,
+            "affected_trains_reduced": 2,
+            "affected_stations_reduced": 0,
+            "affected_tracks_reduced": 1
+        },
+        "confidence": 0.91,
+        "explanation": "Action REROUTE for Sapthagiri Express. Expected delay reduction: 14.2 mins. Trade-off: Operational stability cost of 1.8. Confidence: 91.0%"
+    },
+    "3": {
+        "action_id": 3,
+        "action": "HOLD",
+        "target": "Chennai Mail",
+        "expected_effects": {
+            "delay_reduction_minutes": 6.0,
+            "station_congestion_reduction": 5.0,
+            "track_congestion_reduction": 0.0,
+            "network_congestion_reduction": 2.0,
+            "cascade_severity_reduction": 5.0,
+            "expected_recovery_reduction": 4,
+            "affected_trains_reduced": 1,
+            "affected_stations_reduced": 0,
+            "affected_tracks_reduced": 0
+        },
+        "confidence": 0.85,
+        "explanation": "Action HOLD for Chennai Mail. Expected delay reduction: 6.0 mins. Trade-off: Operational stability cost of 0.5. Confidence: 85.0%"
+    },
+    "4": {
+        "action_id": 4,
+        "action": "HOLD",
+        "target": "Kerala Express",
+        "expected_effects": {
+            "delay_reduction_minutes": 6.0,
+            "station_congestion_reduction": 5.0,
+            "track_congestion_reduction": 0.0,
+            "network_congestion_reduction": 2.0,
+            "cascade_severity_reduction": 5.0,
+            "expected_recovery_reduction": 4,
+            "affected_trains_reduced": 1,
+            "affected_stations_reduced": 0,
+            "affected_tracks_reduced": 0
+        },
+        "confidence": 0.85,
+        "explanation": "Action HOLD for Kerala Express. Expected delay reduction: 6.0 mins. Trade-off: Operational stability cost of 0.5. Confidence: 85.0%"
+    },
+    "5": {
+        "action_id": 5,
+        "action": "HOLD",
+        "target": "Sapthagiri Express",
+        "expected_effects": {
+            "delay_reduction_minutes": 6.0,
+            "station_congestion_reduction": 5.0,
+            "track_congestion_reduction": 0.0,
+            "network_congestion_reduction": 2.0,
+            "cascade_severity_reduction": 5.0,
+            "expected_recovery_reduction": 4,
+            "affected_trains_reduced": 1,
+            "affected_stations_reduced": 0,
+            "affected_tracks_reduced": 0
+        },
+        "confidence": 0.85,
+        "explanation": "Action HOLD for Sapthagiri Express. Expected delay reduction: 6.0 mins. Trade-off: Operational stability cost of 0.5. Confidence: 85.0%"
+    },
+    "6": {
+        "action_id": 6,
+        "action": "SPEED_ADJUST",
+        "target": "Chennai Mail",
+        "expected_effects": {
+            "delay_reduction_minutes": 4.5,
+            "station_congestion_reduction": 0.0,
+            "track_congestion_reduction": 10.0,
+            "network_congestion_reduction": 3.0,
+            "cascade_severity_reduction": 4.0,
+            "expected_recovery_reduction": 3,
+            "affected_trains_reduced": 1,
+            "affected_stations_reduced": 0,
+            "affected_tracks_reduced": 0
+        },
+        "confidence": 0.93,
+        "explanation": "Action SPEED_ADJUST for Chennai Mail. Expected delay reduction: 4.5 mins. Trade-off: Operational stability cost of 0.2. Confidence: 93.0%"
+    },
+    "7": {
+        "action_id": 7,
+        "action": "SPEED_ADJUST",
+        "target": "Sapthagiri Express",
+        "expected_effects": {
+            "delay_reduction_minutes": 4.5,
+            "station_congestion_reduction": 0.0,
+            "track_congestion_reduction": 10.0,
+            "network_congestion_reduction": 3.0,
+            "cascade_severity_reduction": 4.0,
+            "expected_recovery_reduction": 3,
+            "affected_trains_reduced": 1,
+            "affected_stations_reduced": 0,
+            "affected_tracks_reduced": 0
+        },
+        "confidence": 0.93,
+        "explanation": "Action SPEED_ADJUST for Sapthagiri Express. Expected delay reduction: 4.5 mins. Trade-off: Operational stability cost of 0.2. Confidence: 93.0%"
+    }
+}

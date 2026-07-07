@@ -1,0 +1,93 @@
+{
+    "1": {
+        "action_id": 1,
+        "action": "REROUTE",
+        "compatibility": {
+            "Heavy Rain": true,
+            "Signal Failure": false,
+            "Track Blockage": false,
+            "Maintenance": true,
+            "Festival Rush": true,
+            "Power Failure": true
+        },
+        "robustness_score": 66
+    },
+    "2": {
+        "action_id": 2,
+        "action": "REROUTE",
+        "compatibility": {
+            "Heavy Rain": true,
+            "Signal Failure": false,
+            "Track Blockage": false,
+            "Maintenance": true,
+            "Festival Rush": true,
+            "Power Failure": true
+        },
+        "robustness_score": 66
+    },
+    "3": {
+        "action_id": 3,
+        "action": "HOLD",
+        "compatibility": {
+            "Heavy Rain": true,
+            "Signal Failure": true,
+            "Track Blockage": true,
+            "Maintenance": true,
+            "Festival Rush": false,
+            "Power Failure": true
+        },
+        "robustness_score": 83
+    },
+    "4": {
+        "action_id": 4,
+        "action": "HOLD",
+        "compatibility": {
+            "Heavy Rain": true,
+            "Signal Failure": true,
+            "Track Blockage": true,
+            "Maintenance": true,
+            "Festival Rush": false,
+            "Power Failure": true
+        },
+        "robustness_score": 83
+    },
+    "5": {
+        "action_id": 5,
+        "action": "HOLD",
+        "compatibility": {
+            "Heavy Rain": true,
+            "Signal Failure": true,
+            "Track Blockage": true,
+            "Maintenance": true,
+            "Festival Rush": false,
+            "Power Failure": true
+        },
+        "robustness_score": 83
+    },
+    "6": {
+        "action_id": 6,
+        "action": "SPEED_ADJUST",
+        "compatibility": {
+            "Heavy Rain": true,
+            "Signal Failure": true,
+            "Track Blockage": true,
+            "Maintenance": true,
+            "Festival Rush": true,
+            "Power Failure": false
+        },
+        "robustness_score": 83
+    },
+    "7": {
+        "action_id": 7,
+        "action": "SPEED_ADJUST",
+        "compatibility": {
+            "Heavy Rain": true,
+            "Signal Failure": true,
+            "Track Blockage": true,
+            "Maintenance": true,
+            "Festival Rush": true,
+            "Power Failure": false
+        },
+        "robustness_score": 83
+    }
+}

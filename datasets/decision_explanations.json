@@ -1,0 +1,72 @@
+{
+    "1": {
+        "action_id": 1,
+        "action": "REROUTE",
+        "target": "Chennai Mail",
+        "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
+        "expected_delay_saved": "14.0 mins",
+        "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
+        "passengers_saved": 950,
+        "confidence": "91%"
+    },
+    "2": {
+        "action_id": 2,
+        "action": "REROUTE",
+        "target": "Sapthagiri Express",
+        "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
+        "expected_delay_saved": "14.0 mins",
+        "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
+        "passengers_saved": 950,
+        "confidence": "91%"
+    },
+    "3": {
+        "action_id": 3,
+        "action": "HOLD",
+        "target": "Chennai Mail",
+        "reason": "Safety block buffer capacity drops below safety limits.",
+        "expected_delay_saved": "6.0 mins",
+        "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+        "passengers_saved": 400,
+        "confidence": "85%"
+    },
+    "4": {
+        "action_id": 4,
+        "action": "HOLD",
+        "target": "Kerala Express",
+        "reason": "Safety block buffer capacity drops below safety limits.",
+        "expected_delay_saved": "6.0 mins",
+        "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+        "passengers_saved": 400,
+        "confidence": "85%"
+    },
+    "5": {
+        "action_id": 5,
+        "action": "HOLD",
+        "target": "Sapthagiri Express",
+        "reason": "Safety block buffer capacity drops below safety limits.",
+        "expected_delay_saved": "6.0 mins",
+        "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+        "passengers_saved": 400,
+        "confidence": "85%"
+    },
+    "6": {
+        "action_id": 6,
+        "action": "SPEED_ADJUST",
+        "target": "Chennai Mail",
+        "reason": "Safety spacing adjustments scheduled.",
+        "expected_delay_saved": "4.0 mins",
+        "trade_off": "None.",
+        "passengers_saved": 1000,
+        "confidence": "93%"
+    },
+    "7": {
+        "action_id": 7,
+        "action": "SPEED_ADJUST",
+        "target": "Sapthagiri Express",
+        "reason": "Safety spacing adjustments scheduled.",
+        "expected_delay_saved": "4.0 mins",
+        "trade_off": "None.",
+        "passengers_saved": 1000,
+        "confidence": "93%"
+    }
+}

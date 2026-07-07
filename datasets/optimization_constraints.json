@@ -1,0 +1,50 @@
+{
+    "platform_capacities": {
+        "station_1": {
+            "max_platforms": 12,
+            "current_platforms_occupied": 0,
+            "available_slots": 12
+        },
+        "station_2": {
+            "max_platforms": 8,
+            "current_platforms_occupied": 0,
+            "available_slots": 8
+        },
+        "station_3": {
+            "max_platforms": 5,
+            "current_platforms_occupied": 0,
+            "available_slots": 5
+        },
+        "station_4": {
+            "max_platforms": 5,
+            "current_platforms_occupied": 0,
+            "available_slots": 5
+        }
+    },
+    "track_capacities": {
+        "track_1": {
+            "capacity": 5,
+            "current_trains": 0,
+            "blocked": false
+        },
+        "track_2": {
+            "capacity": 4,
+            "current_trains": 0,
+            "blocked": false
+        },
+        "track_3": {
+            "capacity": 4,
+            "current_trains": 2,
+            "blocked": false
+        }
+    },
+    "safety_rules": {
+        "headway_spacing_mins": 5,
+        "express_train_precedence": true,
+        "priority_preemption": true
+    },
+    "operating_limits": {
+        "crew_rest_mins_simplified": 30,
+        "maintenance_blocks_active": []
+    }
+}

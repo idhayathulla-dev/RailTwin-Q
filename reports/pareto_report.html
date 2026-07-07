@@ -1,0 +1,105 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Pareto Frontier Report</title>
+        <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+        <style>
+            :root { --bg-color: #0f172a; --card-bg: rgba(30, 41, 59, 0.7); --border-color: rgba(255,255,255,0.1); --text-main: #f8fafc; --text-muted: #94a3b8; --accent-indigo: #6366f1; }
+            body { background-color: var(--bg-color); color: var(--text-main); font-family: 'Outfit', sans-serif; padding: 40px; }
+            .card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; }
+            table { width:100%; border-collapse:collapse; text-align:left; }
+            th { border-bottom: 2px solid var(--border-color); padding: 10px; color: var(--text-muted); }
+            td { padding: 12px 10px; }
+            .badge { padding: 3px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
+            .badge-blue { background: rgba(99, 102, 241, 0.15); color: var(--accent-indigo); border: 1px solid var(--accent-indigo); }
+        </style></head>
+        <body><div class="card">
+            <h1 style="margin-top:0; color:var(--accent-indigo);">Pareto Front Co-Optimization Report</h1>
+            <p style="color:var(--text-muted);">Non-dominated candidate solutions balancing delay mitigation, risk exposure, and energy footprints.</p>
+            <table>
+                <thead><tr><th>ID</th><th>Action</th><th>Target</th><th>Delay Cost</th><th>Risk Cost</th><th>Energy Cost</th><th>Passenger Saved</th><th>Op Cost</th><th>Robustness</th></tr></thead>
+                <tbody>
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>1</strong></td>
+                <td><span class="badge badge-blue">REROUTE</span></td>
+                <td>Chennai Mail</td>
+                <td style="color:#ef4444;">-14.00</td>
+                <td>10.00</td>
+                <td>7.00</td>
+                <td style="color:#10b981;">95%</td>
+                <td>3.50</td>
+                <td>66%</td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>2</strong></td>
+                <td><span class="badge badge-blue">REROUTE</span></td>
+                <td>Sapthagiri Express</td>
+                <td style="color:#ef4444;">-14.00</td>
+                <td>10.00</td>
+                <td>7.00</td>
+                <td style="color:#10b981;">95%</td>
+                <td>3.50</td>
+                <td>66%</td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>3</strong></td>
+                <td><span class="badge badge-blue">HOLD</span></td>
+                <td>Chennai Mail</td>
+                <td style="color:#ef4444;">-6.00</td>
+                <td>2.50</td>
+                <td>0.00</td>
+                <td style="color:#10b981;">40%</td>
+                <td>1.50</td>
+                <td>83%</td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>4</strong></td>
+                <td><span class="badge badge-blue">HOLD</span></td>
+                <td>Kerala Express</td>
+                <td style="color:#ef4444;">-6.00</td>
+                <td>2.50</td>
+                <td>0.00</td>
+                <td style="color:#10b981;">40%</td>
+                <td>1.50</td>
+                <td>83%</td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>5</strong></td>
+                <td><span class="badge badge-blue">HOLD</span></td>
+                <td>Sapthagiri Express</td>
+                <td style="color:#ef4444;">-6.00</td>
+                <td>2.50</td>
+                <td>0.00</td>
+                <td style="color:#10b981;">40%</td>
+                <td>1.50</td>
+                <td>83%</td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>6</strong></td>
+                <td><span class="badge badge-blue">SPEED_ADJUST</span></td>
+                <td>Chennai Mail</td>
+                <td style="color:#ef4444;">-4.00</td>
+                <td>7.50</td>
+                <td>4.00</td>
+                <td style="color:#10b981;">100%</td>
+                <td>1.00</td>
+                <td>83%</td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>7</strong></td>
+                <td><span class="badge badge-blue">SPEED_ADJUST</span></td>
+                <td>Sapthagiri Express</td>
+                <td style="color:#ef4444;">-4.00</td>
+                <td>7.50</td>
+                <td>4.00</td>
+                <td style="color:#10b981;">100%</td>
+                <td>1.00</td>
+                <td>83%</td>
+            </tr>
+            </tbody>
+            </table>
+            <p style="text-align:center; font-size:0.8rem; color:var(--text-muted); margin-top:30px;">Generated at 2026-07-07 22:22:38</p>
+        </div></body></html>

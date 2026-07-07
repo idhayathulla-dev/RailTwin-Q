@@ -1,0 +1,93 @@
+{
+    "1": {
+        "action_id": 1,
+        "action": "REROUTE",
+        "embedding_vector": [
+            14.0,
+            7.0,
+            10.0,
+            0.95,
+            0.8,
+            0.91,
+            0.66
+        ]
+    },
+    "2": {
+        "action_id": 2,
+        "action": "REROUTE",
+        "embedding_vector": [
+            14.0,
+            7.0,
+            10.0,
+            0.95,
+            0.8,
+            0.91,
+            0.66
+        ]
+    },
+    "3": {
+        "action_id": 3,
+        "action": "HOLD",
+        "embedding_vector": [
+            6.0,
+            0.0,
+            2.5,
+            0.4,
+            0.5,
+            0.85,
+            0.83
+        ]
+    },
+    "4": {
+        "action_id": 4,
+        "action": "HOLD",
+        "embedding_vector": [
+            6.0,
+            0.0,
+            2.5,
+            0.4,
+            0.5,
+            0.85,
+            0.83
+        ]
+    },
+    "5": {
+        "action_id": 5,
+        "action": "HOLD",
+        "embedding_vector": [
+            6.0,
+            0.0,
+            2.5,
+            0.4,
+            0.5,
+            0.85,
+            0.83
+        ]
+    },
+    "6": {
+        "action_id": 6,
+        "action": "SPEED_ADJUST",
+        "embedding_vector": [
+            4.0,
+            4.0,
+            7.5,
+            1.0,
+            0.2,
+            0.93,
+            0.83
+        ]
+    },
+    "7": {
+        "action_id": 7,
+        "action": "SPEED_ADJUST",
+        "embedding_vector": [
+            4.0,
+            4.0,
+            7.5,
+            1.0,
+            0.2,
+            0.93,
+            0.83
+        ]
+    }
+}

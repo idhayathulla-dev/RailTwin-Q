@@ -1,0 +1,2153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>RailTwin-Q: AI Congestion Predictor Evaluation Report v2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-purple: #8b5cf6;
+            --accent-indigo: #6366f1;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            margin: 5px 0 0 0;
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 25px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            color: var(--accent-indigo);
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .metric-box {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .metric-val {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+            margin-bottom: 5px;
+        }
+
+        .metric-lbl {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .metric-diff {
+            font-size: 0.75rem;
+            margin-top: 3px;
+            color: var(--text-muted);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        .best-model-row {
+            background-color: rgba(16, 185, 129, 0.08);
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .best-model-row td {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>RailTwin-Q: AI Congestion Predictor Evaluation Report v2</h1>
+            <p class="subtitle">Comparing Feature Engineering v2 Upgrades vs v1 Baselines</p>
+        </header>
+
+        <div class="card">
+            <h2>Subsystem Performance Comparisons (v1 vs v2)</h2>
+            <p>This dashboard compares the stacked learning estimators trained on the <strong>original feature set (v1)</strong> versus the <strong>expanded physical lookahead feature set (v2)</strong> (incorporating ETA windows, downstream congestion pressures, spatial centralities, and net flows).</p>
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 15px;">Report Generated: 2026-07-07 20:03:16</p>
+        </div>
+
+        <div class="card">
+            <h2>R² & MAE Performance Progress Summary</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Target Model</th>
+                        <th>Prev R² (v1)</th>
+                        <th>New R² (v2)</th>
+                        <th>R² Change</th>
+                        <th>Prev MAE</th>
+                        <th>New MAE</th>
+                        <th>MAE Change</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+            <tr>
+                <td><strong>STATION_CONGESTION_15</strong></td>
+                <td>0.2539</td>
+                <td><strong>0.6742</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+0.4203</td>
+                <td>1.3562</td>
+                <td><strong>1.0131</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+0.3431</td>
+            </tr>
+            
+            <tr>
+                <td><strong>STATION_CONGESTION_30</strong></td>
+                <td>0.5794</td>
+                <td><strong>0.6368</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+0.0574</td>
+                <td>1.7358</td>
+                <td><strong>1.6063</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+0.1295</td>
+            </tr>
+            
+            <tr>
+                <td><strong>STATION_CONGESTION_60</strong></td>
+                <td>0.5830</td>
+                <td><strong>0.5325</strong></td>
+                <td style='color: var(--accent-red); font-weight: 600;'>-0.0505</td>
+                <td>3.0008</td>
+                <td><strong>3.0960</strong></td>
+                <td style='color: var(--accent-red); font-weight: 600;'>-0.0952</td>
+            </tr>
+            
+            <tr>
+                <td><strong>TRACK_OCCUPANCY_15</strong></td>
+                <td>0.6943</td>
+                <td><strong>0.7265</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+0.0322</td>
+                <td>9.3078</td>
+                <td><strong>8.7036</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+0.6042</td>
+            </tr>
+            
+            <tr>
+                <td><strong>TRACK_OCCUPANCY_30</strong></td>
+                <td>0.5508</td>
+                <td><strong>0.6519</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+0.1011</td>
+                <td>12.2357</td>
+                <td><strong>10.7188</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+1.5169</td>
+            </tr>
+            
+            <tr>
+                <td><strong>TRACK_OCCUPANCY_60</strong></td>
+                <td>0.4770</td>
+                <td><strong>0.5817</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+0.1047</td>
+                <td>14.1250</td>
+                <td><strong>12.4676</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+1.6574</td>
+            </tr>
+            
+            <tr>
+                <td><strong>NETWORK_CONGESTION_15</strong></td>
+                <td>0.5863</td>
+                <td><strong>0.5649</strong></td>
+                <td style='color: var(--accent-red); font-weight: 600;'>-0.0214</td>
+                <td>2.3675</td>
+                <td><strong>2.3762</strong></td>
+                <td style='color: var(--text-muted); font-weight: 600;'>-0.0087</td>
+            </tr>
+            
+            <tr>
+                <td><strong>NETWORK_CONGESTION_30</strong></td>
+                <td>0.4690</td>
+                <td><strong>0.4974</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+0.0284</td>
+                <td>2.6038</td>
+                <td><strong>2.3581</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+0.2457</td>
+            </tr>
+            
+            <tr>
+                <td><strong>NETWORK_CONGESTION_60</strong></td>
+                <td>0.4263</td>
+                <td><strong>0.4177</strong></td>
+                <td style='color: var(--text-muted); font-weight: 600;'>-0.0086</td>
+                <td>3.0209</td>
+                <td><strong>2.9979</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+0.0230</td>
+            </tr>
+            
+            <tr>
+                <td><strong>PLATFORM_UTILIZATION_15</strong></td>
+                <td>0.2778</td>
+                <td><strong>0.2618</strong></td>
+                <td style='color: var(--accent-red); font-weight: 600;'>-0.0160</td>
+                <td>0.8364</td>
+                <td><strong>0.8471</strong></td>
+                <td style='color: var(--accent-red); font-weight: 600;'>-0.0107</td>
+            </tr>
+            
+            <tr>
+                <td><strong>PLATFORM_UTILIZATION_30</strong></td>
+                <td>0.5948</td>
+                <td><strong>0.4888</strong></td>
+                <td style='color: var(--accent-red); font-weight: 600;'>-0.1060</td>
+                <td>0.6992</td>
+                <td><strong>0.7533</strong></td>
+                <td style='color: var(--accent-red); font-weight: 600;'>-0.0541</td>
+            </tr>
+            
+            <tr>
+                <td><strong>PLATFORM_UTILIZATION_60</strong></td>
+                <td>0.4294</td>
+                <td><strong>0.3501</strong></td>
+                <td style='color: var(--accent-red); font-weight: 600;'>-0.0793</td>
+                <td>1.5072</td>
+                <td><strong>1.5558</strong></td>
+                <td style='color: var(--accent-red); font-weight: 600;'>-0.0486</td>
+            </tr>
+            
+            <tr>
+                <td><strong>TRACK_UTILIZATION_15</strong></td>
+                <td>0.5771</td>
+                <td><strong>0.5486</strong></td>
+                <td style='color: var(--accent-red); font-weight: 600;'>-0.0285</td>
+                <td>4.3944</td>
+                <td><strong>4.3807</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+0.0137</td>
+            </tr>
+            
+            <tr>
+                <td><strong>TRACK_UTILIZATION_30</strong></td>
+                <td>0.4771</td>
+                <td><strong>0.4834</strong></td>
+                <td style='color: var(--text-muted); font-weight: 600;'>+0.0063</td>
+                <td>4.6026</td>
+                <td><strong>4.3845</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+0.2181</td>
+            </tr>
+            
+            <tr>
+                <td><strong>TRACK_UTILIZATION_60</strong></td>
+                <td>0.4350</td>
+                <td><strong>0.4212</strong></td>
+                <td style='color: var(--accent-red); font-weight: 600;'>-0.0138</td>
+                <td>5.8089</td>
+                <td><strong>5.7644</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+0.0445</td>
+            </tr>
+            
+            <tr>
+                <td><strong>AVERAGE_DELAY_15</strong></td>
+                <td>0.9839</td>
+                <td><strong>0.9837</strong></td>
+                <td style='color: var(--text-muted); font-weight: 600;'>-0.0002</td>
+                <td>1.3380</td>
+                <td><strong>1.3544</strong></td>
+                <td style='color: var(--accent-red); font-weight: 600;'>-0.0164</td>
+            </tr>
+            
+            <tr>
+                <td><strong>AVERAGE_DELAY_30</strong></td>
+                <td>0.9362</td>
+                <td><strong>0.9360</strong></td>
+                <td style='color: var(--text-muted); font-weight: 600;'>-0.0002</td>
+                <td>2.7229</td>
+                <td><strong>2.6706</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+0.0523</td>
+            </tr>
+            
+            <tr>
+                <td><strong>AVERAGE_DELAY_60</strong></td>
+                <td>0.7299</td>
+                <td><strong>0.7551</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+0.0252</td>
+                <td>5.6777</td>
+                <td><strong>5.2731</strong></td>
+                <td style='color: var(--accent-green); font-weight: 600;'>+0.4046</td>
+            </tr>
+            
+                </tbody>
+            </table>
+        </div>
+
+        
+            <div class="card">
+                <h2>Target Model: <code>target_station_congestion_15</code></h2>
+                <p class="subtitle">Selected Regressor: <strong>XGBoost (3-Fold Ensemble)</strong></p>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-val">1.0131</div>
+                        <div class="metric-lbl">MAE</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 1.3562 (+0.3431)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">3.1344</div>
+                        <div class="metric-lbl">RMSE</div>
+                        <div class="metric-diff">Prev: 4.7433</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0.6742</div>
+                        <div class="metric-lbl">R-squared (R²)</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 0.2539 (+0.4203)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">48.97%</div>
+                        <div class="metric-lbl">MAPE</div>
+                        <div class="metric-diff">Prev: 72.7%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Target Model: <code>target_station_congestion_30</code></h2>
+                <p class="subtitle">Selected Regressor: <strong>LightGBM (3-Fold Ensemble)</strong></p>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-val">1.6063</div>
+                        <div class="metric-lbl">MAE</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 1.7358 (+0.1295)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">3.9795</div>
+                        <div class="metric-lbl">RMSE</div>
+                        <div class="metric-diff">Prev: 4.2824</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0.6368</div>
+                        <div class="metric-lbl">R-squared (R²)</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 0.5794 (+0.0574)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">78.53%</div>
+                        <div class="metric-lbl">MAPE</div>
+                        <div class="metric-diff">Prev: 80.4%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Target Model: <code>target_station_congestion_60</code></h2>
+                <p class="subtitle">Selected Regressor: <strong>LightGBM (3-Fold Ensemble)</strong></p>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-val">3.0960</div>
+                        <div class="metric-lbl">MAE</div>
+                        <div class="metric-diff" style='color: var(--accent-red);'>Prev: 3.0008 (-0.0952)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">6.1600</div>
+                        <div class="metric-lbl">RMSE</div>
+                        <div class="metric-diff">Prev: 5.8177</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0.5325</div>
+                        <div class="metric-lbl">R-squared (R²)</div>
+                        <div class="metric-diff" style='color: var(--accent-red);'>Prev: 0.5830 (-0.0505)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">159.51%</div>
+                        <div class="metric-lbl">MAPE</div>
+                        <div class="metric-diff">Prev: 147.6%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Target Model: <code>target_track_occupancy_15</code></h2>
+                <p class="subtitle">Selected Regressor: <strong>XGBoost (3-Fold Ensemble)</strong></p>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-val">8.7036</div>
+                        <div class="metric-lbl">MAE</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 9.3078 (+0.6042)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">12.5818</div>
+                        <div class="metric-lbl">RMSE</div>
+                        <div class="metric-diff">Prev: 13.3017</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0.7265</div>
+                        <div class="metric-lbl">R-squared (R²)</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 0.6943 (+0.0322)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">172.90%</div>
+                        <div class="metric-lbl">MAPE</div>
+                        <div class="metric-diff">Prev: 187.4%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Target Model: <code>target_track_occupancy_30</code></h2>
+                <p class="subtitle">Selected Regressor: <strong>XGBoost (3-Fold Ensemble)</strong></p>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-val">10.7188</div>
+                        <div class="metric-lbl">MAE</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 12.2357 (+1.5169)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">15.0767</div>
+                        <div class="metric-lbl">RMSE</div>
+                        <div class="metric-diff">Prev: 17.1271</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0.6519</div>
+                        <div class="metric-lbl">R-squared (R²)</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 0.5508 (+0.1011)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">272.53%</div>
+                        <div class="metric-lbl">MAPE</div>
+                        <div class="metric-diff">Prev: 301.4%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Target Model: <code>target_track_occupancy_60</code></h2>
+                <p class="subtitle">Selected Regressor: <strong>LightGBM (3-Fold Ensemble)</strong></p>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-val">12.4676</div>
+                        <div class="metric-lbl">MAE</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 14.1250 (+1.6574)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">18.0391</div>
+                        <div class="metric-lbl">RMSE</div>
+                        <div class="metric-diff">Prev: 20.1715</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0.5817</div>
+                        <div class="metric-lbl">R-squared (R²)</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 0.4770 (+0.1047)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">277.15%</div>
+                        <div class="metric-lbl">MAPE</div>
+                        <div class="metric-diff">Prev: 360.9%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Target Model: <code>target_network_congestion_15</code></h2>
+                <p class="subtitle">Selected Regressor: <strong>LightGBM (3-Fold Ensemble)</strong></p>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-val">2.3762</div>
+                        <div class="metric-lbl">MAE</div>
+                        <div class="metric-diff" style='color: var(--text-muted);'>Prev: 2.3675 (-0.0087)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">3.4585</div>
+                        <div class="metric-lbl">RMSE</div>
+                        <div class="metric-diff">Prev: 3.3723</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0.5649</div>
+                        <div class="metric-lbl">R-squared (R²)</div>
+                        <div class="metric-diff" style='color: var(--accent-red);'>Prev: 0.5863 (-0.0214)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">16.79%</div>
+                        <div class="metric-lbl">MAPE</div>
+                        <div class="metric-diff">Prev: 16.5%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Target Model: <code>target_network_congestion_30</code></h2>
+                <p class="subtitle">Selected Regressor: <strong>LightGBM (3-Fold Ensemble)</strong></p>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-val">2.3581</div>
+                        <div class="metric-lbl">MAE</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 2.6038 (+0.2457)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">3.8032</div>
+                        <div class="metric-lbl">RMSE</div>
+                        <div class="metric-diff">Prev: 3.9093</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0.4974</div>
+                        <div class="metric-lbl">R-squared (R²)</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 0.4690 (+0.0284)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">17.20%</div>
+                        <div class="metric-lbl">MAPE</div>
+                        <div class="metric-diff">Prev: 18.6%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Target Model: <code>target_network_congestion_60</code></h2>
+                <p class="subtitle">Selected Regressor: <strong>XGBoost (3-Fold Ensemble)</strong></p>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-val">2.9979</div>
+                        <div class="metric-lbl">MAE</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 3.0209 (+0.0230)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">4.0850</div>
+                        <div class="metric-lbl">RMSE</div>
+                        <div class="metric-diff">Prev: 4.0550</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0.4177</div>
+                        <div class="metric-lbl">R-squared (R²)</div>
+                        <div class="metric-diff" style='color: var(--text-muted);'>Prev: 0.4263 (-0.0086)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">21.29%</div>
+                        <div class="metric-lbl">MAPE</div>
+                        <div class="metric-diff">Prev: 20.8%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Target Model: <code>target_platform_utilization_15</code></h2>
+                <p class="subtitle">Selected Regressor: <strong>LightGBM (3-Fold Ensemble)</strong></p>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-val">0.8471</div>
+                        <div class="metric-lbl">MAE</div>
+                        <div class="metric-diff" style='color: var(--accent-red);'>Prev: 0.8364 (-0.0107)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">1.2965</div>
+                        <div class="metric-lbl">RMSE</div>
+                        <div class="metric-diff">Prev: 1.2824</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0.2618</div>
+                        <div class="metric-lbl">R-squared (R²)</div>
+                        <div class="metric-diff" style='color: var(--accent-red);'>Prev: 0.2778 (-0.0160)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">54.24%</div>
+                        <div class="metric-lbl">MAPE</div>
+                        <div class="metric-diff">Prev: 53.6%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Target Model: <code>target_platform_utilization_30</code></h2>
+                <p class="subtitle">Selected Regressor: <strong>LightGBM (3-Fold Ensemble)</strong></p>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-val">0.7533</div>
+                        <div class="metric-lbl">MAE</div>
+                        <div class="metric-diff" style='color: var(--accent-red);'>Prev: 0.6992 (-0.0541)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">1.2970</div>
+                        <div class="metric-lbl">RMSE</div>
+                        <div class="metric-diff">Prev: 1.1547</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0.4888</div>
+                        <div class="metric-lbl">R-squared (R²)</div>
+                        <div class="metric-diff" style='color: var(--accent-red);'>Prev: 0.5948 (-0.1060)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">48.98%</div>
+                        <div class="metric-lbl">MAPE</div>
+                        <div class="metric-diff">Prev: 43.3%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Target Model: <code>target_platform_utilization_60</code></h2>
+                <p class="subtitle">Selected Regressor: <strong>LightGBM (3-Fold Ensemble)</strong></p>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-val">1.5558</div>
+                        <div class="metric-lbl">MAE</div>
+                        <div class="metric-diff" style='color: var(--accent-red);'>Prev: 1.5072 (-0.0486)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">2.0194</div>
+                        <div class="metric-lbl">RMSE</div>
+                        <div class="metric-diff">Prev: 1.8922</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0.3501</div>
+                        <div class="metric-lbl">R-squared (R²)</div>
+                        <div class="metric-diff" style='color: var(--accent-red);'>Prev: 0.4294 (-0.0793)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">96.53%</div>
+                        <div class="metric-lbl">MAPE</div>
+                        <div class="metric-diff">Prev: 94.2%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Target Model: <code>target_track_utilization_15</code></h2>
+                <p class="subtitle">Selected Regressor: <strong>LightGBM (3-Fold Ensemble)</strong></p>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-val">4.3807</div>
+                        <div class="metric-lbl">MAE</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 4.3944 (+0.0137)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">6.0818</div>
+                        <div class="metric-lbl">RMSE</div>
+                        <div class="metric-diff">Prev: 5.8863</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0.5486</div>
+                        <div class="metric-lbl">R-squared (R²)</div>
+                        <div class="metric-diff" style='color: var(--accent-red);'>Prev: 0.5771 (-0.0285)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">18.98%</div>
+                        <div class="metric-lbl">MAPE</div>
+                        <div class="metric-diff">Prev: 18.7%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Target Model: <code>target_track_utilization_30</code></h2>
+                <p class="subtitle">Selected Regressor: <strong>LightGBM (3-Fold Ensemble)</strong></p>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-val">4.3845</div>
+                        <div class="metric-lbl">MAE</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 4.6026 (+0.2181)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">6.7843</div>
+                        <div class="metric-lbl">RMSE</div>
+                        <div class="metric-diff">Prev: 6.8251</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0.4834</div>
+                        <div class="metric-lbl">R-squared (R²)</div>
+                        <div class="metric-diff" style='color: var(--text-muted);'>Prev: 0.4771 (+0.0063)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">19.97%</div>
+                        <div class="metric-lbl">MAPE</div>
+                        <div class="metric-diff">Prev: 20.6%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Target Model: <code>target_track_utilization_60</code></h2>
+                <p class="subtitle">Selected Regressor: <strong>XGBoost (3-Fold Ensemble)</strong></p>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-val">5.7644</div>
+                        <div class="metric-lbl">MAE</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 5.8089 (+0.0445)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">7.4389</div>
+                        <div class="metric-lbl">RMSE</div>
+                        <div class="metric-diff">Prev: 7.3495</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0.4212</div>
+                        <div class="metric-lbl">R-squared (R²)</div>
+                        <div class="metric-diff" style='color: var(--accent-red);'>Prev: 0.4350 (-0.0138)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">27.12%</div>
+                        <div class="metric-lbl">MAPE</div>
+                        <div class="metric-diff">Prev: 27.1%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Target Model: <code>target_average_delay_15</code></h2>
+                <p class="subtitle">Selected Regressor: <strong>LightGBM (3-Fold Ensemble)</strong></p>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-val">1.3544</div>
+                        <div class="metric-lbl">MAE</div>
+                        <div class="metric-diff" style='color: var(--accent-red);'>Prev: 1.3380 (-0.0164)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">1.7639</div>
+                        <div class="metric-lbl">RMSE</div>
+                        <div class="metric-diff">Prev: 1.7550</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0.9837</div>
+                        <div class="metric-lbl">R-squared (R²)</div>
+                        <div class="metric-diff" style='color: var(--text-muted);'>Prev: 0.9839 (-0.0002)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">17.45%</div>
+                        <div class="metric-lbl">MAPE</div>
+                        <div class="metric-diff">Prev: 16.6%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Target Model: <code>target_average_delay_30</code></h2>
+                <p class="subtitle">Selected Regressor: <strong>LightGBM (3-Fold Ensemble)</strong></p>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-val">2.6706</div>
+                        <div class="metric-lbl">MAE</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 2.7229 (+0.0523)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">3.6201</div>
+                        <div class="metric-lbl">RMSE</div>
+                        <div class="metric-diff">Prev: 3.6159</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0.9360</div>
+                        <div class="metric-lbl">R-squared (R²)</div>
+                        <div class="metric-diff" style='color: var(--text-muted);'>Prev: 0.9362 (-0.0002)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">26.55%</div>
+                        <div class="metric-lbl">MAPE</div>
+                        <div class="metric-diff">Prev: 26.1%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>Target Model: <code>target_average_delay_60</code></h2>
+                <p class="subtitle">Selected Regressor: <strong>XGBoost (3-Fold Ensemble)</strong></p>
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-val">5.2731</div>
+                        <div class="metric-lbl">MAE</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 5.6777 (+0.4046)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">7.0873</div>
+                        <div class="metric-lbl">RMSE</div>
+                        <div class="metric-diff">Prev: 7.4425</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">0.7551</div>
+                        <div class="metric-lbl">R-squared (R²)</div>
+                        <div class="metric-diff" style='color: var(--accent-green);'>Prev: 0.7299 (+0.0252)</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-val">28.06%</div>
+                        <div class="metric-lbl">MAPE</div>
+                        <div class="metric-diff">Prev: 30.9%</div>
+                    </div>
+                </div>
+            </div>
+            
+        
+            <div class="card">
+                <h2>Classifier Benchmark comparison: <code>target_station_congestion_15</code></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Choice</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                            <th>R²</th>
+                            <th>MAPE</th>
+                            <th>Selection Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr >
+                    <td><strong>Mean Predictor</strong></td>
+                    <td>3.3569</td>
+                    <td>5.4935</td>
+                    <td>-0.0007</td>
+                    <td>184.04%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Linear Regression</strong></td>
+                    <td>2.2574</td>
+                    <td>4.0726</td>
+                    <td>0.4500</td>
+                    <td>146.13%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Random Forest</strong></td>
+                    <td>1.0620</td>
+                    <td>3.3280</td>
+                    <td>0.6327</td>
+                    <td>44.94%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM</strong></td>
+                    <td>1.1064</td>
+                    <td>3.4102</td>
+                    <td>0.6144</td>
+                    <td>54.46%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>XGBoost</strong></td>
+                    <td>1.0035</td>
+                    <td>3.2628</td>
+                    <td>0.6470</td>
+                    <td>48.07%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr class='best-model-row'>
+                    <td><strong>Ensemble (Selected)</strong></td>
+                    <td>1.0131</td>
+                    <td>3.1344</td>
+                    <td>0.6742</td>
+                    <td>48.97%</td>
+                    <td>🏆 Selected</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Classifier Benchmark comparison: <code>target_station_congestion_30</code></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Choice</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                            <th>R²</th>
+                            <th>MAPE</th>
+                            <th>Selection Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr >
+                    <td><strong>Mean Predictor</strong></td>
+                    <td>4.3363</td>
+                    <td>6.6106</td>
+                    <td>-0.0022</td>
+                    <td>242.70%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Linear Regression</strong></td>
+                    <td>3.3902</td>
+                    <td>5.2283</td>
+                    <td>0.3731</td>
+                    <td>211.57%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Random Forest</strong></td>
+                    <td>1.8682</td>
+                    <td>4.4530</td>
+                    <td>0.5452</td>
+                    <td>87.94%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM</strong></td>
+                    <td>1.5751</td>
+                    <td>3.9252</td>
+                    <td>0.6467</td>
+                    <td>73.46%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>XGBoost</strong></td>
+                    <td>1.6768</td>
+                    <td>4.4389</td>
+                    <td>0.5481</td>
+                    <td>87.90%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr class='best-model-row'>
+                    <td><strong>Ensemble (Selected)</strong></td>
+                    <td>1.6063</td>
+                    <td>3.9795</td>
+                    <td>0.6368</td>
+                    <td>78.53%</td>
+                    <td>🏆 Selected</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Classifier Benchmark comparison: <code>target_station_congestion_60</code></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Choice</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                            <th>R²</th>
+                            <th>MAPE</th>
+                            <th>Selection Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr >
+                    <td><strong>Mean Predictor</strong></td>
+                    <td>6.6640</td>
+                    <td>9.0233</td>
+                    <td>-0.0032</td>
+                    <td>372.17%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Linear Regression</strong></td>
+                    <td>4.4223</td>
+                    <td>6.6403</td>
+                    <td>0.4567</td>
+                    <td>271.29%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Random Forest</strong></td>
+                    <td>3.2253</td>
+                    <td>6.4061</td>
+                    <td>0.4944</td>
+                    <td>167.57%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM</strong></td>
+                    <td>3.1495</td>
+                    <td>6.3424</td>
+                    <td>0.5044</td>
+                    <td>162.31%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>XGBoost</strong></td>
+                    <td>3.2368</td>
+                    <td>6.8779</td>
+                    <td>0.4171</td>
+                    <td>171.12%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr class='best-model-row'>
+                    <td><strong>Ensemble (Selected)</strong></td>
+                    <td>3.0960</td>
+                    <td>6.1600</td>
+                    <td>0.5325</td>
+                    <td>159.51%</td>
+                    <td>🏆 Selected</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Classifier Benchmark comparison: <code>target_track_occupancy_15</code></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Choice</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                            <th>R²</th>
+                            <th>MAPE</th>
+                            <th>Selection Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr >
+                    <td><strong>Mean Predictor</strong></td>
+                    <td>19.8005</td>
+                    <td>24.2478</td>
+                    <td>-0.0159</td>
+                    <td>779.15%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Linear Regression</strong></td>
+                    <td>11.7741</td>
+                    <td>15.1241</td>
+                    <td>0.6048</td>
+                    <td>320.65%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Random Forest</strong></td>
+                    <td>10.1695</td>
+                    <td>14.0340</td>
+                    <td>0.6597</td>
+                    <td>205.95%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM</strong></td>
+                    <td>8.8102</td>
+                    <td>12.3893</td>
+                    <td>0.7348</td>
+                    <td>175.71%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>XGBoost</strong></td>
+                    <td>8.7410</td>
+                    <td>12.6634</td>
+                    <td>0.7229</td>
+                    <td>177.83%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr class='best-model-row'>
+                    <td><strong>Ensemble (Selected)</strong></td>
+                    <td>8.7036</td>
+                    <td>12.5818</td>
+                    <td>0.7265</td>
+                    <td>172.90%</td>
+                    <td>🏆 Selected</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Classifier Benchmark comparison: <code>target_track_occupancy_30</code></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Choice</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                            <th>R²</th>
+                            <th>MAPE</th>
+                            <th>Selection Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr >
+                    <td><strong>Mean Predictor</strong></td>
+                    <td>20.8197</td>
+                    <td>25.8193</td>
+                    <td>-0.0209</td>
+                    <td>808.77%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Linear Regression</strong></td>
+                    <td>15.8816</td>
+                    <td>19.9363</td>
+                    <td>0.3913</td>
+                    <td>517.91%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Random Forest</strong></td>
+                    <td>12.4190</td>
+                    <td>16.7932</td>
+                    <td>0.5681</td>
+                    <td>342.15%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM</strong></td>
+                    <td>10.8511</td>
+                    <td>14.9981</td>
+                    <td>0.6555</td>
+                    <td>282.92%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>XGBoost</strong></td>
+                    <td>10.6107</td>
+                    <td>15.0674</td>
+                    <td>0.6523</td>
+                    <td>265.74%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr class='best-model-row'>
+                    <td><strong>Ensemble (Selected)</strong></td>
+                    <td>10.7188</td>
+                    <td>15.0767</td>
+                    <td>0.6519</td>
+                    <td>272.53%</td>
+                    <td>🏆 Selected</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Classifier Benchmark comparison: <code>target_track_occupancy_60</code></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Choice</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                            <th>R²</th>
+                            <th>MAPE</th>
+                            <th>Selection Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr >
+                    <td><strong>Mean Predictor</strong></td>
+                    <td>22.0462</td>
+                    <td>28.1971</td>
+                    <td>-0.0219</td>
+                    <td>905.45%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Linear Regression</strong></td>
+                    <td>17.3304</td>
+                    <td>22.7478</td>
+                    <td>0.3349</td>
+                    <td>506.40%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Random Forest</strong></td>
+                    <td>13.6366</td>
+                    <td>19.5097</td>
+                    <td>0.5108</td>
+                    <td>332.93%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM</strong></td>
+                    <td>12.6003</td>
+                    <td>18.4622</td>
+                    <td>0.5619</td>
+                    <td>275.07%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>XGBoost</strong></td>
+                    <td>12.7373</td>
+                    <td>19.0854</td>
+                    <td>0.5318</td>
+                    <td>270.82%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr class='best-model-row'>
+                    <td><strong>Ensemble (Selected)</strong></td>
+                    <td>12.4676</td>
+                    <td>18.0391</td>
+                    <td>0.5817</td>
+                    <td>277.15%</td>
+                    <td>🏆 Selected</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Classifier Benchmark comparison: <code>target_network_congestion_15</code></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Choice</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                            <th>R²</th>
+                            <th>MAPE</th>
+                            <th>Selection Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr >
+                    <td><strong>Mean Predictor</strong></td>
+                    <td>5.0478</td>
+                    <td>5.5466</td>
+                    <td>-0.1191</td>
+                    <td>33.42%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Linear Regression</strong></td>
+                    <td>2.5616</td>
+                    <td>3.3926</td>
+                    <td>0.5813</td>
+                    <td>17.45%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Random Forest</strong></td>
+                    <td>2.4853</td>
+                    <td>3.5938</td>
+                    <td>0.5302</td>
+                    <td>17.68%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM</strong></td>
+                    <td>2.3749</td>
+                    <td>3.4602</td>
+                    <td>0.5645</td>
+                    <td>16.84%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>XGBoost</strong></td>
+                    <td>2.5231</td>
+                    <td>3.6221</td>
+                    <td>0.5228</td>
+                    <td>18.10%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr class='best-model-row'>
+                    <td><strong>Ensemble (Selected)</strong></td>
+                    <td>2.3762</td>
+                    <td>3.4585</td>
+                    <td>0.5649</td>
+                    <td>16.79%</td>
+                    <td>🏆 Selected</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Classifier Benchmark comparison: <code>target_network_congestion_30</code></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Choice</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                            <th>R²</th>
+                            <th>MAPE</th>
+                            <th>Selection Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr >
+                    <td><strong>Mean Predictor</strong></td>
+                    <td>5.2585</td>
+                    <td>5.7685</td>
+                    <td>-0.1561</td>
+                    <td>35.23%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Linear Regression</strong></td>
+                    <td>3.2046</td>
+                    <td>4.1472</td>
+                    <td>0.4024</td>
+                    <td>22.42%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Random Forest</strong></td>
+                    <td>2.3443</td>
+                    <td>3.8390</td>
+                    <td>0.4879</td>
+                    <td>17.38%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM</strong></td>
+                    <td>2.3858</td>
+                    <td>3.8420</td>
+                    <td>0.4871</td>
+                    <td>17.32%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>XGBoost</strong></td>
+                    <td>2.3902</td>
+                    <td>3.8760</td>
+                    <td>0.4780</td>
+                    <td>17.42%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr class='best-model-row'>
+                    <td><strong>Ensemble (Selected)</strong></td>
+                    <td>2.3581</td>
+                    <td>3.8032</td>
+                    <td>0.4974</td>
+                    <td>17.20%</td>
+                    <td>🏆 Selected</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Classifier Benchmark comparison: <code>target_network_congestion_60</code></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Choice</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                            <th>R²</th>
+                            <th>MAPE</th>
+                            <th>Selection Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr >
+                    <td><strong>Mean Predictor</strong></td>
+                    <td>5.1891</td>
+                    <td>5.8111</td>
+                    <td>-0.1783</td>
+                    <td>35.54%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Linear Regression</strong></td>
+                    <td>3.2867</td>
+                    <td>4.1285</td>
+                    <td>0.4053</td>
+                    <td>24.09%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Random Forest</strong></td>
+                    <td>3.0823</td>
+                    <td>4.2980</td>
+                    <td>0.3554</td>
+                    <td>21.80%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM</strong></td>
+                    <td>3.0281</td>
+                    <td>4.1653</td>
+                    <td>0.3946</td>
+                    <td>21.80%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>XGBoost</strong></td>
+                    <td>2.9944</td>
+                    <td>4.0609</td>
+                    <td>0.4246</td>
+                    <td>21.22%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr class='best-model-row'>
+                    <td><strong>Ensemble (Selected)</strong></td>
+                    <td>2.9979</td>
+                    <td>4.0850</td>
+                    <td>0.4177</td>
+                    <td>21.29%</td>
+                    <td>🏆 Selected</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Classifier Benchmark comparison: <code>target_platform_utilization_15</code></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Choice</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                            <th>R²</th>
+                            <th>MAPE</th>
+                            <th>Selection Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr >
+                    <td><strong>Mean Predictor</strong></td>
+                    <td>1.3981</td>
+                    <td>1.5429</td>
+                    <td>-0.0455</td>
+                    <td>101.11%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Linear Regression</strong></td>
+                    <td>0.9818</td>
+                    <td>1.3622</td>
+                    <td>0.1851</td>
+                    <td>66.52%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Random Forest</strong></td>
+                    <td>0.8417</td>
+                    <td>1.2744</td>
+                    <td>0.2868</td>
+                    <td>53.43%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM</strong></td>
+                    <td>0.8440</td>
+                    <td>1.3010</td>
+                    <td>0.2567</td>
+                    <td>54.08%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>XGBoost</strong></td>
+                    <td>0.8618</td>
+                    <td>1.3080</td>
+                    <td>0.2486</td>
+                    <td>55.10%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr class='best-model-row'>
+                    <td><strong>Ensemble (Selected)</strong></td>
+                    <td>0.8471</td>
+                    <td>1.2965</td>
+                    <td>0.2618</td>
+                    <td>54.24%</td>
+                    <td>🏆 Selected</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Classifier Benchmark comparison: <code>target_platform_utilization_30</code></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Choice</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                            <th>R²</th>
+                            <th>MAPE</th>
+                            <th>Selection Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr >
+                    <td><strong>Mean Predictor</strong></td>
+                    <td>1.7386</td>
+                    <td>1.8662</td>
+                    <td>-0.0583</td>
+                    <td>125.46%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Linear Regression</strong></td>
+                    <td>0.8644</td>
+                    <td>1.2331</td>
+                    <td>0.5379</td>
+                    <td>57.02%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Random Forest</strong></td>
+                    <td>0.7240</td>
+                    <td>1.2758</td>
+                    <td>0.5054</td>
+                    <td>46.88%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM</strong></td>
+                    <td>0.7677</td>
+                    <td>1.3147</td>
+                    <td>0.4747</td>
+                    <td>49.98%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>XGBoost</strong></td>
+                    <td>0.7819</td>
+                    <td>1.3452</td>
+                    <td>0.4501</td>
+                    <td>52.70%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr class='best-model-row'>
+                    <td><strong>Ensemble (Selected)</strong></td>
+                    <td>0.7533</td>
+                    <td>1.2970</td>
+                    <td>0.4888</td>
+                    <td>48.98%</td>
+                    <td>🏆 Selected</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Classifier Benchmark comparison: <code>target_platform_utilization_60</code></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Choice</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                            <th>R²</th>
+                            <th>MAPE</th>
+                            <th>Selection Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr >
+                    <td><strong>Mean Predictor</strong></td>
+                    <td>2.1974</td>
+                    <td>2.5664</td>
+                    <td>-0.0497</td>
+                    <td>152.93%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Linear Regression</strong></td>
+                    <td>1.6810</td>
+                    <td>2.0526</td>
+                    <td>0.3286</td>
+                    <td>104.15%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Random Forest</strong></td>
+                    <td>1.5532</td>
+                    <td>1.9386</td>
+                    <td>0.4010</td>
+                    <td>100.31%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM</strong></td>
+                    <td>1.5741</td>
+                    <td>2.0386</td>
+                    <td>0.3377</td>
+                    <td>98.60%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>XGBoost</strong></td>
+                    <td>1.5821</td>
+                    <td>2.0799</td>
+                    <td>0.3106</td>
+                    <td>99.93%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr class='best-model-row'>
+                    <td><strong>Ensemble (Selected)</strong></td>
+                    <td>1.5558</td>
+                    <td>2.0194</td>
+                    <td>0.3501</td>
+                    <td>96.53%</td>
+                    <td>🏆 Selected</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Classifier Benchmark comparison: <code>target_track_utilization_15</code></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Choice</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                            <th>R²</th>
+                            <th>MAPE</th>
+                            <th>Selection Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr >
+                    <td><strong>Mean Predictor</strong></td>
+                    <td>8.6193</td>
+                    <td>9.6110</td>
+                    <td>-0.1273</td>
+                    <td>35.34%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Linear Regression</strong></td>
+                    <td>4.6294</td>
+                    <td>6.0156</td>
+                    <td>0.5584</td>
+                    <td>19.58%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Random Forest</strong></td>
+                    <td>4.6418</td>
+                    <td>6.4333</td>
+                    <td>0.4949</td>
+                    <td>20.65%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM</strong></td>
+                    <td>4.3462</td>
+                    <td>6.0902</td>
+                    <td>0.5474</td>
+                    <td>19.13%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>XGBoost</strong></td>
+                    <td>4.5464</td>
+                    <td>6.4096</td>
+                    <td>0.4986</td>
+                    <td>20.28%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr class='best-model-row'>
+                    <td><strong>Ensemble (Selected)</strong></td>
+                    <td>4.3807</td>
+                    <td>6.0818</td>
+                    <td>0.5486</td>
+                    <td>18.98%</td>
+                    <td>🏆 Selected</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Classifier Benchmark comparison: <code>target_track_utilization_30</code></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Choice</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                            <th>R²</th>
+                            <th>MAPE</th>
+                            <th>Selection Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr >
+                    <td><strong>Mean Predictor</strong></td>
+                    <td>9.1538</td>
+                    <td>10.1840</td>
+                    <td>-0.1642</td>
+                    <td>39.16%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Linear Regression</strong></td>
+                    <td>5.5789</td>
+                    <td>7.2184</td>
+                    <td>0.4151</td>
+                    <td>24.41%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Random Forest</strong></td>
+                    <td>4.5057</td>
+                    <td>6.9825</td>
+                    <td>0.4527</td>
+                    <td>20.97%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM</strong></td>
+                    <td>4.3123</td>
+                    <td>6.7769</td>
+                    <td>0.4845</td>
+                    <td>19.52%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>XGBoost</strong></td>
+                    <td>4.4592</td>
+                    <td>6.9520</td>
+                    <td>0.4575</td>
+                    <td>20.10%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr class='best-model-row'>
+                    <td><strong>Ensemble (Selected)</strong></td>
+                    <td>4.3845</td>
+                    <td>6.7843</td>
+                    <td>0.4834</td>
+                    <td>19.97%</td>
+                    <td>🏆 Selected</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Classifier Benchmark comparison: <code>target_track_utilization_60</code></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Choice</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                            <th>R²</th>
+                            <th>MAPE</th>
+                            <th>Selection Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr >
+                    <td><strong>Mean Predictor</strong></td>
+                    <td>9.1492</td>
+                    <td>10.6179</td>
+                    <td>-0.1792</td>
+                    <td>43.02%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Linear Regression</strong></td>
+                    <td>6.1623</td>
+                    <td>7.5891</td>
+                    <td>0.3976</td>
+                    <td>29.96%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Random Forest</strong></td>
+                    <td>5.8840</td>
+                    <td>7.7758</td>
+                    <td>0.3676</td>
+                    <td>27.97%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM</strong></td>
+                    <td>6.0255</td>
+                    <td>7.8991</td>
+                    <td>0.3474</td>
+                    <td>28.01%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>XGBoost</strong></td>
+                    <td>5.7159</td>
+                    <td>7.4404</td>
+                    <td>0.4209</td>
+                    <td>27.03%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr class='best-model-row'>
+                    <td><strong>Ensemble (Selected)</strong></td>
+                    <td>5.7644</td>
+                    <td>7.4389</td>
+                    <td>0.4212</td>
+                    <td>27.12%</td>
+                    <td>🏆 Selected</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Classifier Benchmark comparison: <code>target_average_delay_15</code></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Choice</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                            <th>R²</th>
+                            <th>MAPE</th>
+                            <th>Selection Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr >
+                    <td><strong>Mean Predictor</strong></td>
+                    <td>11.8579</td>
+                    <td>13.8354</td>
+                    <td>-0.0011</td>
+                    <td>187.48%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Linear Regression</strong></td>
+                    <td>1.1305</td>
+                    <td>1.5828</td>
+                    <td>0.9869</td>
+                    <td>13.83%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Random Forest</strong></td>
+                    <td>1.5553</td>
+                    <td>2.0383</td>
+                    <td>0.9783</td>
+                    <td>17.82%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM</strong></td>
+                    <td>1.3347</td>
+                    <td>1.7309</td>
+                    <td>0.9843</td>
+                    <td>17.73%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>XGBoost</strong></td>
+                    <td>1.3664</td>
+                    <td>1.7738</td>
+                    <td>0.9835</td>
+                    <td>17.20%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr class='best-model-row'>
+                    <td><strong>Ensemble (Selected)</strong></td>
+                    <td>1.3544</td>
+                    <td>1.7639</td>
+                    <td>0.9837</td>
+                    <td>17.45%</td>
+                    <td>🏆 Selected</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Classifier Benchmark comparison: <code>target_average_delay_30</code></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Choice</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                            <th>R²</th>
+                            <th>MAPE</th>
+                            <th>Selection Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr >
+                    <td><strong>Mean Predictor</strong></td>
+                    <td>12.4188</td>
+                    <td>14.3440</td>
+                    <td>-0.0044</td>
+                    <td>132.62%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Linear Regression</strong></td>
+                    <td>2.3759</td>
+                    <td>3.1686</td>
+                    <td>0.9510</td>
+                    <td>21.44%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Random Forest</strong></td>
+                    <td>2.9072</td>
+                    <td>3.7663</td>
+                    <td>0.9308</td>
+                    <td>24.08%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM</strong></td>
+                    <td>2.6779</td>
+                    <td>3.5767</td>
+                    <td>0.9376</td>
+                    <td>26.10%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>XGBoost</strong></td>
+                    <td>2.8206</td>
+                    <td>3.8532</td>
+                    <td>0.9275</td>
+                    <td>27.85%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr class='best-model-row'>
+                    <td><strong>Ensemble (Selected)</strong></td>
+                    <td>2.6706</td>
+                    <td>3.6201</td>
+                    <td>0.9360</td>
+                    <td>26.55%</td>
+                    <td>🏆 Selected</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="card">
+                <h2>Classifier Benchmark comparison: <code>target_average_delay_60</code></h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Model Choice</th>
+                            <th>MAE</th>
+                            <th>RMSE</th>
+                            <th>R²</th>
+                            <th>MAPE</th>
+                            <th>Selection Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                <tr >
+                    <td><strong>Mean Predictor</strong></td>
+                    <td>12.4862</td>
+                    <td>14.4235</td>
+                    <td>-0.0143</td>
+                    <td>67.84%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Linear Regression</strong></td>
+                    <td>4.8655</td>
+                    <td>6.3591</td>
+                    <td>0.8028</td>
+                    <td>24.04%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>Random Forest</strong></td>
+                    <td>5.7623</td>
+                    <td>7.6314</td>
+                    <td>0.7160</td>
+                    <td>27.37%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>LightGBM</strong></td>
+                    <td>5.3553</td>
+                    <td>7.4444</td>
+                    <td>0.7298</td>
+                    <td>28.49%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr >
+                    <td><strong>XGBoost</strong></td>
+                    <td>5.2590</td>
+                    <td>7.1826</td>
+                    <td>0.7485</td>
+                    <td>27.72%</td>
+                    <td>Benchmark</td>
+                </tr>
+                
+                <tr class='best-model-row'>
+                    <td><strong>Ensemble (Selected)</strong></td>
+                    <td>5.2731</td>
+                    <td>7.0873</td>
+                    <td>0.7551</td>
+                    <td>28.06%</td>
+                    <td>🏆 Selected</td>
+                </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+    </div>
+</body>
+</html>

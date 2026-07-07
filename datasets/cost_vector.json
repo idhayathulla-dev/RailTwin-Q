@@ -1,0 +1,149 @@
+[
+    {
+        "action_id": 1,
+        "action": "REROUTE",
+        "cost_vector": {
+            "delay_saved": -0.7,
+            "passenger_delay": 0.3,
+            "energy_consumption": 0.7,
+            "fuel_cost": 0.7,
+            "crew_impact": 0.5,
+            "track_utilization": 0.5,
+            "platform_usage": 0.2,
+            "maintenance_impact": 0.2,
+            "schedule_stability": 0.8,
+            "operational_complexity": 0.7,
+            "safety_risk": 0.2,
+            "delay": -14.0,
+            "risk": 10.0,
+            "energy": 7.0,
+            "operational_cost": 3.5
+        }
+    },
+    {
+        "action_id": 2,
+        "action": "REROUTE",
+        "cost_vector": {
+            "delay_saved": -0.7,
+            "passenger_delay": 0.3,
+            "energy_consumption": 0.7,
+            "fuel_cost": 0.7,
+            "crew_impact": 0.5,
+            "track_utilization": 0.5,
+            "platform_usage": 0.2,
+            "maintenance_impact": 0.2,
+            "schedule_stability": 0.8,
+            "operational_complexity": 0.7,
+            "safety_risk": 0.2,
+            "delay": -14.0,
+            "risk": 10.0,
+            "energy": 7.0,
+            "operational_cost": 3.5
+        }
+    },
+    {
+        "action_id": 3,
+        "action": "HOLD",
+        "cost_vector": {
+            "delay_saved": -0.3,
+            "passenger_delay": 0.6,
+            "energy_consumption": 0.0,
+            "fuel_cost": 0.0,
+            "crew_impact": 0.4,
+            "track_utilization": 0.2,
+            "platform_usage": 0.5,
+            "maintenance_impact": 0.0,
+            "schedule_stability": 0.5,
+            "operational_complexity": 0.3,
+            "safety_risk": 0.05,
+            "delay": -6.0,
+            "risk": 2.5,
+            "energy": 0.0,
+            "operational_cost": 1.5
+        }
+    },
+    {
+        "action_id": 4,
+        "action": "HOLD",
+        "cost_vector": {
+            "delay_saved": -0.3,
+            "passenger_delay": 0.6,
+            "energy_consumption": 0.0,
+            "fuel_cost": 0.0,
+            "crew_impact": 0.4,
+            "track_utilization": 0.2,
+            "platform_usage": 0.5,
+            "maintenance_impact": 0.0,
+            "schedule_stability": 0.5,
+            "operational_complexity": 0.3,
+            "safety_risk": 0.05,
+            "delay": -6.0,
+            "risk": 2.5,
+            "energy": 0.0,
+            "operational_cost": 1.5
+        }
+    },
+    {
+        "action_id": 5,
+        "action": "HOLD",
+        "cost_vector": {
+            "delay_saved": -0.3,
+            "passenger_delay": 0.6,
+            "energy_consumption": 0.0,
+            "fuel_cost": 0.0,
+            "crew_impact": 0.4,
+            "track_utilization": 0.2,
+            "platform_usage": 0.5,
+            "maintenance_impact": 0.0,
+            "schedule_stability": 0.5,
+            "operational_complexity": 0.3,
+            "safety_risk": 0.05,
+            "delay": -6.0,
+            "risk": 2.5,
+            "energy": 0.0,
+            "operational_cost": 1.5
+        }
+    },
+    {
+        "action_id": 6,
+        "action": "SPEED_ADJUST",
+        "cost_vector": {
+            "delay_saved": -0.2,
+            "passenger_delay": 0.1,
+            "energy_consumption": 0.4,
+            "fuel_cost": 0.4,
+            "crew_impact": 0.1,
+            "track_utilization": 0.3,
+            "platform_usage": 0.1,
+            "maintenance_impact": 0.1,
+            "schedule_stability": 0.2,
+            "operational_complexity": 0.2,
+            "safety_risk": 0.15,
+            "delay": -4.0,
+            "risk": 7.5,
+            "energy": 4.0,
+            "operational_cost": 1.0
+        }
+    },
+    {
+        "action_id": 7,
+        "action": "SPEED_ADJUST",
+        "cost_vector": {
+            "delay_saved": -0.2,
+            "passenger_delay": 0.1,
+            "energy_consumption": 0.4,
+            "fuel_cost": 0.4,
+            "crew_impact": 0.1,
+            "track_utilization": 0.3,
+            "platform_usage": 0.1,
+            "maintenance_impact": 0.1,
+            "schedule_stability": 0.2,
+            "operational_complexity": 0.2,
+            "safety_risk": 0.15,
+            "delay": -4.0,
+            "risk": 7.5,
+            "energy": 4.0,
+            "operational_cost": 1.0
+        }
+    }
+]

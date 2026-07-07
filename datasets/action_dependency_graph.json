@@ -1,0 +1,178 @@
+{
+    "nodes": {
+        "1": {
+            "action_id": 1,
+            "action": "REROUTE",
+            "requires": [
+                "alternative_path_exists"
+            ],
+            "conflicts_with": [
+                "HOLD"
+            ],
+            "compatible_with": [
+                "SPEED_ADJUST",
+                "PLATFORM_SWAP"
+            ],
+            "train_id": 12623,
+            "station_id": 0
+        },
+        "2": {
+            "action_id": 2,
+            "action": "REROUTE",
+            "requires": [
+                "alternative_path_exists"
+            ],
+            "conflicts_with": [
+                "HOLD"
+            ],
+            "compatible_with": [
+                "SPEED_ADJUST",
+                "PLATFORM_SWAP"
+            ],
+            "train_id": 16057,
+            "station_id": 0
+        },
+        "3": {
+            "action_id": 3,
+            "action": "HOLD",
+            "requires": [
+                "upstream_block_free"
+            ],
+            "conflicts_with": [
+                "REROUTE",
+                "SPEED_ADJUST"
+            ],
+            "compatible_with": [
+                "PLATFORM_SWAP"
+            ],
+            "train_id": 12623,
+            "station_id": 0
+        },
+        "4": {
+            "action_id": 4,
+            "action": "HOLD",
+            "requires": [
+                "upstream_block_free"
+            ],
+            "conflicts_with": [
+                "REROUTE",
+                "SPEED_ADJUST"
+            ],
+            "compatible_with": [
+                "PLATFORM_SWAP"
+            ],
+            "train_id": 12625,
+            "station_id": 0
+        },
+        "5": {
+            "action_id": 5,
+            "action": "HOLD",
+            "requires": [
+                "upstream_block_free"
+            ],
+            "conflicts_with": [
+                "REROUTE",
+                "SPEED_ADJUST"
+            ],
+            "compatible_with": [
+                "PLATFORM_SWAP"
+            ],
+            "train_id": 16057,
+            "station_id": 0
+        },
+        "6": {
+            "action_id": 6,
+            "action": "SPEED_ADJUST",
+            "requires": [
+                "speed_limits_within_bounds"
+            ],
+            "conflicts_with": [
+                "HOLD"
+            ],
+            "compatible_with": [
+                "REROUTE",
+                "PLATFORM_SWAP"
+            ],
+            "train_id": 12623,
+            "station_id": 0
+        },
+        "7": {
+            "action_id": 7,
+            "action": "SPEED_ADJUST",
+            "requires": [
+                "speed_limits_within_bounds"
+            ],
+            "conflicts_with": [
+                "HOLD"
+            ],
+            "compatible_with": [
+                "REROUTE",
+                "PLATFORM_SWAP"
+            ],
+            "train_id": 16057,
+            "station_id": 0
+        }
+    },
+    "edges": [
+        {
+            "source": "1",
+            "target": "3",
+            "relationship": "CONFLICTS_WITH"
+        },
+        {
+            "source": "1",
+            "target": "7",
+            "relationship": "COMPATIBLE"
+        },
+        {
+            "source": "2",
+            "target": "5",
+            "relationship": "CONFLICTS_WITH"
+        },
+        {
+            "source": "2",
+            "target": "6",
+            "relationship": "COMPATIBLE"
+        },
+        {
+            "source": "3",
+            "target": "1",
+            "relationship": "CONFLICTS_WITH"
+        },
+        {
+            "source": "3",
+            "target": "6",
+            "relationship": "CONFLICTS_WITH"
+        },
+        {
+            "source": "5",
+            "target": "2",
+            "relationship": "CONFLICTS_WITH"
+        },
+        {
+            "source": "5",
+            "target": "7",
+            "relationship": "CONFLICTS_WITH"
+        },
+        {
+            "source": "6",
+            "target": "2",
+            "relationship": "COMPATIBLE"
+        },
+        {
+            "source": "6",
+            "target": "3",
+            "relationship": "CONFLICTS_WITH"
+        },
+        {
+            "source": "7",
+            "target": "1",
+            "relationship": "COMPATIBLE"
+        },
+        {
+            "source": "7",
+            "target": "5",
+            "relationship": "CONFLICTS_WITH"
+        }
+    ]
+}

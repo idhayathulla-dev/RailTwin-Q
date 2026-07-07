@@ -1,0 +1,83 @@
+{
+    "pareto_solutions": [
+        {
+            "action_id": 1,
+            "action": "REROUTE",
+            "target": "Chennai Mail",
+            "delay_cost": -14.0,
+            "risk": 10.0,
+            "energy": 7.0,
+            "passenger_saved_percent": 0.95,
+            "operational_cost": 3.5,
+            "robustness": 0.66
+        },
+        {
+            "action_id": 2,
+            "action": "REROUTE",
+            "target": "Sapthagiri Express",
+            "delay_cost": -14.0,
+            "risk": 10.0,
+            "energy": 7.0,
+            "passenger_saved_percent": 0.95,
+            "operational_cost": 3.5,
+            "robustness": 0.66
+        },
+        {
+            "action_id": 3,
+            "action": "HOLD",
+            "target": "Chennai Mail",
+            "delay_cost": -6.0,
+            "risk": 2.5,
+            "energy": 0.0,
+            "passenger_saved_percent": 0.4,
+            "operational_cost": 1.5,
+            "robustness": 0.83
+        },
+        {
+            "action_id": 4,
+            "action": "HOLD",
+            "target": "Kerala Express",
+            "delay_cost": -6.0,
+            "risk": 2.5,
+            "energy": 0.0,
+            "passenger_saved_percent": 0.4,
+            "operational_cost": 1.5,
+            "robustness": 0.83
+        },
+        {
+            "action_id": 5,
+            "action": "HOLD",
+            "target": "Sapthagiri Express",
+            "delay_cost": -6.0,
+            "risk": 2.5,
+            "energy": 0.0,
+            "passenger_saved_percent": 0.4,
+            "operational_cost": 1.5,
+            "robustness": 0.83
+        },
+        {
+            "action_id": 6,
+            "action": "SPEED_ADJUST",
+            "target": "Chennai Mail",
+            "delay_cost": -4.0,
+            "risk": 7.5,
+            "energy": 4.0,
+            "passenger_saved_percent": 1.0,
+            "operational_cost": 1.0,
+            "robustness": 0.83
+        },
+        {
+            "action_id": 7,
+            "action": "SPEED_ADJUST",
+            "target": "Sapthagiri Express",
+            "delay_cost": -4.0,
+            "risk": 7.5,
+            "energy": 4.0,
+            "passenger_saved_percent": 1.0,
+            "operational_cost": 1.0,
+            "robustness": 0.83
+        }
+    ],
+    "total_candidates": 7,
+    "non_dominated_count": 7
+}

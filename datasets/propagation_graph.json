@@ -1,0 +1,186 @@
+{
+    "directed": true,
+    "multigraph": false,
+    "graph": {},
+    "nodes": [
+        {
+            "type": "train",
+            "train_no": 12623,
+            "name": "Chennai Mail",
+            "current_delay": 16.6,
+            "pred_15": 20.66,
+            "pred_30": 23.92,
+            "pred_60": 28.89,
+            "confidence": 0.94,
+            "status": "MOVING",
+            "route_id": 1,
+            "route_index": 2,
+            "priority": 1,
+            "speed": 85.0,
+            "remaining_distance": 78.33,
+            "remaining_stations": 1,
+            "id": "train_12623"
+        },
+        {
+            "type": "train",
+            "train_no": 12625,
+            "name": "Kerala Express",
+            "current_delay": 27.02,
+            "pred_15": 31.11,
+            "pred_30": 33.98,
+            "pred_60": 37.76,
+            "confidence": 0.86,
+            "status": "WAITING",
+            "route_id": 1,
+            "route_index": 2,
+            "priority": 1,
+            "speed": 0.0,
+            "remaining_distance": 0.0,
+            "remaining_stations": 1,
+            "id": "train_12625"
+        },
+        {
+            "type": "train",
+            "train_no": 16057,
+            "name": "Sapthagiri Express",
+            "current_delay": 25.6,
+            "pred_15": 29.22,
+            "pred_30": 29.56,
+            "pred_60": 28.77,
+            "confidence": 0.87,
+            "status": "MOVING",
+            "route_id": 1,
+            "route_index": 2,
+            "priority": 1,
+            "speed": 75.0,
+            "remaining_distance": 19.0,
+            "remaining_stations": 1,
+            "id": "train_16057"
+        },
+        {
+            "type": "station",
+            "station_id": 1,
+            "name": "Chennai Central",
+            "platforms_total": 12,
+            "platforms_occupied": 0,
+            "trains_waiting": 0,
+            "current_congestion": 0.0,
+            "pred_congestion_30": 0.0,
+            "average_delay": 0.0,
+            "id": "station_1"
+        },
+        {
+            "type": "station",
+            "station_id": 2,
+            "name": "Arakkonam",
+            "platforms_total": 8,
+            "platforms_occupied": 0,
+            "trains_waiting": 0,
+            "current_congestion": 0.0,
+            "pred_congestion_30": 0.0,
+            "average_delay": 0.0,
+            "id": "station_2"
+        },
+        {
+            "type": "station",
+            "station_id": 3,
+            "name": "Katpadi",
+            "platforms_total": 5,
+            "platforms_occupied": 0,
+            "trains_waiting": 1,
+            "current_congestion": 20.0,
+            "pred_congestion_30": 20.0,
+            "average_delay": 27.02,
+            "id": "station_3"
+        },
+        {
+            "type": "station",
+            "station_id": 4,
+            "name": "Jolarpettai",
+            "platforms_total": 5,
+            "platforms_occupied": 0,
+            "trains_waiting": 0,
+            "current_congestion": 0.0,
+            "pred_congestion_30": 0.0,
+            "average_delay": 0.0,
+            "id": "station_4"
+        },
+        {
+            "type": "track",
+            "track_id": 1,
+            "capacity": 5,
+            "trains_on_track": 0,
+            "current_occupancy": 0.0,
+            "pred_occupancy_30": 0.05,
+            "blocked": false,
+            "id": "track_1"
+        },
+        {
+            "type": "track",
+            "track_id": 2,
+            "capacity": 4,
+            "trains_on_track": 0,
+            "current_occupancy": 0.0,
+            "pred_occupancy_30": 0.0,
+            "blocked": false,
+            "id": "track_2"
+        },
+        {
+            "type": "track",
+            "track_id": 3,
+            "capacity": 4,
+            "trains_on_track": 2,
+            "current_occupancy": 50.0,
+            "pred_occupancy_30": 49.48,
+            "blocked": false,
+            "id": "track_3"
+        }
+    ],
+    "links": [
+        {
+            "propagation_probability": 0.62,
+            "expected_delay_transfer": 13.3,
+            "transfer_time": 10,
+            "reason": "Track Occupancy",
+            "confidence": 90.0,
+            "source": "train_12623",
+            "target": "track_3"
+        },
+        {
+            "propagation_probability": 0.71,
+            "expected_delay_transfer": 20.5,
+            "transfer_time": 10,
+            "reason": "Track Occupancy",
+            "confidence": 90.0,
+            "source": "train_16057",
+            "target": "track_3"
+        },
+        {
+            "propagation_probability": 0.71,
+            "expected_delay_transfer": 23.0,
+            "transfer_time": 5,
+            "reason": "Signal Block Safety Spacing",
+            "confidence": 92.0,
+            "source": "train_16057",
+            "target": "train_12623"
+        },
+        {
+            "propagation_probability": 0.24,
+            "expected_delay_transfer": 13.5,
+            "transfer_time": 5,
+            "reason": "Platform Starvation Dwell",
+            "confidence": 80.0,
+            "source": "station_3",
+            "target": "train_12625"
+        },
+        {
+            "propagation_probability": 0.43,
+            "expected_delay_transfer": 15.4,
+            "transfer_time": 15,
+            "reason": "Station Destination Queue",
+            "confidence": 85.0,
+            "source": "track_3",
+            "target": "station_4"
+        }
+    ]
+}

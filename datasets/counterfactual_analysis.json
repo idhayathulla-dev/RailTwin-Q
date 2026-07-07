@@ -1,0 +1,42 @@
+{
+    "Scenario A (No Action)": {
+        "recovery_time_mins": 12,
+        "delay_reduction_minutes": 0.0,
+        "congestion_reduction_percent": 0.0,
+        "affected_trains_reduced": 0,
+        "affected_stations_reduced": 0,
+        "csi_improvement": 0.0
+    },
+    "Scenario B (Platform Swap)": {
+        "recovery_time_mins": 12,
+        "delay_reduction_minutes": 0,
+        "congestion_reduction_percent": 0.0,
+        "affected_trains_reduced": 0,
+        "affected_stations_reduced": 0,
+        "csi_improvement": 0.0
+    },
+    "Scenario C (Speed Adjustment)": {
+        "recovery_time_mins": 10,
+        "delay_reduction_minutes": 9.0,
+        "congestion_reduction_percent": 10.8,
+        "affected_trains_reduced": 1,
+        "affected_stations_reduced": 0,
+        "csi_improvement": 9.0
+    },
+    "Scenario D (Reroute)": {
+        "recovery_time_mins": 10,
+        "delay_reduction_minutes": 28.4,
+        "congestion_reduction_percent": 71.0,
+        "affected_trains_reduced": 2,
+        "affected_stations_reduced": 1,
+        "csi_improvement": 56.8
+    },
+    "Scenario E (Hold Train)": {
+        "recovery_time_mins": 10,
+        "delay_reduction_minutes": 18.0,
+        "congestion_reduction_percent": 14.4,
+        "affected_trains_reduced": 1,
+        "affected_stations_reduced": 0,
+        "csi_improvement": 9.0
+    }
+}

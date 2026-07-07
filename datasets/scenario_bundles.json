@@ -1,0 +1,29 @@
+[
+    {
+        "bundle_id": "Bundle_A",
+        "name": "Scenario A: Baseline (No Action)",
+        "actions_included": [],
+        "expected_recovery_time_mins": 12,
+        "total_delay_savings_mins": 0.0,
+        "feasibility": true
+    },
+    {
+        "bundle_id": "Bundle_B",
+        "name": "Scenario B: Swaps Only",
+        "actions_included": [],
+        "expected_recovery_time_mins": 12,
+        "total_delay_savings_mins": 0,
+        "feasibility": true
+    },
+    {
+        "bundle_id": "Bundle_C",
+        "name": "Scenario C: Swaps + Speed Profiles",
+        "actions_included": [
+            6,
+            7
+        ],
+        "expected_recovery_time_mins": 10,
+        "total_delay_savings_mins": 9.0,
+        "feasibility": true
+    }
+]

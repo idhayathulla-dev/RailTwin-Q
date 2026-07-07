@@ -28,7 +28,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1250px;
             margin: 0 auto;
         }
 
@@ -97,18 +97,16 @@
 
         .map-line-container {
             position: relative;
-            height: 60px;
-            margin: 30px 0;
+            height: 90px;
+            margin: 40px 0;
         }
 
-        .map-line {
+        .map-line-segment {
             position: absolute;
             top: 25px;
-            left: 0;
-            right: 0;
             height: 8px;
-            background: rgba(255,255,255,0.1);
             border-radius: 4px;
+            z-index: 1;
         }
 
         .station-node {
@@ -118,15 +116,14 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            z-index: 3;
         }
 
         .node-dot {
             width: 26px;
             height: 26px;
             border-radius: 50%;
-            background: var(--accent-indigo);
             border: 4px solid var(--bg-color);
-            z-index: 2;
         }
 
         .node-label {
@@ -134,12 +131,19 @@
             font-size: 0.85rem;
             font-weight: 600;
             color: var(--text-main);
+            text-align: center;
         }
 
         .node-plat {
             font-size: 0.75rem;
             color: var(--text-muted);
             margin-top: 2px;
+        }
+
+        .node-pred-cong {
+            font-size: 0.75rem;
+            margin-top: 3px;
+            font-weight: 600;
         }
 
         .train-marker {
@@ -161,6 +165,49 @@
             padding: 1px 4px;
             border-radius: 3px;
             font-weight: 600;
+        }
+
+        /* Congestion Color Indicators */
+        .cong-low { background-color: var(--accent-green); color: var(--accent-green); }
+        .cong-medium { background-color: var(--accent-yellow); color: var(--accent-yellow); }
+        .cong-high { background-color: var(--accent-red); color: var(--accent-red); }
+
+        /* Top Indicators Grid */
+        .top-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-val {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+            margin-top: 5px;
+        }
+
+        .stat-lbl {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 5px;
+        }
+
+        .stat-interval {
+            font-size: 0.75rem;
+            color: var(--accent-yellow);
+            margin-top: 3px;
         }
 
         /* Train Cards Grid */
@@ -284,7 +331,7 @@
         <header>
             <div>
                 <h1>RailTwin-Q Live Digital Twin</h1>
-                <p class="sub-header">Live Railway Map & AI Delay Predictions Dashboard</p>
+                <p class="sub-header">Hierarchical AI Congestion & Delay Optimization Dashboard</p>
             </div>
             <div class="clock-box">
                 <div class="clock-val">10:00</div>
@@ -292,41 +339,73 @@
             </div>
         </header>
 
+        <!-- Top Predicted Network Metrics -->
+        <div class="top-stats-grid">
+            <div class="stat-card">
+                <div class="stat-val" style="color: var(--accent-green);">0.0%</div>
+                <div class="stat-lbl">Future Congestion (+30m)</div>
+                <div class="stat-interval">Interval: [10.3% - 10.5%]</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val">0.0%</div>
+                <div class="stat-lbl">Platform Util (+30m)</div>
+                <div class="stat-interval">Active Platforms: 0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val">0.0%</div>
+                <div class="stat-lbl">Track Util (+30m)</div>
+                <div class="stat-interval">Active Segments: 3</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-val" style="color: var(--accent-purple);">0.0</div>
+                <div class="stat-lbl">Network Stress Index (+30m)</div>
+                <div class="stat-interval">Ensemble Confidence: 98%</div>
+            </div>
+        </div>
+
         <!-- Live Schematic Map -->
         <div class="map-card">
-            <h2>Live Schematic Railway Line</h2>
+            <h2>Live Spatial Congestion Mapping (+30m AI predictions)</h2>
             <div style="margin-bottom: 10px;">
                 <strong>Active Anomalies:</strong> <span class='badge badge-green'>Normal Operations</span>
             </div>
+            
             <div class="map-line-container">
-                <div class="map-line"></div>
+                <!-- Track Line segments (colored dynamically by predicted occupancy +30m) -->
+                <div class="map-line-segment cong-low" style="left: 0%; width: 30%;"></div>
+                <div class="map-line-segment cong-low" style="left: 30%; width: 35%;"></div>
+                <div class="map-line-segment cong-medium" style="left: 65%; width: 35%;"></div>
                 
                 <!-- Chennai Central Node -->
                 <div class="station-node" style="left: 0%;">
-                    <div class="node-dot"></div>
+                    <div class="node-dot cong-low"></div>
                     <div class="node-label">Chennai Central</div>
                     <div class="node-plat">Plats: 0/12</div>
+                    <div class="node-pred-cong" style="color: var(--accent-green);">AI: 0% [0%-0%]</div>
                 </div>
 
                 <!-- Arakkonam Node -->
                 <div class="station-node" style="left: 30%;">
-                    <div class="node-dot"></div>
+                    <div class="node-dot cong-low"></div>
                     <div class="node-label">Arakkonam</div>
                     <div class="node-plat">Plats: 0/8</div>
+                    <div class="node-pred-cong" style="color: var(--accent-green);">AI: 0% [0%-0%]</div>
                 </div>
 
                 <!-- Katpadi Node -->
                 <div class="station-node" style="left: 65%;">
-                    <div class="node-dot"></div>
+                    <div class="node-dot cong-low"></div>
                     <div class="node-label">Katpadi</div>
                     <div class="node-plat">Plats: 0/5</div>
+                    <div class="node-pred-cong" style="color: var(--accent-green);">AI: 0% [0%-1%]</div>
                 </div>
 
                 <!-- Jolarpettai Node -->
                 <div class="station-node" style="left: 100%;">
-                    <div class="node-dot"></div>
+                    <div class="node-dot cong-low"></div>
                     <div class="node-label">Jolarpettai</div>
                     <div class="node-plat">Plats: 0/5</div>
+                    <div class="node-pred-cong" style="color: var(--accent-green);">AI: 15% [11%-18%]</div>
                 </div>
 
                 <!-- Dynamic Train Markers -->
@@ -346,10 +425,12 @@
             </div>
         </div>
 
-        <!-- Train Cards -->
-        <h2>Active Train Predictions</h2>
-        <div class="cards-grid">
-            
+        <!-- Disruption Propagation & Train Cards Grid -->
+        <div class="main-layout-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin-top: 25px;">
+            <div>
+                <h2>Active Train Delay Forecasts</h2>
+                <div class="cards-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+                    
             <div class='train-card'>
                 <div class='card-header'>
                     <h3>Train 12623 - Chennai Mail</h3>
@@ -434,6 +515,69 @@
                 </div>
             </div>
             
+                </div>
+            </div>
+            
+            <div style="background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; overflow-y: auto; max-height: 800px;">
+                <h2 style="margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; color: var(--accent-indigo);">Layer 4: Decision Intelligence</h2>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
+                    <div style="background: rgba(255,255,255,0.02); padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); text-align: center;">
+                        <div style="font-size: 1.3rem; font-weight: 700; color: var(--accent-yellow);">51.8%</div>
+                        <div style="font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; margin-top: 2px;">Severity Index (CSI)</div>
+                        <div style="font-size: 0.7rem; font-weight: 600; color: var(--accent-yellow); margin-top: 2px;">Moderate</div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); padding: 10px; border-radius: 8px; border: 1px solid var(--border-color); text-align: center;">
+                        <div style="font-size: 1.3rem; font-weight: 700; color: var(--accent-purple);">12 mins</div>
+                        <div style="font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; margin-top: 2px;">Est. Recovery</div>
+                        <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 2px;">Uncertainty: 8.0%</div>
+                    </div>
+                </div>
+
+                <div style="background: rgba(99, 102, 241, 0.1); border: 1px solid var(--accent-indigo); border-radius: 6px; padding: 8px; margin-bottom: 15px; text-align: center; font-size: 0.8rem; font-weight: 600;">
+                    Optimization Readiness: <span style="color:#10b981;">READY</span> (7 variables compiled)
+                </div>
+
+                <h3 style="margin-top: 0; font-size: 0.95rem; color: var(--text-main); margin-bottom: 6px;">Top Critical Bottlenecks</h3>
+                <ul style="list-style: none; padding: 0; margin: 0 0 15px 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted);">
+                    <li>🚂 Train 16057: Score <strong>52.6</strong> (Delay: 26m)</li><li>🚂 Train 12625: Score <strong>49.9</strong> (Delay: 27m)</li><li>🚉 Station Katpadi: Score <strong>24.4</strong> (Congestion: 20%)</li><li>🚉 Station Jolarpettai: Score <strong>4.4</strong> (Congestion: 0%)</li><li>🛤️ Track 3: Score <strong>53.3</strong> (Occupancy: 50%)</li><li>🛤️ Track 1: Score <strong>20.0</strong> (Occupancy: 0%)</li>
+                </ul>
+
+                <h3 style="margin-top: 0; font-size: 0.95rem; color: var(--text-main); margin-bottom: 6px;">Decision Reasoning Pathways</h3>
+                <div style="margin-bottom: 15px; background: rgba(0,0,0,0.15); padding: 8px; border-radius: 6px;">
+                    <div style='margin-bottom: 8px; font-size:0.75rem; border-left: 2px solid var(--accent-indigo); padding-left: 6px;'><strong>Action 1 Reason:</strong> Downstream track segment congested or blocked &rarr; Train Chennai Mail progress delayed on primary track route &rarr; Propagation delay spreads to following trains via safety blocks &rarr; Bypass route via alternate track selected for Train Chennai Mail &rarr; Primary track segment occupancy drops by 30% &rarr; Total network delay propagation drops by 14.2 minutes</div><div style='margin-bottom: 8px; font-size:0.75rem; border-left: 2px solid var(--accent-indigo); padding-left: 6px;'><strong>Action 2 Reason:</strong> Downstream track segment congested or blocked &rarr; Train Sapthagiri Express progress delayed on primary track route &rarr; Propagation delay spreads to following trains via safety blocks &rarr; Bypass route via alternate track selected for Train Sapthagiri Express &rarr; Primary track segment occupancy drops by 30% &rarr; Total network delay propagation drops by 14.2 minutes</div>
+                </div>
+
+                <h3 style="margin-top: 0; font-size: 0.95rem; color: var(--text-main); margin-bottom: 6px;">What-If Counterfactual Scenarios</h3>
+                <div style="margin-bottom: 15px; background: rgba(0,0,0,0.15); padding: 8px; border-radius: 6px;">
+                    <table style='width: 100%; border-collapse: collapse; font-size: 0.8rem; text-align: left;'><tr style='border-bottom: 1px solid var(--border-color); color: var(--text-muted);'><th>What-If Option</th><th>Recovery</th><th>Saving</th></tr><tr style='border-bottom: 1px dashed rgba(255,255,255,0.05);'><td>A (No Action)</td><td><strong>12m</strong></td><td style='color: var(--accent-green);'>-0.0m</td></tr><tr style='border-bottom: 1px dashed rgba(255,255,255,0.05);'><td>B (Platform Swap)</td><td><strong>12m</strong></td><td style='color: var(--accent-green);'>-0.0m</td></tr><tr style='border-bottom: 1px dashed rgba(255,255,255,0.05);'><td>C (Speed Adjustment)</td><td><strong>10m</strong></td><td style='color: var(--accent-green);'>-9.0m</td></tr><tr style='border-bottom: 1px dashed rgba(255,255,255,0.05);'><td>D (Reroute)</td><td><strong>10m</strong></td><td style='color: var(--accent-green);'>-28.4m</td></tr></table>
+                </div>
+
+                <h3 style="margin-top: 0; font-size: 0.95rem; color: var(--text-main); margin-bottom: 6px;">Passenger Impact Projections</h3>
+                <div style="margin-bottom: 15px; background: rgba(0,0,0,0.15); padding: 8px; border-radius: 6px;">
+                    <ul style='list-style: none; padding: 0; margin: 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted);'><li>Action 1: Delayed: <strong>50</strong> | Saved: <strong style='color:var(--accent-green);'>950</strong></li><li>Action 2: Delayed: <strong>50</strong> | Saved: <strong style='color:var(--accent-green);'>950</strong></li></ul>
+                </div>
+
+                <h3 style="margin-top: 0; font-size: 0.95rem; color: var(--text-main); margin-bottom: 6px;">Robustness & Resilience Ratings</h3>
+                <div style="margin-bottom: 15px; background: rgba(0,0,0,0.15); padding: 8px; border-radius: 6px;">
+                    <ul style='list-style: none; padding: 0; margin: 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted);'><li>Action 1: Robustness: <strong style='color:var(--accent-green);'>66%</strong></li><li>Action 2: Robustness: <strong style='color:var(--accent-green);'>66%</strong></li></ul>
+                </div>
+
+                <h3 style="margin-top: 0; font-size: 0.95rem; color: var(--text-main); margin-bottom: 6px;">Pareto Optimal Frontier</h3>
+                <div style="margin-bottom: 15px; background: rgba(0,0,0,0.15); padding: 8px; border-radius: 6px;">
+                    <ul style='list-style: none; padding: 0; margin: 0; font-size: 0.8rem; line-height: 1.5; color: var(--text-muted);'><li>Sol 1 (REROUTE): Risk: <strong>10.00</strong> | Energy: <strong>7.00</strong></li><li>Sol 2 (REROUTE): Risk: <strong>10.00</strong> | Energy: <strong>7.00</strong></li></ul>
+                </div>
+
+                <h3 style="margin-top: 0; font-size: 0.95rem; color: var(--text-main); margin-bottom: 6px;">Candidate Optimization Actions</h3>
+                <div style="margin-bottom: 15px; background: rgba(0,0,0,0.15); padding: 8px; border-radius: 6px;">
+                    <table style='width: 100%; border-collapse: collapse; font-size: 0.8rem; text-align: left;'><tr style='border-bottom: 1px solid var(--border-color); color: var(--text-muted);'><th>Action</th><th>Target</th><th>Saving</th></tr><tr style='border-bottom: 1px dashed rgba(255,255,255,0.05);'><td><span class='badge badge-blue' style='padding: 2px 6px; font-size: 0.7rem;'>REROUTE</span></td><td>Chennai Mail</td><td style='color: var(--accent-green);'>-14.2m</td></tr><tr style='border-bottom: 1px dashed rgba(255,255,255,0.05);'><td><span class='badge badge-blue' style='padding: 2px 6px; font-size: 0.7rem;'>REROUTE</span></td><td>Sapthagiri Express</td><td style='color: var(--accent-green);'>-14.2m</td></tr><tr style='border-bottom: 1px dashed rgba(255,255,255,0.05);'><td><span class='badge badge-blue' style='padding: 2px 6px; font-size: 0.7rem;'>HOLD</span></td><td>Chennai Mail</td><td style='color: var(--accent-green);'>-6.0m</td></tr></table>
+                </div>
+
+                <h3 style="margin-top: 0; font-size: 0.95rem; color: var(--text-main); margin-bottom: 6px;">Causal Disruption Path</h3>
+                <div style="background: rgba(0,0,0,0.2); padding: 8px; border-radius: 6px; font-size: 0.75rem; overflow-y: auto; max-height: 120px; line-height: 1.3;">
+                    <div style='color: var(--text-muted);'>No disruption anomalies active. Network operating normally.</div>
+                </div>
+            </div>
         </div>
     </div>
 </body>

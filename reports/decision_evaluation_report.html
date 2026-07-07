@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>RailTwin-Q: Decision Intelligence Evaluation Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-purple: #8b5cf6;
+            --accent-indigo: #6366f1;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            margin: 5px 0 0 0;
+            font-size: 1.1rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            backdrop-filter: blur(10px);
+            margin-bottom: 25px;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            color: var(--accent-indigo);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        th {
+            color: var(--text-muted);
+            border-bottom: 2px solid var(--border-color);
+            padding: 10px;
+        }
+
+        td {
+            padding: 12px 10px;
+        }
+
+        .badge {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .badge-green { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); border: 1px solid var(--accent-green); }
+        .badge-blue { background: rgba(99, 102, 241, 0.15); color: var(--accent-indigo); border: 1px solid var(--accent-indigo); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Decision Intelligence space evaluation</h1>
+            <p class="subtitle">Action search space validation metrics for Layer 5 Quantum optimizer</p>
+        </header>
+
+        <div class="card">
+            <h2>1. Candidate Action Search Space (Quantified Downstream Impacts)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Action</th>
+                        <th>Target</th>
+                        <th>Delay reduction</th>
+                        <th>Recovery reduction</th>
+                        <th>Explainability & Trade-off details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>1</strong></td>
+                <td><span class="badge badge-blue">REROUTE</span></td>
+                <td>Chennai Mail</td>
+                <td style="color: var(--accent-green); font-weight:600;">-14.2m</td>
+                <td>12m</td>
+                <td>Action REROUTE for Chennai Mail. Expected delay reduction: 14.2 mins. Trade-off: Operational stability cost of 1.8. Confidence: 91.0%</td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>2</strong></td>
+                <td><span class="badge badge-blue">REROUTE</span></td>
+                <td>Sapthagiri Express</td>
+                <td style="color: var(--accent-green); font-weight:600;">-14.2m</td>
+                <td>12m</td>
+                <td>Action REROUTE for Sapthagiri Express. Expected delay reduction: 14.2 mins. Trade-off: Operational stability cost of 1.8. Confidence: 91.0%</td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>3</strong></td>
+                <td><span class="badge badge-blue">HOLD</span></td>
+                <td>Chennai Mail</td>
+                <td style="color: var(--accent-green); font-weight:600;">-6.0m</td>
+                <td>4m</td>
+                <td>Action HOLD for Chennai Mail. Expected delay reduction: 6.0 mins. Trade-off: Operational stability cost of 0.5. Confidence: 85.0%</td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>4</strong></td>
+                <td><span class="badge badge-blue">HOLD</span></td>
+                <td>Kerala Express</td>
+                <td style="color: var(--accent-green); font-weight:600;">-6.0m</td>
+                <td>4m</td>
+                <td>Action HOLD for Kerala Express. Expected delay reduction: 6.0 mins. Trade-off: Operational stability cost of 0.5. Confidence: 85.0%</td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>5</strong></td>
+                <td><span class="badge badge-blue">HOLD</span></td>
+                <td>Sapthagiri Express</td>
+                <td style="color: var(--accent-green); font-weight:600;">-6.0m</td>
+                <td>4m</td>
+                <td>Action HOLD for Sapthagiri Express. Expected delay reduction: 6.0 mins. Trade-off: Operational stability cost of 0.5. Confidence: 85.0%</td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>6</strong></td>
+                <td><span class="badge badge-blue">SPEED_ADJUST</span></td>
+                <td>Chennai Mail</td>
+                <td style="color: var(--accent-green); font-weight:600;">-4.5m</td>
+                <td>3m</td>
+                <td>Action SPEED_ADJUST for Chennai Mail. Expected delay reduction: 4.5 mins. Trade-off: Operational stability cost of 0.2. Confidence: 93.0%</td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>7</strong></td>
+                <td><span class="badge badge-blue">SPEED_ADJUST</span></td>
+                <td>Sapthagiri Express</td>
+                <td style="color: var(--accent-green); font-weight:600;">-4.5m</td>
+                <td>3m</td>
+                <td>Action SPEED_ADJUST for Sapthagiri Express. Expected delay reduction: 4.5 mins. Trade-off: Operational stability cost of 0.2. Confidence: 93.0%</td>
+            </tr>
+            
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>2. Scenario Bundles (Constraint-Satisfying Co-optimizations)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Bundle ID</th>
+                        <th>Name</th>
+                        <th>Actions Included</th>
+                        <th>Expected Recovery Time</th>
+                        <th>Global Delay Saving</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>Bundle_A</strong></td>
+                <td>Scenario A: Baseline (No Action)</td>
+                <td>None</td>
+                <td><strong>12 mins</strong></td>
+                <td style="color: var(--accent-green); font-weight:600;">-0.0m</td>
+                <td><span class="badge badge-green">FEASIBLE</span></td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>Bundle_B</strong></td>
+                <td>Scenario B: Swaps Only</td>
+                <td>None</td>
+                <td><strong>12 mins</strong></td>
+                <td style="color: var(--accent-green); font-weight:600;">-0.0m</td>
+                <td><span class="badge badge-green">FEASIBLE</span></td>
+            </tr>
+            
+            <tr style="border-bottom: 1px dashed rgba(255,255,255,0.05);">
+                <td><strong>Bundle_C</strong></td>
+                <td>Scenario C: Swaps + Speed Profiles</td>
+                <td>6, 7</td>
+                <td><strong>10 mins</strong></td>
+                <td style="color: var(--accent-green); font-weight:600;">-9.0m</td>
+                <td><span class="badge badge-green">FEASIBLE</span></td>
+            </tr>
+            
+                </tbody>
+            </table>
+        </div>
+
+        <p style="color: var(--text-muted); font-size: 0.85rem; text-align: center; margin-top: 40px;">
+            Report generated at 2026-07-07 22:22:38 | RailTwin-Q Layer 4 Decision Space Subsystem
+        </p>
+    </div>
+</body>
+</html>

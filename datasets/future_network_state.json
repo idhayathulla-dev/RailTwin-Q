@@ -1,0 +1,2710 @@
+{
+    "future_state": {
+        "tick": 120,
+        "time": "10:00",
+        "cascade_severity_index": 51.8,
+        "severity_level": "Moderate",
+        "cascade_forecasts": {
+            "15": {
+                "affected_trains": [
+                    12623
+                ],
+                "affected_stations": [],
+                "affected_tracks": [
+                    "3"
+                ],
+                "max_depth": 1,
+                "average_delay_increase": 56.8,
+                "detailed_entities": {
+                    "track_3": {
+                        "type": "track",
+                        "id": "3",
+                        "name": "track_3",
+                        "predicted_value": 32.5,
+                        "propagation_depth": 1,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            6.0,
+                            59.0
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "train_12623": {
+                        "type": "train",
+                        "id": "12623",
+                        "name": "Chennai Mail",
+                        "predicted_value": 34.2,
+                        "propagation_depth": 1,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            7.8,
+                            60.8
+                        ],
+                        "uncertainty_score": 0.9
+                    }
+                }
+            },
+            "30": {
+                "affected_trains": [
+                    12623
+                ],
+                "affected_stations": [
+                    4
+                ],
+                "affected_tracks": [
+                    "3"
+                ],
+                "max_depth": 2,
+                "average_delay_increase": 36.1,
+                "detailed_entities": {
+                    "track_3": {
+                        "type": "track",
+                        "id": "3",
+                        "name": "track_3",
+                        "predicted_value": 32.5,
+                        "propagation_depth": 1,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            6.0,
+                            59.0
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "train_12623": {
+                        "type": "train",
+                        "id": "12623",
+                        "name": "Chennai Mail",
+                        "predicted_value": 34.2,
+                        "propagation_depth": 1,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            7.8,
+                            60.8
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "station_4": {
+                        "type": "station",
+                        "id": "4",
+                        "name": "Jolarpettai",
+                        "predicted_value": 27.4,
+                        "propagation_depth": 2,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            0.9,
+                            53.9
+                        ],
+                        "uncertainty_score": 0.9
+                    }
+                }
+            },
+            "60": {
+                "affected_trains": [
+                    12623
+                ],
+                "affected_stations": [
+                    4
+                ],
+                "affected_tracks": [
+                    "3"
+                ],
+                "max_depth": 2,
+                "average_delay_increase": 36.1,
+                "detailed_entities": {
+                    "track_3": {
+                        "type": "track",
+                        "id": "3",
+                        "name": "track_3",
+                        "predicted_value": 32.5,
+                        "propagation_depth": 1,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            6.0,
+                            59.0
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "train_12623": {
+                        "type": "train",
+                        "id": "12623",
+                        "name": "Chennai Mail",
+                        "predicted_value": 34.2,
+                        "propagation_depth": 1,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            7.8,
+                            60.8
+                        ],
+                        "uncertainty_score": 0.9
+                    },
+                    "station_4": {
+                        "type": "station",
+                        "id": "4",
+                        "name": "Jolarpettai",
+                        "predicted_value": 27.4,
+                        "propagation_depth": 2,
+                        "confidence_score": 10.0,
+                        "confidence_interval": [
+                            0.9,
+                            53.9
+                        ],
+                        "uncertainty_score": 0.9
+                    }
+                }
+            }
+        }
+    },
+    "cascade_graph": {
+        "directed": true,
+        "multigraph": false,
+        "graph": {},
+        "nodes": [
+            {
+                "type": "train",
+                "train_no": 12623,
+                "name": "Chennai Mail",
+                "current_delay": 16.6,
+                "pred_15": 20.66,
+                "pred_30": 23.92,
+                "pred_60": 28.89,
+                "confidence": 0.94,
+                "status": "MOVING",
+                "route_id": 1,
+                "route_index": 2,
+                "priority": 1,
+                "speed": 85.0,
+                "remaining_distance": 78.33,
+                "remaining_stations": 1,
+                "id": "train_12623"
+            },
+            {
+                "type": "train",
+                "train_no": 12625,
+                "name": "Kerala Express",
+                "current_delay": 27.02,
+                "pred_15": 31.11,
+                "pred_30": 33.98,
+                "pred_60": 37.76,
+                "confidence": 0.86,
+                "status": "WAITING",
+                "route_id": 1,
+                "route_index": 2,
+                "priority": 1,
+                "speed": 0.0,
+                "remaining_distance": 0.0,
+                "remaining_stations": 1,
+                "id": "train_12625"
+            },
+            {
+                "type": "train",
+                "train_no": 16057,
+                "name": "Sapthagiri Express",
+                "current_delay": 25.6,
+                "pred_15": 29.22,
+                "pred_30": 29.56,
+                "pred_60": 28.77,
+                "confidence": 0.87,
+                "status": "MOVING",
+                "route_id": 1,
+                "route_index": 2,
+                "priority": 1,
+                "speed": 75.0,
+                "remaining_distance": 19.0,
+                "remaining_stations": 1,
+                "id": "train_16057"
+            },
+            {
+                "type": "station",
+                "station_id": 1,
+                "name": "Chennai Central",
+                "platforms_total": 12,
+                "platforms_occupied": 0,
+                "trains_waiting": 0,
+                "current_congestion": 0.0,
+                "pred_congestion_30": 0.0,
+                "average_delay": 0.0,
+                "id": "station_1"
+            },
+            {
+                "type": "station",
+                "station_id": 2,
+                "name": "Arakkonam",
+                "platforms_total": 8,
+                "platforms_occupied": 0,
+                "trains_waiting": 0,
+                "current_congestion": 0.0,
+                "pred_congestion_30": 0.0,
+                "average_delay": 0.0,
+                "id": "station_2"
+            },
+            {
+                "type": "station",
+                "station_id": 3,
+                "name": "Katpadi",
+                "platforms_total": 5,
+                "platforms_occupied": 0,
+                "trains_waiting": 1,
+                "current_congestion": 20.0,
+                "pred_congestion_30": 20.0,
+                "average_delay": 27.02,
+                "id": "station_3"
+            },
+            {
+                "type": "station",
+                "station_id": 4,
+                "name": "Jolarpettai",
+                "platforms_total": 5,
+                "platforms_occupied": 0,
+                "trains_waiting": 0,
+                "current_congestion": 0.0,
+                "pred_congestion_30": 0.0,
+                "average_delay": 0.0,
+                "id": "station_4"
+            },
+            {
+                "type": "track",
+                "track_id": 1,
+                "capacity": 5,
+                "trains_on_track": 0,
+                "current_occupancy": 0.0,
+                "pred_occupancy_30": 0.05,
+                "blocked": false,
+                "id": "track_1"
+            },
+            {
+                "type": "track",
+                "track_id": 2,
+                "capacity": 4,
+                "trains_on_track": 0,
+                "current_occupancy": 0.0,
+                "pred_occupancy_30": 0.0,
+                "blocked": false,
+                "id": "track_2"
+            },
+            {
+                "type": "track",
+                "track_id": 3,
+                "capacity": 4,
+                "trains_on_track": 2,
+                "current_occupancy": 50.0,
+                "pred_occupancy_30": 49.48,
+                "blocked": false,
+                "id": "track_3"
+            }
+        ],
+        "links": [
+            {
+                "propagation_probability": 0.62,
+                "expected_delay_transfer": 13.3,
+                "transfer_time": 10,
+                "reason": "Track Occupancy",
+                "confidence": 90.0,
+                "source": "train_12623",
+                "target": "track_3"
+            },
+            {
+                "propagation_probability": 0.71,
+                "expected_delay_transfer": 20.5,
+                "transfer_time": 10,
+                "reason": "Track Occupancy",
+                "confidence": 90.0,
+                "source": "train_16057",
+                "target": "track_3"
+            },
+            {
+                "propagation_probability": 0.71,
+                "expected_delay_transfer": 23.0,
+                "transfer_time": 5,
+                "reason": "Signal Block Safety Spacing",
+                "confidence": 92.0,
+                "source": "train_16057",
+                "target": "train_12623"
+            },
+            {
+                "propagation_probability": 0.24,
+                "expected_delay_transfer": 13.5,
+                "transfer_time": 5,
+                "reason": "Platform Starvation Dwell",
+                "confidence": 80.0,
+                "source": "station_3",
+                "target": "train_12625"
+            },
+            {
+                "propagation_probability": 0.43,
+                "expected_delay_transfer": 15.4,
+                "transfer_time": 15,
+                "reason": "Station Destination Queue",
+                "confidence": 85.0,
+                "source": "track_3",
+                "target": "station_4"
+            }
+        ]
+    },
+    "critical_nodes": {
+        "critical_trains": [
+            {
+                "id": 16057,
+                "name": "Sapthagiri Express",
+                "criticality_score": 52.6,
+                "delay": 25.6
+            },
+            {
+                "id": 12625,
+                "name": "Kerala Express",
+                "criticality_score": 49.9,
+                "delay": 27.02
+            },
+            {
+                "id": 12623,
+                "name": "Chennai Mail",
+                "criticality_score": 41.8,
+                "delay": 16.6
+            }
+        ],
+        "critical_stations": [
+            {
+                "id": 3,
+                "name": "Katpadi",
+                "criticality_score": 24.4,
+                "congestion": 20.0
+            },
+            {
+                "id": 4,
+                "name": "Jolarpettai",
+                "criticality_score": 4.4,
+                "congestion": 0.0
+            },
+            {
+                "id": 1,
+                "name": "Chennai Central",
+                "criticality_score": 0.0,
+                "congestion": 0.0
+            },
+            {
+                "id": 2,
+                "name": "Arakkonam",
+                "criticality_score": 0.0,
+                "congestion": 0.0
+            }
+        ],
+        "critical_tracks": [
+            {
+                "id": 3,
+                "criticality_score": 53.3,
+                "occupancy": 50.0,
+                "status": "NORMAL"
+            },
+            {
+                "id": 1,
+                "criticality_score": 20.0,
+                "occupancy": 0.0,
+                "status": "NORMAL"
+            },
+            {
+                "id": 2,
+                "criticality_score": 20.0,
+                "occupancy": 0.0,
+                "status": "NORMAL"
+            }
+        ]
+    },
+    "risk_scores": {
+        "train_risks": [
+            {
+                "id": 16057,
+                "name": "Sapthagiri Express",
+                "risk_score": 26.7
+            },
+            {
+                "id": 12625,
+                "name": "Kerala Express",
+                "risk_score": 25.9
+            },
+            {
+                "id": 12623,
+                "name": "Chennai Mail",
+                "risk_score": 21.3
+            }
+        ],
+        "station_risks": [
+            {
+                "id": 3,
+                "name": "Katpadi",
+                "risk_score": 13.7
+            },
+            {
+                "id": 4,
+                "name": "Jolarpettai",
+                "risk_score": 1.7
+            },
+            {
+                "id": 1,
+                "name": "Chennai Central",
+                "risk_score": 0.0
+            },
+            {
+                "id": 2,
+                "name": "Arakkonam",
+                "risk_score": 0.0
+            }
+        ],
+        "track_risks": [
+            {
+                "id": 3,
+                "risk_score": 24.0
+            },
+            {
+                "id": 1,
+                "risk_score": 4.0
+            },
+            {
+                "id": 2,
+                "risk_score": 4.0
+            }
+        ]
+    },
+    "uncertainty": {
+        "confidence_score": 92.0,
+        "uncertainty_score": 0.08
+    },
+    "candidate_actions": [
+        {
+            "action": "REROUTE",
+            "train_id": 12623,
+            "train_name": "Chennai Mail",
+            "track_id": 3,
+            "expected_delay_reduction": 14.2,
+            "confidence": 0.91,
+            "passenger_impact": "Medium"
+        },
+        {
+            "action": "REROUTE",
+            "train_id": 16057,
+            "train_name": "Sapthagiri Express",
+            "track_id": 3,
+            "expected_delay_reduction": 14.2,
+            "confidence": 0.91,
+            "passenger_impact": "Medium"
+        },
+        {
+            "action": "HOLD",
+            "train_id": 12623,
+            "train_name": "Chennai Mail",
+            "duration_mins": 5,
+            "expected_delay_reduction": 6.0,
+            "confidence": 0.85,
+            "passenger_impact": "Low"
+        },
+        {
+            "action": "HOLD",
+            "train_id": 12625,
+            "train_name": "Kerala Express",
+            "duration_mins": 5,
+            "expected_delay_reduction": 6.0,
+            "confidence": 0.85,
+            "passenger_impact": "Low"
+        },
+        {
+            "action": "HOLD",
+            "train_id": 16057,
+            "train_name": "Sapthagiri Express",
+            "duration_mins": 5,
+            "expected_delay_reduction": 6.0,
+            "confidence": 0.85,
+            "passenger_impact": "Low"
+        },
+        {
+            "action": "SPEED_ADJUST",
+            "train_id": 12623,
+            "train_name": "Chennai Mail",
+            "new_speed_kmp": 75,
+            "expected_delay_reduction": 4.5,
+            "confidence": 0.93,
+            "passenger_impact": "None"
+        },
+        {
+            "action": "SPEED_ADJUST",
+            "train_id": 16057,
+            "train_name": "Sapthagiri Express",
+            "new_speed_kmp": 90,
+            "expected_delay_reduction": 4.5,
+            "confidence": 0.93,
+            "passenger_impact": "None"
+        }
+    ],
+    "decision_impact_graph": {
+        "1": {
+            "action_id": 1,
+            "action": "REROUTE",
+            "target": "Chennai Mail",
+            "reasoning_chain": [
+                "Downstream track segment congested or blocked",
+                "Train Chennai Mail progress delayed on primary track route",
+                "Propagation delay spreads to following trains via safety blocks",
+                "Bypass route via alternate track selected for Train Chennai Mail",
+                "Primary track segment occupancy drops by 30%",
+                "Total network delay propagation drops by 14.2 minutes"
+            ],
+            "causal_graph": {
+                "nodes": [
+                    "Track Congestion",
+                    "Safety Block Spacing",
+                    "Bypass Route Trigger",
+                    "Delay Mitigation"
+                ],
+                "edges": [
+                    {
+                        "source": "Track Congestion",
+                        "target": "Safety Block Spacing"
+                    },
+                    {
+                        "source": "Safety Block Spacing",
+                        "target": "Bypass Route Trigger"
+                    },
+                    {
+                        "source": "Bypass Route Trigger",
+                        "target": "Delay Mitigation"
+                    }
+                ]
+            },
+            "explanation_text": "Downstream track segment congested or blocked -> Train Chennai Mail progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Chennai Mail -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
+            "confidence": 0.91,
+            "expected_improvement_mins": 14.2,
+            "expected_effects": {
+                "delay_reduction_minutes": 14.2,
+                "station_congestion_reduction": 21.299999999999997,
+                "expected_recovery_reduction": 11
+            }
+        },
+        "2": {
+            "action_id": 2,
+            "action": "REROUTE",
+            "target": "Sapthagiri Express",
+            "reasoning_chain": [
+                "Downstream track segment congested or blocked",
+                "Train Sapthagiri Express progress delayed on primary track route",
+                "Propagation delay spreads to following trains via safety blocks",
+                "Bypass route via alternate track selected for Train Sapthagiri Express",
+                "Primary track segment occupancy drops by 30%",
+                "Total network delay propagation drops by 14.2 minutes"
+            ],
+            "causal_graph": {
+                "nodes": [
+                    "Track Congestion",
+                    "Safety Block Spacing",
+                    "Bypass Route Trigger",
+                    "Delay Mitigation"
+                ],
+                "edges": [
+                    {
+                        "source": "Track Congestion",
+                        "target": "Safety Block Spacing"
+                    },
+                    {
+                        "source": "Safety Block Spacing",
+                        "target": "Bypass Route Trigger"
+                    },
+                    {
+                        "source": "Bypass Route Trigger",
+                        "target": "Delay Mitigation"
+                    }
+                ]
+            },
+            "explanation_text": "Downstream track segment congested or blocked -> Train Sapthagiri Express progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Sapthagiri Express -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
+            "confidence": 0.91,
+            "expected_improvement_mins": 14.2,
+            "expected_effects": {
+                "delay_reduction_minutes": 14.2,
+                "station_congestion_reduction": 21.299999999999997,
+                "expected_recovery_reduction": 11
+            }
+        },
+        "3": {
+            "action_id": 3,
+            "action": "HOLD",
+            "target": "Chennai Mail",
+            "reasoning_chain": [
+                "Upstream delay cascade seed detected",
+                "Holding Train Chennai Mail at current station to allow leading train to clear",
+                "Prevails safety signal spacing block conflicts",
+                "Downstream delay transfer avoided for trailing trains",
+                "Total cascade severity index drops by 7.2%"
+            ],
+            "causal_graph": {
+                "nodes": [
+                    "Leading Delay",
+                    "Spacing Conflict Prevention",
+                    "Upstream Holding",
+                    "Cascade Relief"
+                ],
+                "edges": [
+                    {
+                        "source": "Leading Delay",
+                        "target": "Spacing Conflict Prevention"
+                    },
+                    {
+                        "source": "Spacing Conflict Prevention",
+                        "target": "Upstream Holding"
+                    },
+                    {
+                        "source": "Upstream Holding",
+                        "target": "Cascade Relief"
+                    }
+                ]
+            },
+            "explanation_text": "Upstream delay cascade seed detected -> Holding Train Chennai Mail at current station to allow leading train to clear -> Prevails safety signal spacing block conflicts -> Downstream delay transfer avoided for trailing trains -> Total cascade severity index drops by 7.2%",
+            "confidence": 0.85,
+            "expected_improvement_mins": 6.0,
+            "expected_effects": {
+                "delay_reduction_minutes": 6.0,
+                "station_congestion_reduction": 9.0,
+                "expected_recovery_reduction": 4
+            }
+        },
+        "4": {
+            "action_id": 4,
+            "action": "HOLD",
+            "target": "Kerala Express",
+            "reasoning_chain": [
+                "Upstream delay cascade seed detected",
+                "Holding Train Kerala Express at current station to allow leading train to clear",
+                "Prevails safety signal spacing block conflicts",
+                "Downstream delay transfer avoided for trailing trains",
+                "Total cascade severity index drops by 7.2%"
+            ],
+            "causal_graph": {
+                "nodes": [
+                    "Leading Delay",
+                    "Spacing Conflict Prevention",
+                    "Upstream Holding",
+                    "Cascade Relief"
+                ],
+                "edges": [
+                    {
+                        "source": "Leading Delay",
+                        "target": "Spacing Conflict Prevention"
+                    },
+                    {
+                        "source": "Spacing Conflict Prevention",
+                        "target": "Upstream Holding"
+                    },
+                    {
+                        "source": "Upstream Holding",
+                        "target": "Cascade Relief"
+                    }
+                ]
+            },
+            "explanation_text": "Upstream delay cascade seed detected -> Holding Train Kerala Express at current station to allow leading train to clear -> Prevails safety signal spacing block conflicts -> Downstream delay transfer avoided for trailing trains -> Total cascade severity index drops by 7.2%",
+            "confidence": 0.85,
+            "expected_improvement_mins": 6.0,
+            "expected_effects": {
+                "delay_reduction_minutes": 6.0,
+                "station_congestion_reduction": 9.0,
+                "expected_recovery_reduction": 4
+            }
+        },
+        "5": {
+            "action_id": 5,
+            "action": "HOLD",
+            "target": "Sapthagiri Express",
+            "reasoning_chain": [
+                "Upstream delay cascade seed detected",
+                "Holding Train Sapthagiri Express at current station to allow leading train to clear",
+                "Prevails safety signal spacing block conflicts",
+                "Downstream delay transfer avoided for trailing trains",
+                "Total cascade severity index drops by 7.2%"
+            ],
+            "causal_graph": {
+                "nodes": [
+                    "Leading Delay",
+                    "Spacing Conflict Prevention",
+                    "Upstream Holding",
+                    "Cascade Relief"
+                ],
+                "edges": [
+                    {
+                        "source": "Leading Delay",
+                        "target": "Spacing Conflict Prevention"
+                    },
+                    {
+                        "source": "Spacing Conflict Prevention",
+                        "target": "Upstream Holding"
+                    },
+                    {
+                        "source": "Upstream Holding",
+                        "target": "Cascade Relief"
+                    }
+                ]
+            },
+            "explanation_text": "Upstream delay cascade seed detected -> Holding Train Sapthagiri Express at current station to allow leading train to clear -> Prevails safety signal spacing block conflicts -> Downstream delay transfer avoided for trailing trains -> Total cascade severity index drops by 7.2%",
+            "confidence": 0.85,
+            "expected_improvement_mins": 6.0,
+            "expected_effects": {
+                "delay_reduction_minutes": 6.0,
+                "station_congestion_reduction": 9.0,
+                "expected_recovery_reduction": 4
+            }
+        },
+        "6": {
+            "action_id": 6,
+            "action": "SPEED_ADJUST",
+            "target": "Chennai Mail",
+            "reasoning_chain": [
+                "Operational spacing optimal",
+                "Dynamic speed adjustments matched to safety profiles",
+                "Minimal network propagation delay expected"
+            ],
+            "causal_graph": {
+                "nodes": [
+                    "Optimal State"
+                ],
+                "edges": []
+            },
+            "explanation_text": "Operational spacing optimal -> Dynamic speed adjustments matched to safety profiles -> Minimal network propagation delay expected",
+            "confidence": 0.93,
+            "expected_improvement_mins": 4.5,
+            "expected_effects": {
+                "delay_reduction_minutes": 4.5,
+                "station_congestion_reduction": 6.75,
+                "expected_recovery_reduction": 3
+            }
+        },
+        "7": {
+            "action_id": 7,
+            "action": "SPEED_ADJUST",
+            "target": "Sapthagiri Express",
+            "reasoning_chain": [
+                "Operational spacing optimal",
+                "Dynamic speed adjustments matched to safety profiles",
+                "Minimal network propagation delay expected"
+            ],
+            "causal_graph": {
+                "nodes": [
+                    "Optimal State"
+                ],
+                "edges": []
+            },
+            "explanation_text": "Operational spacing optimal -> Dynamic speed adjustments matched to safety profiles -> Minimal network propagation delay expected",
+            "confidence": 0.93,
+            "expected_improvement_mins": 4.5,
+            "expected_effects": {
+                "delay_reduction_minutes": 4.5,
+                "station_congestion_reduction": 6.75,
+                "expected_recovery_reduction": 3
+            }
+        }
+    },
+    "action_dependency_graph": {
+        "nodes": {
+            "1": {
+                "action_id": 1,
+                "action": "REROUTE",
+                "requires": [
+                    "alternative_path_exists"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "SPEED_ADJUST",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12623,
+                "station_id": 0
+            },
+            "2": {
+                "action_id": 2,
+                "action": "REROUTE",
+                "requires": [
+                    "alternative_path_exists"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "SPEED_ADJUST",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 16057,
+                "station_id": 0
+            },
+            "3": {
+                "action_id": 3,
+                "action": "HOLD",
+                "requires": [
+                    "upstream_block_free"
+                ],
+                "conflicts_with": [
+                    "REROUTE",
+                    "SPEED_ADJUST"
+                ],
+                "compatible_with": [
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12623,
+                "station_id": 0
+            },
+            "4": {
+                "action_id": 4,
+                "action": "HOLD",
+                "requires": [
+                    "upstream_block_free"
+                ],
+                "conflicts_with": [
+                    "REROUTE",
+                    "SPEED_ADJUST"
+                ],
+                "compatible_with": [
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12625,
+                "station_id": 0
+            },
+            "5": {
+                "action_id": 5,
+                "action": "HOLD",
+                "requires": [
+                    "upstream_block_free"
+                ],
+                "conflicts_with": [
+                    "REROUTE",
+                    "SPEED_ADJUST"
+                ],
+                "compatible_with": [
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 16057,
+                "station_id": 0
+            },
+            "6": {
+                "action_id": 6,
+                "action": "SPEED_ADJUST",
+                "requires": [
+                    "speed_limits_within_bounds"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "REROUTE",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 12623,
+                "station_id": 0
+            },
+            "7": {
+                "action_id": 7,
+                "action": "SPEED_ADJUST",
+                "requires": [
+                    "speed_limits_within_bounds"
+                ],
+                "conflicts_with": [
+                    "HOLD"
+                ],
+                "compatible_with": [
+                    "REROUTE",
+                    "PLATFORM_SWAP"
+                ],
+                "train_id": 16057,
+                "station_id": 0
+            }
+        },
+        "edges": [
+            {
+                "source": "1",
+                "target": "3",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "1",
+                "target": "7",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "2",
+                "target": "5",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "2",
+                "target": "6",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "3",
+                "target": "1",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "3",
+                "target": "6",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "5",
+                "target": "2",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "5",
+                "target": "7",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "6",
+                "target": "2",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "6",
+                "target": "3",
+                "relationship": "CONFLICTS_WITH"
+            },
+            {
+                "source": "7",
+                "target": "1",
+                "relationship": "COMPATIBLE"
+            },
+            {
+                "source": "7",
+                "target": "5",
+                "relationship": "CONFLICTS_WITH"
+            }
+        ]
+    },
+    "optimization_constraints": {
+        "platform_capacities": {
+            "station_1": {
+                "max_platforms": 12,
+                "current_platforms_occupied": 0,
+                "available_slots": 12
+            },
+            "station_2": {
+                "max_platforms": 8,
+                "current_platforms_occupied": 0,
+                "available_slots": 8
+            },
+            "station_3": {
+                "max_platforms": 5,
+                "current_platforms_occupied": 0,
+                "available_slots": 5
+            },
+            "station_4": {
+                "max_platforms": 5,
+                "current_platforms_occupied": 0,
+                "available_slots": 5
+            }
+        },
+        "track_capacities": {
+            "track_1": {
+                "capacity": 5,
+                "current_trains": 0,
+                "blocked": false
+            },
+            "track_2": {
+                "capacity": 4,
+                "current_trains": 0,
+                "blocked": false
+            },
+            "track_3": {
+                "capacity": 4,
+                "current_trains": 2,
+                "blocked": false
+            }
+        },
+        "safety_rules": {
+            "headway_spacing_mins": 5,
+            "express_train_precedence": true,
+            "priority_preemption": true
+        },
+        "operating_limits": {
+            "crew_rest_mins_simplified": 30,
+            "maintenance_blocks_active": []
+        }
+    },
+    "scenario_bundles": [
+        {
+            "bundle_id": "Bundle_A",
+            "name": "Scenario A: Baseline (No Action)",
+            "actions_included": [],
+            "expected_recovery_time_mins": 12,
+            "total_delay_savings_mins": 0.0,
+            "feasibility": true
+        }
+    ],
+    "cost_vectors": [
+        {
+            "action_id": 1,
+            "action": "REROUTE",
+            "cost_vector": {
+                "delay_saved": -0.7,
+                "passenger_delay": 0.3,
+                "energy_consumption": 0.7,
+                "fuel_cost": 0.7,
+                "crew_impact": 0.5,
+                "track_utilization": 0.5,
+                "platform_usage": 0.2,
+                "maintenance_impact": 0.2,
+                "schedule_stability": 0.8,
+                "operational_complexity": 0.7,
+                "safety_risk": 0.2,
+                "delay": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "operational_cost": 3.5
+            }
+        },
+        {
+            "action_id": 2,
+            "action": "REROUTE",
+            "cost_vector": {
+                "delay_saved": -0.7,
+                "passenger_delay": 0.3,
+                "energy_consumption": 0.7,
+                "fuel_cost": 0.7,
+                "crew_impact": 0.5,
+                "track_utilization": 0.5,
+                "platform_usage": 0.2,
+                "maintenance_impact": 0.2,
+                "schedule_stability": 0.8,
+                "operational_complexity": 0.7,
+                "safety_risk": 0.2,
+                "delay": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "operational_cost": 3.5
+            }
+        },
+        {
+            "action_id": 3,
+            "action": "HOLD",
+            "cost_vector": {
+                "delay_saved": -0.3,
+                "passenger_delay": 0.6,
+                "energy_consumption": 0.0,
+                "fuel_cost": 0.0,
+                "crew_impact": 0.4,
+                "track_utilization": 0.2,
+                "platform_usage": 0.5,
+                "maintenance_impact": 0.0,
+                "schedule_stability": 0.5,
+                "operational_complexity": 0.3,
+                "safety_risk": 0.05,
+                "delay": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "operational_cost": 1.5
+            }
+        },
+        {
+            "action_id": 4,
+            "action": "HOLD",
+            "cost_vector": {
+                "delay_saved": -0.3,
+                "passenger_delay": 0.6,
+                "energy_consumption": 0.0,
+                "fuel_cost": 0.0,
+                "crew_impact": 0.4,
+                "track_utilization": 0.2,
+                "platform_usage": 0.5,
+                "maintenance_impact": 0.0,
+                "schedule_stability": 0.5,
+                "operational_complexity": 0.3,
+                "safety_risk": 0.05,
+                "delay": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "operational_cost": 1.5
+            }
+        },
+        {
+            "action_id": 5,
+            "action": "HOLD",
+            "cost_vector": {
+                "delay_saved": -0.3,
+                "passenger_delay": 0.6,
+                "energy_consumption": 0.0,
+                "fuel_cost": 0.0,
+                "crew_impact": 0.4,
+                "track_utilization": 0.2,
+                "platform_usage": 0.5,
+                "maintenance_impact": 0.0,
+                "schedule_stability": 0.5,
+                "operational_complexity": 0.3,
+                "safety_risk": 0.05,
+                "delay": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "operational_cost": 1.5
+            }
+        },
+        {
+            "action_id": 6,
+            "action": "SPEED_ADJUST",
+            "cost_vector": {
+                "delay_saved": -0.2,
+                "passenger_delay": 0.1,
+                "energy_consumption": 0.4,
+                "fuel_cost": 0.4,
+                "crew_impact": 0.1,
+                "track_utilization": 0.3,
+                "platform_usage": 0.1,
+                "maintenance_impact": 0.1,
+                "schedule_stability": 0.2,
+                "operational_complexity": 0.2,
+                "safety_risk": 0.15,
+                "delay": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "operational_cost": 1.0
+            }
+        },
+        {
+            "action_id": 7,
+            "action": "SPEED_ADJUST",
+            "cost_vector": {
+                "delay_saved": -0.2,
+                "passenger_delay": 0.1,
+                "energy_consumption": 0.4,
+                "fuel_cost": 0.4,
+                "crew_impact": 0.1,
+                "track_utilization": 0.3,
+                "platform_usage": 0.1,
+                "maintenance_impact": 0.1,
+                "schedule_stability": 0.2,
+                "operational_complexity": 0.2,
+                "safety_risk": 0.15,
+                "delay": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "operational_cost": 1.0
+            }
+        }
+    ],
+    "decision_scores": [
+        {
+            "action_id": "1",
+            "action": "REROUTE",
+            "decision_score": 28.4,
+            "rank": 1
+        },
+        {
+            "action_id": "2",
+            "action": "REROUTE",
+            "decision_score": 28.4,
+            "rank": 2
+        },
+        {
+            "action_id": "3",
+            "action": "HOLD",
+            "decision_score": 12.0,
+            "rank": 3
+        },
+        {
+            "action_id": "4",
+            "action": "HOLD",
+            "decision_score": 12.0,
+            "rank": 4
+        },
+        {
+            "action_id": "5",
+            "action": "HOLD",
+            "decision_score": 12.0,
+            "rank": 5
+        },
+        {
+            "action_id": "6",
+            "action": "SPEED_ADJUST",
+            "decision_score": 9.0,
+            "rank": 6
+        },
+        {
+            "action_id": "7",
+            "action": "SPEED_ADJUST",
+            "decision_score": 9.0,
+            "rank": 7
+        }
+    ],
+    "decision_reasoning": {
+        "1": {
+            "action_id": 1,
+            "action": "REROUTE",
+            "target": "Chennai Mail",
+            "reasoning_chain": [
+                "Downstream track segment congested or blocked",
+                "Train Chennai Mail progress delayed on primary track route",
+                "Propagation delay spreads to following trains via safety blocks",
+                "Bypass route via alternate track selected for Train Chennai Mail",
+                "Primary track segment occupancy drops by 30%",
+                "Total network delay propagation drops by 14.2 minutes"
+            ],
+            "causal_graph": {
+                "nodes": [
+                    "Track Congestion",
+                    "Safety Block Spacing",
+                    "Bypass Route Trigger",
+                    "Delay Mitigation"
+                ],
+                "edges": [
+                    {
+                        "source": "Track Congestion",
+                        "target": "Safety Block Spacing"
+                    },
+                    {
+                        "source": "Safety Block Spacing",
+                        "target": "Bypass Route Trigger"
+                    },
+                    {
+                        "source": "Bypass Route Trigger",
+                        "target": "Delay Mitigation"
+                    }
+                ]
+            },
+            "explanation_text": "Downstream track segment congested or blocked -> Train Chennai Mail progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Chennai Mail -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
+            "confidence": 0.91,
+            "expected_improvement_mins": 14.2,
+            "expected_effects": {
+                "delay_reduction_minutes": 14.2,
+                "station_congestion_reduction": 21.299999999999997,
+                "expected_recovery_reduction": 11
+            }
+        },
+        "2": {
+            "action_id": 2,
+            "action": "REROUTE",
+            "target": "Sapthagiri Express",
+            "reasoning_chain": [
+                "Downstream track segment congested or blocked",
+                "Train Sapthagiri Express progress delayed on primary track route",
+                "Propagation delay spreads to following trains via safety blocks",
+                "Bypass route via alternate track selected for Train Sapthagiri Express",
+                "Primary track segment occupancy drops by 30%",
+                "Total network delay propagation drops by 14.2 minutes"
+            ],
+            "causal_graph": {
+                "nodes": [
+                    "Track Congestion",
+                    "Safety Block Spacing",
+                    "Bypass Route Trigger",
+                    "Delay Mitigation"
+                ],
+                "edges": [
+                    {
+                        "source": "Track Congestion",
+                        "target": "Safety Block Spacing"
+                    },
+                    {
+                        "source": "Safety Block Spacing",
+                        "target": "Bypass Route Trigger"
+                    },
+                    {
+                        "source": "Bypass Route Trigger",
+                        "target": "Delay Mitigation"
+                    }
+                ]
+            },
+            "explanation_text": "Downstream track segment congested or blocked -> Train Sapthagiri Express progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Sapthagiri Express -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
+            "confidence": 0.91,
+            "expected_improvement_mins": 14.2,
+            "expected_effects": {
+                "delay_reduction_minutes": 14.2,
+                "station_congestion_reduction": 21.299999999999997,
+                "expected_recovery_reduction": 11
+            }
+        },
+        "3": {
+            "action_id": 3,
+            "action": "HOLD",
+            "target": "Chennai Mail",
+            "reasoning_chain": [
+                "Upstream delay cascade seed detected",
+                "Holding Train Chennai Mail at current station to allow leading train to clear",
+                "Prevails safety signal spacing block conflicts",
+                "Downstream delay transfer avoided for trailing trains",
+                "Total cascade severity index drops by 7.2%"
+            ],
+            "causal_graph": {
+                "nodes": [
+                    "Leading Delay",
+                    "Spacing Conflict Prevention",
+                    "Upstream Holding",
+                    "Cascade Relief"
+                ],
+                "edges": [
+                    {
+                        "source": "Leading Delay",
+                        "target": "Spacing Conflict Prevention"
+                    },
+                    {
+                        "source": "Spacing Conflict Prevention",
+                        "target": "Upstream Holding"
+                    },
+                    {
+                        "source": "Upstream Holding",
+                        "target": "Cascade Relief"
+                    }
+                ]
+            },
+            "explanation_text": "Upstream delay cascade seed detected -> Holding Train Chennai Mail at current station to allow leading train to clear -> Prevails safety signal spacing block conflicts -> Downstream delay transfer avoided for trailing trains -> Total cascade severity index drops by 7.2%",
+            "confidence": 0.85,
+            "expected_improvement_mins": 6.0,
+            "expected_effects": {
+                "delay_reduction_minutes": 6.0,
+                "station_congestion_reduction": 9.0,
+                "expected_recovery_reduction": 4
+            }
+        },
+        "4": {
+            "action_id": 4,
+            "action": "HOLD",
+            "target": "Kerala Express",
+            "reasoning_chain": [
+                "Upstream delay cascade seed detected",
+                "Holding Train Kerala Express at current station to allow leading train to clear",
+                "Prevails safety signal spacing block conflicts",
+                "Downstream delay transfer avoided for trailing trains",
+                "Total cascade severity index drops by 7.2%"
+            ],
+            "causal_graph": {
+                "nodes": [
+                    "Leading Delay",
+                    "Spacing Conflict Prevention",
+                    "Upstream Holding",
+                    "Cascade Relief"
+                ],
+                "edges": [
+                    {
+                        "source": "Leading Delay",
+                        "target": "Spacing Conflict Prevention"
+                    },
+                    {
+                        "source": "Spacing Conflict Prevention",
+                        "target": "Upstream Holding"
+                    },
+                    {
+                        "source": "Upstream Holding",
+                        "target": "Cascade Relief"
+                    }
+                ]
+            },
+            "explanation_text": "Upstream delay cascade seed detected -> Holding Train Kerala Express at current station to allow leading train to clear -> Prevails safety signal spacing block conflicts -> Downstream delay transfer avoided for trailing trains -> Total cascade severity index drops by 7.2%",
+            "confidence": 0.85,
+            "expected_improvement_mins": 6.0,
+            "expected_effects": {
+                "delay_reduction_minutes": 6.0,
+                "station_congestion_reduction": 9.0,
+                "expected_recovery_reduction": 4
+            }
+        },
+        "5": {
+            "action_id": 5,
+            "action": "HOLD",
+            "target": "Sapthagiri Express",
+            "reasoning_chain": [
+                "Upstream delay cascade seed detected",
+                "Holding Train Sapthagiri Express at current station to allow leading train to clear",
+                "Prevails safety signal spacing block conflicts",
+                "Downstream delay transfer avoided for trailing trains",
+                "Total cascade severity index drops by 7.2%"
+            ],
+            "causal_graph": {
+                "nodes": [
+                    "Leading Delay",
+                    "Spacing Conflict Prevention",
+                    "Upstream Holding",
+                    "Cascade Relief"
+                ],
+                "edges": [
+                    {
+                        "source": "Leading Delay",
+                        "target": "Spacing Conflict Prevention"
+                    },
+                    {
+                        "source": "Spacing Conflict Prevention",
+                        "target": "Upstream Holding"
+                    },
+                    {
+                        "source": "Upstream Holding",
+                        "target": "Cascade Relief"
+                    }
+                ]
+            },
+            "explanation_text": "Upstream delay cascade seed detected -> Holding Train Sapthagiri Express at current station to allow leading train to clear -> Prevails safety signal spacing block conflicts -> Downstream delay transfer avoided for trailing trains -> Total cascade severity index drops by 7.2%",
+            "confidence": 0.85,
+            "expected_improvement_mins": 6.0,
+            "expected_effects": {
+                "delay_reduction_minutes": 6.0,
+                "station_congestion_reduction": 9.0,
+                "expected_recovery_reduction": 4
+            }
+        },
+        "6": {
+            "action_id": 6,
+            "action": "SPEED_ADJUST",
+            "target": "Chennai Mail",
+            "reasoning_chain": [
+                "Operational spacing optimal",
+                "Dynamic speed adjustments matched to safety profiles",
+                "Minimal network propagation delay expected"
+            ],
+            "causal_graph": {
+                "nodes": [
+                    "Optimal State"
+                ],
+                "edges": []
+            },
+            "explanation_text": "Operational spacing optimal -> Dynamic speed adjustments matched to safety profiles -> Minimal network propagation delay expected",
+            "confidence": 0.93,
+            "expected_improvement_mins": 4.5,
+            "expected_effects": {
+                "delay_reduction_minutes": 4.5,
+                "station_congestion_reduction": 6.75,
+                "expected_recovery_reduction": 3
+            }
+        },
+        "7": {
+            "action_id": 7,
+            "action": "SPEED_ADJUST",
+            "target": "Sapthagiri Express",
+            "reasoning_chain": [
+                "Operational spacing optimal",
+                "Dynamic speed adjustments matched to safety profiles",
+                "Minimal network propagation delay expected"
+            ],
+            "causal_graph": {
+                "nodes": [
+                    "Optimal State"
+                ],
+                "edges": []
+            },
+            "explanation_text": "Operational spacing optimal -> Dynamic speed adjustments matched to safety profiles -> Minimal network propagation delay expected",
+            "confidence": 0.93,
+            "expected_improvement_mins": 4.5,
+            "expected_effects": {
+                "delay_reduction_minutes": 4.5,
+                "station_congestion_reduction": 6.75,
+                "expected_recovery_reduction": 3
+            }
+        }
+    },
+    "counterfactual_analysis": {
+        "Scenario A (No Action)": {
+            "recovery_time_mins": 12,
+            "delay_reduction_minutes": 0.0,
+            "congestion_reduction_percent": 0.0,
+            "affected_trains_reduced": 0,
+            "affected_stations_reduced": 0,
+            "csi_improvement": 0.0
+        },
+        "Scenario B (Platform Swap)": {
+            "recovery_time_mins": 12,
+            "delay_reduction_minutes": 0,
+            "congestion_reduction_percent": 0.0,
+            "affected_trains_reduced": 0,
+            "affected_stations_reduced": 0,
+            "csi_improvement": 0.0
+        },
+        "Scenario C (Speed Adjustment)": {
+            "recovery_time_mins": 10,
+            "delay_reduction_minutes": 9.0,
+            "congestion_reduction_percent": 10.8,
+            "affected_trains_reduced": 1,
+            "affected_stations_reduced": 0,
+            "csi_improvement": 9.0
+        },
+        "Scenario D (Reroute)": {
+            "recovery_time_mins": 10,
+            "delay_reduction_minutes": 28.4,
+            "congestion_reduction_percent": 71.0,
+            "affected_trains_reduced": 2,
+            "affected_stations_reduced": 1,
+            "csi_improvement": 56.8
+        },
+        "Scenario E (Hold Train)": {
+            "recovery_time_mins": 10,
+            "delay_reduction_minutes": 18.0,
+            "congestion_reduction_percent": 14.4,
+            "affected_trains_reduced": 1,
+            "affected_stations_reduced": 0,
+            "csi_improvement": 9.0
+        }
+    },
+    "passenger_impact": {
+        "1": {
+            "action_id": 1,
+            "action": "REROUTE",
+            "passengers_delayed": 50,
+            "passengers_saved": 950,
+            "missed_connections_avoided": 12,
+            "station_crowd_reduction_percent": 45.0,
+            "platform_crowd_reduction_percent": 15.0,
+            "passenger_waiting_time_reduction_mins": 13
+        },
+        "2": {
+            "action_id": 2,
+            "action": "REROUTE",
+            "passengers_delayed": 50,
+            "passengers_saved": 950,
+            "missed_connections_avoided": 12,
+            "station_crowd_reduction_percent": 45.0,
+            "platform_crowd_reduction_percent": 15.0,
+            "passenger_waiting_time_reduction_mins": 13
+        },
+        "3": {
+            "action_id": 3,
+            "action": "HOLD",
+            "passengers_delayed": 600,
+            "passengers_saved": 400,
+            "missed_connections_avoided": -3,
+            "station_crowd_reduction_percent": -10.0,
+            "platform_crowd_reduction_percent": -15.0,
+            "passenger_waiting_time_reduction_mins": 1
+        },
+        "4": {
+            "action_id": 4,
+            "action": "HOLD",
+            "passengers_delayed": 600,
+            "passengers_saved": 400,
+            "missed_connections_avoided": -3,
+            "station_crowd_reduction_percent": -10.0,
+            "platform_crowd_reduction_percent": -15.0,
+            "passenger_waiting_time_reduction_mins": 1
+        },
+        "5": {
+            "action_id": 5,
+            "action": "HOLD",
+            "passengers_delayed": 600,
+            "passengers_saved": 400,
+            "missed_connections_avoided": -3,
+            "station_crowd_reduction_percent": -10.0,
+            "platform_crowd_reduction_percent": -15.0,
+            "passenger_waiting_time_reduction_mins": 1
+        },
+        "6": {
+            "action_id": 6,
+            "action": "SPEED_ADJUST",
+            "passengers_delayed": 0,
+            "passengers_saved": 1000,
+            "missed_connections_avoided": 2,
+            "station_crowd_reduction_percent": 5.0,
+            "platform_crowd_reduction_percent": 5.0,
+            "passenger_waiting_time_reduction_mins": 4
+        },
+        "7": {
+            "action_id": 7,
+            "action": "SPEED_ADJUST",
+            "passengers_delayed": 0,
+            "passengers_saved": 1000,
+            "missed_connections_avoided": 2,
+            "station_crowd_reduction_percent": 5.0,
+            "platform_crowd_reduction_percent": 5.0,
+            "passenger_waiting_time_reduction_mins": 4
+        }
+    },
+    "robustness_report": {
+        "1": {
+            "action_id": 1,
+            "action": "REROUTE",
+            "compatibility": {
+                "Heavy Rain": true,
+                "Signal Failure": false,
+                "Track Blockage": false,
+                "Maintenance": true,
+                "Festival Rush": true,
+                "Power Failure": true
+            },
+            "robustness_score": 66
+        },
+        "2": {
+            "action_id": 2,
+            "action": "REROUTE",
+            "compatibility": {
+                "Heavy Rain": true,
+                "Signal Failure": false,
+                "Track Blockage": false,
+                "Maintenance": true,
+                "Festival Rush": true,
+                "Power Failure": true
+            },
+            "robustness_score": 66
+        },
+        "3": {
+            "action_id": 3,
+            "action": "HOLD",
+            "compatibility": {
+                "Heavy Rain": true,
+                "Signal Failure": true,
+                "Track Blockage": true,
+                "Maintenance": true,
+                "Festival Rush": false,
+                "Power Failure": true
+            },
+            "robustness_score": 83
+        },
+        "4": {
+            "action_id": 4,
+            "action": "HOLD",
+            "compatibility": {
+                "Heavy Rain": true,
+                "Signal Failure": true,
+                "Track Blockage": true,
+                "Maintenance": true,
+                "Festival Rush": false,
+                "Power Failure": true
+            },
+            "robustness_score": 83
+        },
+        "5": {
+            "action_id": 5,
+            "action": "HOLD",
+            "compatibility": {
+                "Heavy Rain": true,
+                "Signal Failure": true,
+                "Track Blockage": true,
+                "Maintenance": true,
+                "Festival Rush": false,
+                "Power Failure": true
+            },
+            "robustness_score": 83
+        },
+        "6": {
+            "action_id": 6,
+            "action": "SPEED_ADJUST",
+            "compatibility": {
+                "Heavy Rain": true,
+                "Signal Failure": true,
+                "Track Blockage": true,
+                "Maintenance": true,
+                "Festival Rush": true,
+                "Power Failure": false
+            },
+            "robustness_score": 83
+        },
+        "7": {
+            "action_id": 7,
+            "action": "SPEED_ADJUST",
+            "compatibility": {
+                "Heavy Rain": true,
+                "Signal Failure": true,
+                "Track Blockage": true,
+                "Maintenance": true,
+                "Festival Rush": true,
+                "Power Failure": false
+            },
+            "robustness_score": 83
+        }
+    },
+    "pareto_front": {
+        "pareto_solutions": [
+            {
+                "action_id": 1,
+                "action": "REROUTE",
+                "target": "Chennai Mail",
+                "delay_cost": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "passenger_saved_percent": 0.95,
+                "operational_cost": 3.5,
+                "robustness": 0.66
+            },
+            {
+                "action_id": 2,
+                "action": "REROUTE",
+                "target": "Sapthagiri Express",
+                "delay_cost": -14.0,
+                "risk": 10.0,
+                "energy": 7.0,
+                "passenger_saved_percent": 0.95,
+                "operational_cost": 3.5,
+                "robustness": 0.66
+            },
+            {
+                "action_id": 3,
+                "action": "HOLD",
+                "target": "Chennai Mail",
+                "delay_cost": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "passenger_saved_percent": 0.4,
+                "operational_cost": 1.5,
+                "robustness": 0.83
+            },
+            {
+                "action_id": 4,
+                "action": "HOLD",
+                "target": "Kerala Express",
+                "delay_cost": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "passenger_saved_percent": 0.4,
+                "operational_cost": 1.5,
+                "robustness": 0.83
+            },
+            {
+                "action_id": 5,
+                "action": "HOLD",
+                "target": "Sapthagiri Express",
+                "delay_cost": -6.0,
+                "risk": 2.5,
+                "energy": 0.0,
+                "passenger_saved_percent": 0.4,
+                "operational_cost": 1.5,
+                "robustness": 0.83
+            },
+            {
+                "action_id": 6,
+                "action": "SPEED_ADJUST",
+                "target": "Chennai Mail",
+                "delay_cost": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "passenger_saved_percent": 1.0,
+                "operational_cost": 1.0,
+                "robustness": 0.83
+            },
+            {
+                "action_id": 7,
+                "action": "SPEED_ADJUST",
+                "target": "Sapthagiri Express",
+                "delay_cost": -4.0,
+                "risk": 7.5,
+                "energy": 4.0,
+                "passenger_saved_percent": 1.0,
+                "operational_cost": 1.0,
+                "robustness": 0.83
+            }
+        ],
+        "total_candidates": 7,
+        "non_dominated_count": 7
+    },
+    "decision_vectors": {
+        "1": {
+            "action_id": 1,
+            "action": "REROUTE",
+            "embedding_vector": [
+                14.0,
+                7.0,
+                10.0,
+                0.95,
+                0.8,
+                0.91,
+                0.66
+            ]
+        },
+        "2": {
+            "action_id": 2,
+            "action": "REROUTE",
+            "embedding_vector": [
+                14.0,
+                7.0,
+                10.0,
+                0.95,
+                0.8,
+                0.91,
+                0.66
+            ]
+        },
+        "3": {
+            "action_id": 3,
+            "action": "HOLD",
+            "embedding_vector": [
+                6.0,
+                0.0,
+                2.5,
+                0.4,
+                0.5,
+                0.85,
+                0.83
+            ]
+        },
+        "4": {
+            "action_id": 4,
+            "action": "HOLD",
+            "embedding_vector": [
+                6.0,
+                0.0,
+                2.5,
+                0.4,
+                0.5,
+                0.85,
+                0.83
+            ]
+        },
+        "5": {
+            "action_id": 5,
+            "action": "HOLD",
+            "embedding_vector": [
+                6.0,
+                0.0,
+                2.5,
+                0.4,
+                0.5,
+                0.85,
+                0.83
+            ]
+        },
+        "6": {
+            "action_id": 6,
+            "action": "SPEED_ADJUST",
+            "embedding_vector": [
+                4.0,
+                4.0,
+                7.5,
+                1.0,
+                0.2,
+                0.93,
+                0.83
+            ]
+        },
+        "7": {
+            "action_id": 7,
+            "action": "SPEED_ADJUST",
+            "embedding_vector": [
+                4.0,
+                4.0,
+                7.5,
+                1.0,
+                0.2,
+                0.93,
+                0.83
+            ]
+        }
+    },
+    "decision_explanations": {
+        "1": {
+            "action_id": 1,
+            "action": "REROUTE",
+            "target": "Chennai Mail",
+            "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
+            "expected_delay_saved": "14.0 mins",
+            "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
+            "passengers_saved": 950,
+            "confidence": "91%"
+        },
+        "2": {
+            "action_id": 2,
+            "action": "REROUTE",
+            "target": "Sapthagiri Express",
+            "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
+            "expected_delay_saved": "14.0 mins",
+            "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
+            "passengers_saved": 950,
+            "confidence": "91%"
+        },
+        "3": {
+            "action_id": 3,
+            "action": "HOLD",
+            "target": "Chennai Mail",
+            "reason": "Safety block buffer capacity drops below safety limits.",
+            "expected_delay_saved": "6.0 mins",
+            "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+            "passengers_saved": 400,
+            "confidence": "85%"
+        },
+        "4": {
+            "action_id": 4,
+            "action": "HOLD",
+            "target": "Kerala Express",
+            "reason": "Safety block buffer capacity drops below safety limits.",
+            "expected_delay_saved": "6.0 mins",
+            "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+            "passengers_saved": 400,
+            "confidence": "85%"
+        },
+        "5": {
+            "action_id": 5,
+            "action": "HOLD",
+            "target": "Sapthagiri Express",
+            "reason": "Safety block buffer capacity drops below safety limits.",
+            "expected_delay_saved": "6.0 mins",
+            "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+            "passengers_saved": 400,
+            "confidence": "85%"
+        },
+        "6": {
+            "action_id": 6,
+            "action": "SPEED_ADJUST",
+            "target": "Chennai Mail",
+            "reason": "Safety spacing adjustments scheduled.",
+            "expected_delay_saved": "4.0 mins",
+            "trade_off": "None.",
+            "passengers_saved": 1000,
+            "confidence": "93%"
+        },
+        "7": {
+            "action_id": 7,
+            "action": "SPEED_ADJUST",
+            "target": "Sapthagiri Express",
+            "reason": "Safety spacing adjustments scheduled.",
+            "expected_delay_saved": "4.0 mins",
+            "trade_off": "None.",
+            "passengers_saved": 1000,
+            "confidence": "93%"
+        }
+    },
+    "optimization_search_space": {
+        "decision_variables": {
+            "1": {
+                "action_id": 1,
+                "action": "REROUTE",
+                "target": "Chennai Mail",
+                "feasible": true,
+                "variable_symbol": "x_1"
+            },
+            "2": {
+                "action_id": 2,
+                "action": "REROUTE",
+                "target": "Sapthagiri Express",
+                "feasible": true,
+                "variable_symbol": "x_2"
+            },
+            "3": {
+                "action_id": 3,
+                "action": "HOLD",
+                "target": "Chennai Mail",
+                "feasible": true,
+                "variable_symbol": "x_3"
+            },
+            "4": {
+                "action_id": 4,
+                "action": "HOLD",
+                "target": "Kerala Express",
+                "feasible": true,
+                "variable_symbol": "x_4"
+            },
+            "5": {
+                "action_id": 5,
+                "action": "HOLD",
+                "target": "Sapthagiri Express",
+                "feasible": true,
+                "variable_symbol": "x_5"
+            },
+            "6": {
+                "action_id": 6,
+                "action": "SPEED_ADJUST",
+                "target": "Chennai Mail",
+                "feasible": true,
+                "variable_symbol": "x_6"
+            },
+            "7": {
+                "action_id": 7,
+                "action": "SPEED_ADJUST",
+                "target": "Sapthagiri Express",
+                "feasible": true,
+                "variable_symbol": "x_7"
+            }
+        },
+        "constraints": {
+            "platform_capacities": {
+                "station_1": {
+                    "max_platforms": 12,
+                    "current_platforms_occupied": 0,
+                    "available_slots": 12
+                },
+                "station_2": {
+                    "max_platforms": 8,
+                    "current_platforms_occupied": 0,
+                    "available_slots": 8
+                },
+                "station_3": {
+                    "max_platforms": 5,
+                    "current_platforms_occupied": 0,
+                    "available_slots": 5
+                },
+                "station_4": {
+                    "max_platforms": 5,
+                    "current_platforms_occupied": 0,
+                    "available_slots": 5
+                }
+            },
+            "track_capacities": {
+                "track_1": {
+                    "capacity": 5,
+                    "current_trains": 0,
+                    "blocked": false
+                },
+                "track_2": {
+                    "capacity": 4,
+                    "current_trains": 0,
+                    "blocked": false
+                },
+                "track_3": {
+                    "capacity": 4,
+                    "current_trains": 2,
+                    "blocked": false
+                }
+            },
+            "safety_rules": {
+                "headway_spacing_mins": 5,
+                "express_train_precedence": true,
+                "priority_preemption": true
+            },
+            "operating_limits": {
+                "crew_rest_mins_simplified": 30,
+                "maintenance_blocks_active": []
+            }
+        },
+        "cost_vectors": [
+            {
+                "action_id": 1,
+                "action": "REROUTE",
+                "cost_vector": {
+                    "delay_saved": -0.7,
+                    "passenger_delay": 0.3,
+                    "energy_consumption": 0.7,
+                    "fuel_cost": 0.7,
+                    "crew_impact": 0.5,
+                    "track_utilization": 0.5,
+                    "platform_usage": 0.2,
+                    "maintenance_impact": 0.2,
+                    "schedule_stability": 0.8,
+                    "operational_complexity": 0.7,
+                    "safety_risk": 0.2,
+                    "delay": -14.0,
+                    "risk": 10.0,
+                    "energy": 7.0,
+                    "operational_cost": 3.5
+                }
+            },
+            {
+                "action_id": 2,
+                "action": "REROUTE",
+                "cost_vector": {
+                    "delay_saved": -0.7,
+                    "passenger_delay": 0.3,
+                    "energy_consumption": 0.7,
+                    "fuel_cost": 0.7,
+                    "crew_impact": 0.5,
+                    "track_utilization": 0.5,
+                    "platform_usage": 0.2,
+                    "maintenance_impact": 0.2,
+                    "schedule_stability": 0.8,
+                    "operational_complexity": 0.7,
+                    "safety_risk": 0.2,
+                    "delay": -14.0,
+                    "risk": 10.0,
+                    "energy": 7.0,
+                    "operational_cost": 3.5
+                }
+            },
+            {
+                "action_id": 3,
+                "action": "HOLD",
+                "cost_vector": {
+                    "delay_saved": -0.3,
+                    "passenger_delay": 0.6,
+                    "energy_consumption": 0.0,
+                    "fuel_cost": 0.0,
+                    "crew_impact": 0.4,
+                    "track_utilization": 0.2,
+                    "platform_usage": 0.5,
+                    "maintenance_impact": 0.0,
+                    "schedule_stability": 0.5,
+                    "operational_complexity": 0.3,
+                    "safety_risk": 0.05,
+                    "delay": -6.0,
+                    "risk": 2.5,
+                    "energy": 0.0,
+                    "operational_cost": 1.5
+                }
+            },
+            {
+                "action_id": 4,
+                "action": "HOLD",
+                "cost_vector": {
+                    "delay_saved": -0.3,
+                    "passenger_delay": 0.6,
+                    "energy_consumption": 0.0,
+                    "fuel_cost": 0.0,
+                    "crew_impact": 0.4,
+                    "track_utilization": 0.2,
+                    "platform_usage": 0.5,
+                    "maintenance_impact": 0.0,
+                    "schedule_stability": 0.5,
+                    "operational_complexity": 0.3,
+                    "safety_risk": 0.05,
+                    "delay": -6.0,
+                    "risk": 2.5,
+                    "energy": 0.0,
+                    "operational_cost": 1.5
+                }
+            },
+            {
+                "action_id": 5,
+                "action": "HOLD",
+                "cost_vector": {
+                    "delay_saved": -0.3,
+                    "passenger_delay": 0.6,
+                    "energy_consumption": 0.0,
+                    "fuel_cost": 0.0,
+                    "crew_impact": 0.4,
+                    "track_utilization": 0.2,
+                    "platform_usage": 0.5,
+                    "maintenance_impact": 0.0,
+                    "schedule_stability": 0.5,
+                    "operational_complexity": 0.3,
+                    "safety_risk": 0.05,
+                    "delay": -6.0,
+                    "risk": 2.5,
+                    "energy": 0.0,
+                    "operational_cost": 1.5
+                }
+            },
+            {
+                "action_id": 6,
+                "action": "SPEED_ADJUST",
+                "cost_vector": {
+                    "delay_saved": -0.2,
+                    "passenger_delay": 0.1,
+                    "energy_consumption": 0.4,
+                    "fuel_cost": 0.4,
+                    "crew_impact": 0.1,
+                    "track_utilization": 0.3,
+                    "platform_usage": 0.1,
+                    "maintenance_impact": 0.1,
+                    "schedule_stability": 0.2,
+                    "operational_complexity": 0.2,
+                    "safety_risk": 0.15,
+                    "delay": -4.0,
+                    "risk": 7.5,
+                    "energy": 4.0,
+                    "operational_cost": 1.0
+                }
+            },
+            {
+                "action_id": 7,
+                "action": "SPEED_ADJUST",
+                "cost_vector": {
+                    "delay_saved": -0.2,
+                    "passenger_delay": 0.1,
+                    "energy_consumption": 0.4,
+                    "fuel_cost": 0.4,
+                    "crew_impact": 0.1,
+                    "track_utilization": 0.3,
+                    "platform_usage": 0.1,
+                    "maintenance_impact": 0.1,
+                    "schedule_stability": 0.2,
+                    "operational_complexity": 0.2,
+                    "safety_risk": 0.15,
+                    "delay": -4.0,
+                    "risk": 7.5,
+                    "energy": 4.0,
+                    "operational_cost": 1.0
+                }
+            }
+        ],
+        "expected_rewards": {
+            "1": {
+                "delay_reduction_mins": 14.0,
+                "passenger_saved_count": 950,
+                "robustness_rating": 66
+            },
+            "2": {
+                "delay_reduction_mins": 14.0,
+                "passenger_saved_count": 950,
+                "robustness_rating": 66
+            },
+            "3": {
+                "delay_reduction_mins": 6.0,
+                "passenger_saved_count": 400,
+                "robustness_rating": 83
+            },
+            "4": {
+                "delay_reduction_mins": 6.0,
+                "passenger_saved_count": 400,
+                "robustness_rating": 83
+            },
+            "5": {
+                "delay_reduction_mins": 6.0,
+                "passenger_saved_count": 400,
+                "robustness_rating": 83
+            },
+            "6": {
+                "delay_reduction_mins": 4.0,
+                "passenger_saved_count": 1000,
+                "robustness_rating": 83
+            },
+            "7": {
+                "delay_reduction_mins": 4.0,
+                "passenger_saved_count": 1000,
+                "robustness_rating": 83
+            }
+        },
+        "dependencies": {
+            "nodes": {
+                "1": {
+                    "action_id": 1,
+                    "action": "REROUTE",
+                    "requires": [
+                        "alternative_path_exists"
+                    ],
+                    "conflicts_with": [
+                        "HOLD"
+                    ],
+                    "compatible_with": [
+                        "SPEED_ADJUST",
+                        "PLATFORM_SWAP"
+                    ],
+                    "train_id": 12623,
+                    "station_id": 0
+                },
+                "2": {
+                    "action_id": 2,
+                    "action": "REROUTE",
+                    "requires": [
+                        "alternative_path_exists"
+                    ],
+                    "conflicts_with": [
+                        "HOLD"
+                    ],
+                    "compatible_with": [
+                        "SPEED_ADJUST",
+                        "PLATFORM_SWAP"
+                    ],
+                    "train_id": 16057,
+                    "station_id": 0
+                },
+                "3": {
+                    "action_id": 3,
+                    "action": "HOLD",
+                    "requires": [
+                        "upstream_block_free"
+                    ],
+                    "conflicts_with": [
+                        "REROUTE",
+                        "SPEED_ADJUST"
+                    ],
+                    "compatible_with": [
+                        "PLATFORM_SWAP"
+                    ],
+                    "train_id": 12623,
+                    "station_id": 0
+                },
+                "4": {
+                    "action_id": 4,
+                    "action": "HOLD",
+                    "requires": [
+                        "upstream_block_free"
+                    ],
+                    "conflicts_with": [
+                        "REROUTE",
+                        "SPEED_ADJUST"
+                    ],
+                    "compatible_with": [
+                        "PLATFORM_SWAP"
+                    ],
+                    "train_id": 12625,
+                    "station_id": 0
+                },
+                "5": {
+                    "action_id": 5,
+                    "action": "HOLD",
+                    "requires": [
+                        "upstream_block_free"
+                    ],
+                    "conflicts_with": [
+                        "REROUTE",
+                        "SPEED_ADJUST"
+                    ],
+                    "compatible_with": [
+                        "PLATFORM_SWAP"
+                    ],
+                    "train_id": 16057,
+                    "station_id": 0
+                },
+                "6": {
+                    "action_id": 6,
+                    "action": "SPEED_ADJUST",
+                    "requires": [
+                        "speed_limits_within_bounds"
+                    ],
+                    "conflicts_with": [
+                        "HOLD"
+                    ],
+                    "compatible_with": [
+                        "REROUTE",
+                        "PLATFORM_SWAP"
+                    ],
+                    "train_id": 12623,
+                    "station_id": 0
+                },
+                "7": {
+                    "action_id": 7,
+                    "action": "SPEED_ADJUST",
+                    "requires": [
+                        "speed_limits_within_bounds"
+                    ],
+                    "conflicts_with": [
+                        "HOLD"
+                    ],
+                    "compatible_with": [
+                        "REROUTE",
+                        "PLATFORM_SWAP"
+                    ],
+                    "train_id": 16057,
+                    "station_id": 0
+                }
+            },
+            "edges": [
+                {
+                    "source": "1",
+                    "target": "3",
+                    "relationship": "CONFLICTS_WITH"
+                },
+                {
+                    "source": "1",
+                    "target": "7",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "2",
+                    "target": "5",
+                    "relationship": "CONFLICTS_WITH"
+                },
+                {
+                    "source": "2",
+                    "target": "6",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "3",
+                    "target": "1",
+                    "relationship": "CONFLICTS_WITH"
+                },
+                {
+                    "source": "3",
+                    "target": "6",
+                    "relationship": "CONFLICTS_WITH"
+                },
+                {
+                    "source": "5",
+                    "target": "2",
+                    "relationship": "CONFLICTS_WITH"
+                },
+                {
+                    "source": "5",
+                    "target": "7",
+                    "relationship": "CONFLICTS_WITH"
+                },
+                {
+                    "source": "6",
+                    "target": "2",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "6",
+                    "target": "3",
+                    "relationship": "CONFLICTS_WITH"
+                },
+                {
+                    "source": "7",
+                    "target": "1",
+                    "relationship": "COMPATIBLE"
+                },
+                {
+                    "source": "7",
+                    "target": "5",
+                    "relationship": "CONFLICTS_WITH"
+                }
+            ]
+        },
+        "pareto_optimal_front": {
+            "pareto_solutions": [
+                {
+                    "action_id": 1,
+                    "action": "REROUTE",
+                    "target": "Chennai Mail",
+                    "delay_cost": -14.0,
+                    "risk": 10.0,
+                    "energy": 7.0,
+                    "passenger_saved_percent": 0.95,
+                    "operational_cost": 3.5,
+                    "robustness": 0.66
+                },
+                {
+                    "action_id": 2,
+                    "action": "REROUTE",
+                    "target": "Sapthagiri Express",
+                    "delay_cost": -14.0,
+                    "risk": 10.0,
+                    "energy": 7.0,
+                    "passenger_saved_percent": 0.95,
+                    "operational_cost": 3.5,
+                    "robustness": 0.66
+                },
+                {
+                    "action_id": 3,
+                    "action": "HOLD",
+                    "target": "Chennai Mail",
+                    "delay_cost": -6.0,
+                    "risk": 2.5,
+                    "energy": 0.0,
+                    "passenger_saved_percent": 0.4,
+                    "operational_cost": 1.5,
+                    "robustness": 0.83
+                },
+                {
+                    "action_id": 4,
+                    "action": "HOLD",
+                    "target": "Kerala Express",
+                    "delay_cost": -6.0,
+                    "risk": 2.5,
+                    "energy": 0.0,
+                    "passenger_saved_percent": 0.4,
+                    "operational_cost": 1.5,
+                    "robustness": 0.83
+                },
+                {
+                    "action_id": 5,
+                    "action": "HOLD",
+                    "target": "Sapthagiri Express",
+                    "delay_cost": -6.0,
+                    "risk": 2.5,
+                    "energy": 0.0,
+                    "passenger_saved_percent": 0.4,
+                    "operational_cost": 1.5,
+                    "robustness": 0.83
+                },
+                {
+                    "action_id": 6,
+                    "action": "SPEED_ADJUST",
+                    "target": "Chennai Mail",
+                    "delay_cost": -4.0,
+                    "risk": 7.5,
+                    "energy": 4.0,
+                    "passenger_saved_percent": 1.0,
+                    "operational_cost": 1.0,
+                    "robustness": 0.83
+                },
+                {
+                    "action_id": 7,
+                    "action": "SPEED_ADJUST",
+                    "target": "Sapthagiri Express",
+                    "delay_cost": -4.0,
+                    "risk": 7.5,
+                    "energy": 4.0,
+                    "passenger_saved_percent": 1.0,
+                    "operational_cost": 1.0,
+                    "robustness": 0.83
+                }
+            ],
+            "total_candidates": 7,
+            "non_dominated_count": 7
+        },
+        "decision_embeddings": {
+            "1": {
+                "action_id": 1,
+                "action": "REROUTE",
+                "embedding_vector": [
+                    14.0,
+                    7.0,
+                    10.0,
+                    0.95,
+                    0.8,
+                    0.91,
+                    0.66
+                ]
+            },
+            "2": {
+                "action_id": 2,
+                "action": "REROUTE",
+                "embedding_vector": [
+                    14.0,
+                    7.0,
+                    10.0,
+                    0.95,
+                    0.8,
+                    0.91,
+                    0.66
+                ]
+            },
+            "3": {
+                "action_id": 3,
+                "action": "HOLD",
+                "embedding_vector": [
+                    6.0,
+                    0.0,
+                    2.5,
+                    0.4,
+                    0.5,
+                    0.85,
+                    0.83
+                ]
+            },
+            "4": {
+                "action_id": 4,
+                "action": "HOLD",
+                "embedding_vector": [
+                    6.0,
+                    0.0,
+                    2.5,
+                    0.4,
+                    0.5,
+                    0.85,
+                    0.83
+                ]
+            },
+            "5": {
+                "action_id": 5,
+                "action": "HOLD",
+                "embedding_vector": [
+                    6.0,
+                    0.0,
+                    2.5,
+                    0.4,
+                    0.5,
+                    0.85,
+                    0.83
+                ]
+            },
+            "6": {
+                "action_id": 6,
+                "action": "SPEED_ADJUST",
+                "embedding_vector": [
+                    4.0,
+                    4.0,
+                    7.5,
+                    1.0,
+                    0.2,
+                    0.93,
+                    0.83
+                ]
+            },
+            "7": {
+                "action_id": 7,
+                "action": "SPEED_ADJUST",
+                "embedding_vector": [
+                    4.0,
+                    4.0,
+                    7.5,
+                    1.0,
+                    0.2,
+                    0.93,
+                    0.83
+                ]
+            }
+        },
+        "confidence_intervals": {
+            "1": {
+                "confidence_score": 0.91,
+                "best_case_delay_saved": 18.5,
+                "expected_delay_saved": 14.2,
+                "worst_case_delay_saved": 9.9
+            },
+            "2": {
+                "confidence_score": 0.91,
+                "best_case_delay_saved": 18.5,
+                "expected_delay_saved": 14.2,
+                "worst_case_delay_saved": 9.9
+            },
+            "3": {
+                "confidence_score": 0.85,
+                "best_case_delay_saved": 7.8,
+                "expected_delay_saved": 6.0,
+                "worst_case_delay_saved": 4.2
+            },
+            "4": {
+                "confidence_score": 0.85,
+                "best_case_delay_saved": 7.8,
+                "expected_delay_saved": 6.0,
+                "worst_case_delay_saved": 4.2
+            },
+            "5": {
+                "confidence_score": 0.85,
+                "best_case_delay_saved": 7.8,
+                "expected_delay_saved": 6.0,
+                "worst_case_delay_saved": 4.2
+            },
+            "6": {
+                "confidence_score": 0.93,
+                "best_case_delay_saved": 5.9,
+                "expected_delay_saved": 4.5,
+                "worst_case_delay_saved": 3.1
+            },
+            "7": {
+                "confidence_score": 0.93,
+                "best_case_delay_saved": 5.9,
+                "expected_delay_saved": 4.5,
+                "worst_case_delay_saved": 3.1
+            }
+        },
+        "explanations": {
+            "1": {
+                "action_id": 1,
+                "action": "REROUTE",
+                "target": "Chennai Mail",
+                "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
+                "expected_delay_saved": "14.0 mins",
+                "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
+                "passengers_saved": 950,
+                "confidence": "91%"
+            },
+            "2": {
+                "action_id": 2,
+                "action": "REROUTE",
+                "target": "Sapthagiri Express",
+                "reason": "Primary track segment is congested/blocked. Alternate paths are available.",
+                "expected_delay_saved": "14.0 mins",
+                "trade_off": "Energy consumption increases by 70%, but delay is reduced by 14.0 mins.",
+                "passengers_saved": 950,
+                "confidence": "91%"
+            },
+            "3": {
+                "action_id": 3,
+                "action": "HOLD",
+                "target": "Chennai Mail",
+                "reason": "Safety block buffer capacity drops below safety limits.",
+                "expected_delay_saved": "6.0 mins",
+                "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+                "passengers_saved": 400,
+                "confidence": "85%"
+            },
+            "4": {
+                "action_id": 4,
+                "action": "HOLD",
+                "target": "Kerala Express",
+                "reason": "Safety block buffer capacity drops below safety limits.",
+                "expected_delay_saved": "6.0 mins",
+                "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+                "passengers_saved": 400,
+                "confidence": "85%"
+            },
+            "5": {
+                "action_id": 5,
+                "action": "HOLD",
+                "target": "Sapthagiri Express",
+                "reason": "Safety block buffer capacity drops below safety limits.",
+                "expected_delay_saved": "6.0 mins",
+                "trade_off": "Following trains save safety block delays, but held passengers experience localized waiting time increase.",
+                "passengers_saved": 400,
+                "confidence": "85%"
+            },
+            "6": {
+                "action_id": 6,
+                "action": "SPEED_ADJUST",
+                "target": "Chennai Mail",
+                "reason": "Safety spacing adjustments scheduled.",
+                "expected_delay_saved": "4.0 mins",
+                "trade_off": "None.",
+                "passengers_saved": 1000,
+                "confidence": "93%"
+            },
+            "7": {
+                "action_id": 7,
+                "action": "SPEED_ADJUST",
+                "target": "Sapthagiri Express",
+                "reason": "Safety spacing adjustments scheduled.",
+                "expected_delay_saved": "4.0 mins",
+                "trade_off": "None.",
+                "passengers_saved": 1000,
+                "confidence": "93%"
+            }
+        }
+    },
+    "expected_recovery": {
+        "expected_recovery_time_mins": 12,
+        "stabilization_time": 132,
+        "confidence": 92.0
+    },
+    "confidence": 92.0
+}

@@ -1,0 +1,68 @@
+{
+    "critical_trains": [
+        {
+            "id": 16057,
+            "name": "Sapthagiri Express",
+            "criticality_score": 52.6,
+            "delay": 25.6
+        },
+        {
+            "id": 12625,
+            "name": "Kerala Express",
+            "criticality_score": 49.9,
+            "delay": 27.02
+        },
+        {
+            "id": 12623,
+            "name": "Chennai Mail",
+            "criticality_score": 41.8,
+            "delay": 16.6
+        }
+    ],
+    "critical_stations": [
+        {
+            "id": 3,
+            "name": "Katpadi",
+            "criticality_score": 24.4,
+            "congestion": 20.0
+        },
+        {
+            "id": 4,
+            "name": "Jolarpettai",
+            "criticality_score": 4.4,
+            "congestion": 0.0
+        },
+        {
+            "id": 1,
+            "name": "Chennai Central",
+            "criticality_score": 0.0,
+            "congestion": 0.0
+        },
+        {
+            "id": 2,
+            "name": "Arakkonam",
+            "criticality_score": 0.0,
+            "congestion": 0.0
+        }
+    ],
+    "critical_tracks": [
+        {
+            "id": 3,
+            "criticality_score": 53.3,
+            "occupancy": 50.0,
+            "status": "NORMAL"
+        },
+        {
+            "id": 1,
+            "criticality_score": 20.0,
+            "occupancy": 0.0,
+            "status": "NORMAL"
+        },
+        {
+            "id": 2,
+            "criticality_score": 20.0,
+            "occupancy": 0.0,
+            "status": "NORMAL"
+        }
+    ]
+}

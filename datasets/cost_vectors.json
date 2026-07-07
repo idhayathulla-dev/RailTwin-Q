@@ -1,0 +1,93 @@
+[
+    {
+        "action_id": 1,
+        "action": "REROUTE",
+        "cost_vector": {
+            "delay": -14.2,
+            "congestion": -20.0,
+            "risk": -15.0,
+            "energy": 3.5,
+            "operational_cost": 1.8,
+            "schedule_stability": 8.0,
+            "network_resilience": -12.0
+        }
+    },
+    {
+        "action_id": 2,
+        "action": "REROUTE",
+        "cost_vector": {
+            "delay": -14.2,
+            "congestion": -20.0,
+            "risk": -15.0,
+            "energy": 3.5,
+            "operational_cost": 1.8,
+            "schedule_stability": 8.0,
+            "network_resilience": -12.0
+        }
+    },
+    {
+        "action_id": 3,
+        "action": "HOLD",
+        "cost_vector": {
+            "delay": -6.0,
+            "congestion": -5.0,
+            "risk": -8.0,
+            "energy": -1.0,
+            "operational_cost": 0.5,
+            "schedule_stability": 4.0,
+            "network_resilience": -4.0
+        }
+    },
+    {
+        "action_id": 4,
+        "action": "HOLD",
+        "cost_vector": {
+            "delay": -6.0,
+            "congestion": -5.0,
+            "risk": -8.0,
+            "energy": -1.0,
+            "operational_cost": 0.5,
+            "schedule_stability": 4.0,
+            "network_resilience": -4.0
+        }
+    },
+    {
+        "action_id": 5,
+        "action": "HOLD",
+        "cost_vector": {
+            "delay": -6.0,
+            "congestion": -5.0,
+            "risk": -8.0,
+            "energy": -1.0,
+            "operational_cost": 0.5,
+            "schedule_stability": 4.0,
+            "network_resilience": -4.0
+        }
+    },
+    {
+        "action_id": 6,
+        "action": "SPEED_ADJUST",
+        "cost_vector": {
+            "delay": -4.5,
+            "congestion": -8.0,
+            "risk": -6.0,
+            "energy": 2.0,
+            "operational_cost": 0.2,
+            "schedule_stability": 1.5,
+            "network_resilience": -3.0
+        }
+    },
+    {
+        "action_id": 7,
+        "action": "SPEED_ADJUST",
+        "cost_vector": {
+            "delay": -4.5,
+            "congestion": -8.0,
+            "risk": -6.0,
+            "energy": 2.0,
+            "operational_cost": 0.2,
+            "schedule_stability": 1.5,
+            "network_resilience": -3.0
+        }
+    }
+]

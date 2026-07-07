@@ -1,0 +1,44 @@
+[
+    {
+        "action_id": 1,
+        "action": "REROUTE",
+        "decision_score": 28.4,
+        "rank": 1
+    },
+    {
+        "action_id": 2,
+        "action": "REROUTE",
+        "decision_score": 28.4,
+        "rank": 2
+    },
+    {
+        "action_id": 3,
+        "action": "HOLD",
+        "decision_score": 15.5,
+        "rank": 3
+    },
+    {
+        "action_id": 4,
+        "action": "HOLD",
+        "decision_score": 15.5,
+        "rank": 4
+    },
+    {
+        "action_id": 5,
+        "action": "HOLD",
+        "decision_score": 15.5,
+        "rank": 5
+    },
+    {
+        "action_id": 6,
+        "action": "SPEED_ADJUST",
+        "decision_score": 11.5,
+        "rank": 6
+    },
+    {
+        "action_id": 7,
+        "action": "SPEED_ADJUST",
+        "decision_score": 11.5,
+        "rank": 7
+    }
+]

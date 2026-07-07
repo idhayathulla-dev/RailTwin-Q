@@ -1,0 +1,262 @@
+{
+    "1": {
+        "action_id": 1,
+        "action": "REROUTE",
+        "target": "Chennai Mail",
+        "reasoning_chain": [
+            "Downstream track segment congested or blocked",
+            "Train Chennai Mail progress delayed on primary track route",
+            "Propagation delay spreads to following trains via safety blocks",
+            "Bypass route via alternate track selected for Train Chennai Mail",
+            "Primary track segment occupancy drops by 30%",
+            "Total network delay propagation drops by 14.2 minutes"
+        ],
+        "causal_graph": {
+            "nodes": [
+                "Track Congestion",
+                "Safety Block Spacing",
+                "Bypass Route Trigger",
+                "Delay Mitigation"
+            ],
+            "edges": [
+                {
+                    "source": "Track Congestion",
+                    "target": "Safety Block Spacing"
+                },
+                {
+                    "source": "Safety Block Spacing",
+                    "target": "Bypass Route Trigger"
+                },
+                {
+                    "source": "Bypass Route Trigger",
+                    "target": "Delay Mitigation"
+                }
+            ]
+        },
+        "explanation_text": "Downstream track segment congested or blocked -> Train Chennai Mail progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Chennai Mail -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
+        "confidence": 0.91,
+        "expected_improvement_mins": 14.2,
+        "expected_effects": {
+            "delay_reduction_minutes": 14.2,
+            "station_congestion_reduction": 21.299999999999997,
+            "expected_recovery_reduction": 11
+        }
+    },
+    "2": {
+        "action_id": 2,
+        "action": "REROUTE",
+        "target": "Sapthagiri Express",
+        "reasoning_chain": [
+            "Downstream track segment congested or blocked",
+            "Train Sapthagiri Express progress delayed on primary track route",
+            "Propagation delay spreads to following trains via safety blocks",
+            "Bypass route via alternate track selected for Train Sapthagiri Express",
+            "Primary track segment occupancy drops by 30%",
+            "Total network delay propagation drops by 14.2 minutes"
+        ],
+        "causal_graph": {
+            "nodes": [
+                "Track Congestion",
+                "Safety Block Spacing",
+                "Bypass Route Trigger",
+                "Delay Mitigation"
+            ],
+            "edges": [
+                {
+                    "source": "Track Congestion",
+                    "target": "Safety Block Spacing"
+                },
+                {
+                    "source": "Safety Block Spacing",
+                    "target": "Bypass Route Trigger"
+                },
+                {
+                    "source": "Bypass Route Trigger",
+                    "target": "Delay Mitigation"
+                }
+            ]
+        },
+        "explanation_text": "Downstream track segment congested or blocked -> Train Sapthagiri Express progress delayed on primary track route -> Propagation delay spreads to following trains via safety blocks -> Bypass route via alternate track selected for Train Sapthagiri Express -> Primary track segment occupancy drops by 30% -> Total network delay propagation drops by 14.2 minutes",
+        "confidence": 0.91,
+        "expected_improvement_mins": 14.2,
+        "expected_effects": {
+            "delay_reduction_minutes": 14.2,
+            "station_congestion_reduction": 21.299999999999997,
+            "expected_recovery_reduction": 11
+        }
+    },
+    "3": {
+        "action_id": 3,
+        "action": "HOLD",
+        "target": "Chennai Mail",
+        "reasoning_chain": [
+            "Upstream delay cascade seed detected",
+            "Holding Train Chennai Mail at current station to allow leading train to clear",
+            "Prevails safety signal spacing block conflicts",
+            "Downstream delay transfer avoided for trailing trains",
+            "Total cascade severity index drops by 7.2%"
+        ],
+        "causal_graph": {
+            "nodes": [
+                "Leading Delay",
+                "Spacing Conflict Prevention",
+                "Upstream Holding",
+                "Cascade Relief"
+            ],
+            "edges": [
+                {
+                    "source": "Leading Delay",
+                    "target": "Spacing Conflict Prevention"
+                },
+                {
+                    "source": "Spacing Conflict Prevention",
+                    "target": "Upstream Holding"
+                },
+                {
+                    "source": "Upstream Holding",
+                    "target": "Cascade Relief"
+                }
+            ]
+        },
+        "explanation_text": "Upstream delay cascade seed detected -> Holding Train Chennai Mail at current station to allow leading train to clear -> Prevails safety signal spacing block conflicts -> Downstream delay transfer avoided for trailing trains -> Total cascade severity index drops by 7.2%",
+        "confidence": 0.85,
+        "expected_improvement_mins": 6.0,
+        "expected_effects": {
+            "delay_reduction_minutes": 6.0,
+            "station_congestion_reduction": 9.0,
+            "expected_recovery_reduction": 4
+        }
+    },
+    "4": {
+        "action_id": 4,
+        "action": "HOLD",
+        "target": "Kerala Express",
+        "reasoning_chain": [
+            "Upstream delay cascade seed detected",
+            "Holding Train Kerala Express at current station to allow leading train to clear",
+            "Prevails safety signal spacing block conflicts",
+            "Downstream delay transfer avoided for trailing trains",
+            "Total cascade severity index drops by 7.2%"
+        ],
+        "causal_graph": {
+            "nodes": [
+                "Leading Delay",
+                "Spacing Conflict Prevention",
+                "Upstream Holding",
+                "Cascade Relief"
+            ],
+            "edges": [
+                {
+                    "source": "Leading Delay",
+                    "target": "Spacing Conflict Prevention"
+                },
+                {
+                    "source": "Spacing Conflict Prevention",
+                    "target": "Upstream Holding"
+                },
+                {
+                    "source": "Upstream Holding",
+                    "target": "Cascade Relief"
+                }
+            ]
+        },
+        "explanation_text": "Upstream delay cascade seed detected -> Holding Train Kerala Express at current station to allow leading train to clear -> Prevails safety signal spacing block conflicts -> Downstream delay transfer avoided for trailing trains -> Total cascade severity index drops by 7.2%",
+        "confidence": 0.85,
+        "expected_improvement_mins": 6.0,
+        "expected_effects": {
+            "delay_reduction_minutes": 6.0,
+            "station_congestion_reduction": 9.0,
+            "expected_recovery_reduction": 4
+        }
+    },
+    "5": {
+        "action_id": 5,
+        "action": "HOLD",
+        "target": "Sapthagiri Express",
+        "reasoning_chain": [
+            "Upstream delay cascade seed detected",
+            "Holding Train Sapthagiri Express at current station to allow leading train to clear",
+            "Prevails safety signal spacing block conflicts",
+            "Downstream delay transfer avoided for trailing trains",
+            "Total cascade severity index drops by 7.2%"
+        ],
+        "causal_graph": {
+            "nodes": [
+                "Leading Delay",
+                "Spacing Conflict Prevention",
+                "Upstream Holding",
+                "Cascade Relief"
+            ],
+            "edges": [
+                {
+                    "source": "Leading Delay",
+                    "target": "Spacing Conflict Prevention"
+                },
+                {
+                    "source": "Spacing Conflict Prevention",
+                    "target": "Upstream Holding"
+                },
+                {
+                    "source": "Upstream Holding",
+                    "target": "Cascade Relief"
+                }
+            ]
+        },
+        "explanation_text": "Upstream delay cascade seed detected -> Holding Train Sapthagiri Express at current station to allow leading train to clear -> Prevails safety signal spacing block conflicts -> Downstream delay transfer avoided for trailing trains -> Total cascade severity index drops by 7.2%",
+        "confidence": 0.85,
+        "expected_improvement_mins": 6.0,
+        "expected_effects": {
+            "delay_reduction_minutes": 6.0,
+            "station_congestion_reduction": 9.0,
+            "expected_recovery_reduction": 4
+        }
+    },
+    "6": {
+        "action_id": 6,
+        "action": "SPEED_ADJUST",
+        "target": "Chennai Mail",
+        "reasoning_chain": [
+            "Operational spacing optimal",
+            "Dynamic speed adjustments matched to safety profiles",
+            "Minimal network propagation delay expected"
+        ],
+        "causal_graph": {
+            "nodes": [
+                "Optimal State"
+            ],
+            "edges": []
+        },
+        "explanation_text": "Operational spacing optimal -> Dynamic speed adjustments matched to safety profiles -> Minimal network propagation delay expected",
+        "confidence": 0.93,
+        "expected_improvement_mins": 4.5,
+        "expected_effects": {
+            "delay_reduction_minutes": 4.5,
+            "station_congestion_reduction": 6.75,
+            "expected_recovery_reduction": 3
+        }
+    },
+    "7": {
+        "action_id": 7,
+        "action": "SPEED_ADJUST",
+        "target": "Sapthagiri Express",
+        "reasoning_chain": [
+            "Operational spacing optimal",
+            "Dynamic speed adjustments matched to safety profiles",
+            "Minimal network propagation delay expected"
+        ],
+        "causal_graph": {
+            "nodes": [
+                "Optimal State"
+            ],
+            "edges": []
+        },
+        "explanation_text": "Operational spacing optimal -> Dynamic speed adjustments matched to safety profiles -> Minimal network propagation delay expected",
+        "confidence": 0.93,
+        "expected_improvement_mins": 4.5,
+        "expected_effects": {
+            "delay_reduction_minutes": 4.5,
+            "station_congestion_reduction": 6.75,
+            "expected_recovery_reduction": 3
+        }
+    }
+}
