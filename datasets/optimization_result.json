@@ -1,0 +1,83 @@
+{
+    "optimization_tick": 120,
+    "solver_comparison": {
+        "exact": {
+            "energy": 0.0,
+            "runtime_seconds": 0.001,
+            "optimality_gap_percent": 0.0,
+            "valid": true,
+            "violation_count": 0
+        },
+        "greedy": {
+            "energy": 0.0,
+            "runtime_seconds": 0.0,
+            "optimality_gap_percent": 0.0,
+            "valid": true,
+            "violation_count": 0
+        },
+        "local_search": {
+            "energy": 0.0,
+            "runtime_seconds": 0.0,
+            "optimality_gap_percent": 0.0,
+            "valid": true,
+            "violation_count": 0
+        },
+        "simulated_annealing": {
+            "energy": 0.0,
+            "runtime_seconds": 0.1826,
+            "optimality_gap_percent": 0.0,
+            "valid": true,
+            "violation_count": 0
+        },
+        "qaoa": {
+            "energy": 0.285,
+            "runtime_seconds": 0.0277,
+            "optimality_gap_percent": 100.0,
+            "valid": true,
+            "violation_count": 0
+        },
+        "hybrid_qaoa": {
+            "energy": 0.0,
+            "runtime_seconds": 0.0277,
+            "optimality_gap_percent": 0.0,
+            "valid": true,
+            "violation_count": 0
+        }
+    },
+    "selected_solver": "HYBRID_QAOA",
+    "selected_actions": [],
+    "constraint_validation": {
+        "valid": true,
+        "violations": 0,
+        "details": []
+    },
+    "counterfactual_results": {
+        "baseline_delay": 90.46,
+        "optimized_delay": 90.46,
+        "delay_reduction_percent": 0.0,
+        "baseline_congestion": 5.0,
+        "optimized_congestion": 5.0,
+        "congestion_reduction_percent": 0.0
+    },
+    "quantum_metrics": {
+        "status": "SUCCESS",
+        "backend": "NumPyVectorSimulator",
+        "qubits": 7,
+        "circuit_depth": 30,
+        "qaoa_reps": 2,
+        "shots": 1024
+    },
+    "winners": {
+        "objective_winner": "EXACT",
+        "runtime_winner": "GREEDY",
+        "delay_reduction_winner": "QAOA",
+        "passenger_impact_winner": "EXACT",
+        "energy_winner": "EXACT"
+    },
+    "explanations": [
+        {
+            "type": "BASELINE",
+            "text": "No active interventions selected. Simulator continues with default timetables."
+        }
+    ]
+}

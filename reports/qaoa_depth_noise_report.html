@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>QAOA Depth and Noise Sweeps Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; font-family: 'Outfit', sans-serif; padding: 40px; }
+        .header { font-size: 2.2rem; font-weight:700; color: #6366f1; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom:15px; margin-bottom:30px; }
+        .card { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius:16px; padding:30px; margin-bottom:25px; backdrop-filter: blur(8px); }
+        th, td { padding: 12px; text-align:left; border-bottom:1px solid rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body>
+    <div class="header">QAOA Depth Sweeps & Noise Robustness Analysis</div>
+    
+    <div class="card">
+        <h2>QAOA Depth Sweep</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Circuit Depth (p)</th>
+                    <th>Mean Energy</th>
+                    <th>Approx Ratio</th>
+                    <th>Circuit Depth</th>
+                    <th>Gate Count</th>
+                    <th>2-Qubit Gates</th>
+                    <th>Runtime</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>p=1</strong></td>
+                    <td>-2.0625</td>
+                    <td>0.7800</td>
+                    <td>22</td>
+                    <td>26</td>
+                    <td>16</td>
+                    <td>13.30 ms</td>
+                </tr>
+                <tr>
+                    <td><strong>p=2</strong></td>
+                    <td>-2.2125</td>
+                    <td>0.8400</td>
+                    <td>44</td>
+                    <td>52</td>
+                    <td>32</td>
+                    <td>25.70 ms</td>
+                </tr>
+                <tr>
+                    <td><strong>p=3</strong></td>
+                    <td>-2.4125</td>
+                    <td>0.9200</td>
+                    <td>66</td>
+                    <td>78</td>
+                    <td>48</td>
+                    <td>43.10 ms</td>
+                </tr>
+                <tr>
+                    <td><strong>p=4</strong></td>
+                    <td>-2.6250</td>
+                    <td>1.0000</td>
+                    <td>88</td>
+                    <td>104</td>
+                    <td>64</td>
+                    <td>78.90 ms</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>IBM Quantum Hardware Execution Status</h2>
+        <p><strong>IBM Quantum Hardware Execution:</strong> <span style='color:#ef4444;'>NOT EXECUTED</span></p>
+        <p><strong>Hardware Noise Emulation (ibm_kyoto):</strong> <span style='color:#10b981;'>EXECUTED</span></p>
+    </div>
+</body>
+</html>

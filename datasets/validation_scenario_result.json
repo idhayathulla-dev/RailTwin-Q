@@ -1,0 +1,189 @@
+{
+    "diagnostic": {
+        "num_candidates": 5,
+        "num_vars": 5,
+        "linear_range": [
+            -0.31249999999999994,
+            -0.075
+        ],
+        "penalty_range": [
+            -2.0,
+            2.0
+        ]
+    },
+    "solvers": {
+        "exact": {
+            "bit": [
+                1,
+                1,
+                0,
+                1,
+                1
+            ],
+            "energy": -0.955
+        },
+        "greedy": {
+            "bit": [
+                1,
+                1,
+                0,
+                1,
+                1
+            ],
+            "energy": -0.9550000000000001
+        },
+        "ls": {
+            "bit": [
+                0,
+                0,
+                1,
+                1,
+                1
+            ],
+            "energy": -0.5
+        },
+        "sa": {
+            "bit": [
+                1,
+                1,
+                0,
+                1,
+                1
+            ],
+            "energy": -0.9550000000000001
+        },
+        "qaoa": {
+            "bit": [
+                0,
+                0,
+                1,
+                1,
+                1
+            ],
+            "energy": -0.5,
+            "gap": 47.64397905759162
+        },
+        "hybrid": {
+            "bit": [
+                1,
+                1,
+                0,
+                1,
+                1
+            ],
+            "energy": -0.9550000000000001
+        }
+    },
+    "counterfactuals": {
+        "baseline": {
+            "total_delay": 75.99,
+            "average_delay": 25.33,
+            "max_delay": 36.0,
+            "station_congestion": 0.0,
+            "track_occupancy": 25.0,
+            "network_congestion": 0.0,
+            "delayed_trains_count": 3,
+            "passenger_delay": 15198.0,
+            "energy": 25.0,
+            "cascade_severity_index": 203.3,
+            "expected_recovery_time": 54.0,
+            "constraint_violations": 0,
+            "delay_reduction_percent": 0.0
+        },
+        "exact": {
+            "total_delay": 74.1,
+            "average_delay": 24.7,
+            "max_delay": 35.0,
+            "station_congestion": 0.0,
+            "track_occupancy": 25.0,
+            "network_congestion": 0.0,
+            "delayed_trains_count": 3,
+            "passenger_delay": 14820.0,
+            "energy": 30.45,
+            "cascade_severity_index": 247.0,
+            "expected_recovery_time": 52.5,
+            "constraint_violations": 0,
+            "delay_reduction_percent": 2.49
+        },
+        "greedy": {
+            "total_delay": 74.1,
+            "average_delay": 24.7,
+            "max_delay": 35.0,
+            "station_congestion": 0.0,
+            "track_occupancy": 25.0,
+            "network_congestion": 0.0,
+            "delayed_trains_count": 3,
+            "passenger_delay": 14820.0,
+            "energy": 30.45,
+            "cascade_severity_index": 247.0,
+            "expected_recovery_time": 52.5,
+            "constraint_violations": 0,
+            "delay_reduction_percent": 2.49
+        },
+        "local_search": {
+            "total_delay": 78.58,
+            "average_delay": 26.19,
+            "max_delay": 35.0,
+            "station_congestion": 0.0,
+            "track_occupancy": 25.0,
+            "network_congestion": 0.0,
+            "delayed_trains_count": 3,
+            "passenger_delay": 15716.0,
+            "energy": 27.25,
+            "cascade_severity_index": 261.93,
+            "expected_recovery_time": 52.5,
+            "constraint_violations": 0,
+            "delay_reduction_percent": -3.41
+        },
+        "simulated_annealing": {
+            "total_delay": 74.1,
+            "average_delay": 24.7,
+            "max_delay": 35.0,
+            "station_congestion": 0.0,
+            "track_occupancy": 25.0,
+            "network_congestion": 0.0,
+            "delayed_trains_count": 3,
+            "passenger_delay": 14820.0,
+            "energy": 30.45,
+            "cascade_severity_index": 247.0,
+            "expected_recovery_time": 52.5,
+            "constraint_violations": 0,
+            "delay_reduction_percent": 2.49
+        },
+        "qaoa": {
+            "total_delay": 78.58,
+            "average_delay": 26.19,
+            "max_delay": 35.0,
+            "station_congestion": 0.0,
+            "track_occupancy": 25.0,
+            "network_congestion": 0.0,
+            "delayed_trains_count": 3,
+            "passenger_delay": 15716.0,
+            "energy": 27.25,
+            "cascade_severity_index": 261.93,
+            "expected_recovery_time": 52.5,
+            "constraint_violations": 0,
+            "delay_reduction_percent": -3.41
+        },
+        "hybrid_qaoa": {
+            "total_delay": 74.1,
+            "average_delay": 24.7,
+            "max_delay": 35.0,
+            "station_congestion": 0.0,
+            "track_occupancy": 25.0,
+            "network_congestion": 0.0,
+            "delayed_trains_count": 3,
+            "passenger_delay": 14820.0,
+            "energy": 30.45,
+            "cascade_severity_index": 247.0,
+            "expected_recovery_time": 52.5,
+            "constraint_violations": 0,
+            "delay_reduction_percent": 2.49
+        }
+    },
+    "prediction_error": {
+        "predicted": 70.0,
+        "actual": 1.8900000000000006,
+        "error_percent": 3603.7037037037026
+    }
+}

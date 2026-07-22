@@ -1,0 +1,91 @@
+{
+    "metadata": {
+        "experiment_id": "exp_final_1784737365",
+        "timestamp": "2026-07-22T16:22:45Z",
+        "random_seed": 42,
+        "qubo_size": 8,
+        "qaoa_depth": 2,
+        "shots": 1024,
+        "backend": "NumPyStatevector",
+        "noise_model": "CustomDepolarizingReadoutBitFlip",
+        "objective_weights": {
+            "delay": 0.4,
+            "congestion": 0.15,
+            "passenger": 0.15,
+            "risk": 0.15,
+            "energy": 0.05,
+            "operational_cost": 0.05,
+            "schedule_stability": 0.05
+        },
+        "software_versions": {
+            "qiskit": "2.5.0",
+            "numpy": "2.2.6",
+            "scipy": "1.15.3"
+        }
+    },
+    "noise_deconstruction": {
+        "ideal_qaoa": {
+            "energy": -2.2176,
+            "opt_gap": 0.0,
+            "approx_ratio": 1.0,
+            "runtime_q": 0.0384,
+            "runtime_c": 0.0,
+            "total_runtime": 0.0384,
+            "class_evals": 0
+        },
+        "noisy_qaoa": {
+            "energy": -2.2176,
+            "opt_gap": 0.0,
+            "approx_ratio": 1.0,
+            "runtime_q": 0.1472,
+            "runtime_c": 0.0,
+            "total_runtime": 0.1472,
+            "class_evals": 0
+        },
+        "noisy_qaoa_ls": {
+            "energy": -2.2176,
+            "opt_gap": 0.0,
+            "approx_ratio": 1.0,
+            "runtime_q": 0.1472,
+            "runtime_c": 0.0,
+            "total_runtime": 0.1472,
+            "class_evals": 6
+        },
+        "noisy_qaoa_sa": {
+            "energy": -2.2176,
+            "opt_gap": 0.0,
+            "approx_ratio": 1.0,
+            "runtime_q": 0.1472,
+            "runtime_c": 0.0746,
+            "total_runtime": 0.2218,
+            "class_evals": 100
+        },
+        "hybrid_qaoa": {
+            "energy": -2.2176,
+            "opt_gap": 0.0,
+            "approx_ratio": 1.0,
+            "runtime_q": 0.1472,
+            "runtime_c": 0.0,
+            "total_runtime": 0.1472,
+            "class_evals": 115
+        },
+        "greedy": {
+            "energy": -2.2176,
+            "opt_gap": 0.0,
+            "approx_ratio": 1.0,
+            "runtime_q": 0.0,
+            "runtime_c": 0.0,
+            "total_runtime": 0.0,
+            "class_evals": 6
+        },
+        "simulated_annealing": {
+            "energy": -2.2176,
+            "opt_gap": 0.0,
+            "approx_ratio": 1.0,
+            "runtime_q": 0.0,
+            "runtime_c": 0.0724,
+            "total_runtime": 0.0724,
+            "class_evals": 100
+        }
+    }
+}

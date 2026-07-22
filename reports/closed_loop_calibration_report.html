@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Closed-Loop Context-Aware Calibration Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; font-family: 'Outfit', sans-serif; padding: 40px; }
+        .header { font-size: 2.2rem; font-weight:700; color: #10b981; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom:15px; margin-bottom:30px; }
+        .card { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius:16px; padding:30px; margin-bottom:25px; backdrop-filter: blur(8px); }
+        th, td { padding: 12px; text-align:left; border-bottom:1px solid rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body>
+    <div class="header">Closed-Loop Context-Aware Calibration Feedback Analysis</div>
+    
+    <div class="card">
+        <h2>Unseen Test Set Accuracy Benchmark (Scenarios 86–100)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>Before Calibration</th>
+                    <th>After Calibration</th>
+                    <th>Improvement %</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Mean Absolute Error (MAE)</strong></td>
+                    <td>4.0633 min</td>
+                    <td>0.3131 min</td>
+                    <td style='color:#10b981;'>92.30%</td>
+                </tr>
+                <tr>
+                    <td><strong>RMSE</strong></td>
+                    <td>4.3683 min</td>
+                    <td>0.3535 min</td>
+                    <td style='color:#10b981;'>91.91%</td>
+                </tr>
+                <tr>
+                    <td><strong>MAPE</strong></td>
+                    <td>67.68%</td>
+                    <td>5.13%</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td><strong>R²</strong></td>
+                    <td>-2.4762</td>
+                    <td>0.9772</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

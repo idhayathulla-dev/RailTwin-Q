@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Layer 5 Multi-Seed Statistical Evaluation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; font-family: 'Outfit', sans-serif; padding: 40px; }
+        .header { font-size: 2.2rem; font-weight:700; color: #8b5cf6; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom:15px; margin-bottom:30px; }
+        .card { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius:16px; padding:30px; margin-bottom:25px; backdrop-filter: blur(8px); }
+        th, td { padding: 12px; text-align:left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body>
+    <div class="header">Layer 5 Multi-Seed Statistical Evaluation Summary</div>
+    <div class="card">
+        <h2>Solver Performance Metrics Summary (10 Seeds Sweep)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Solver</th>
+                    <th>Mean Energy</th>
+                    <th>Median Energy</th>
+                    <th>Std Dev</th>
+                    <th>95% CI</th>
+                    <th>Best</th>
+                    <th>Worst</th>
+                    <th>Mean Runtime</th>
+                    <th>Success Rate</th>
+                    <th>Opt Hit Rate</th>
+                    <th>Opt Gap</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>EXACT</strong></td>
+                    <td>-3.5650</td>
+                    <td>-3.5650</td>
+                    <td>0.6362</td>
+                    <td>[-4.0203, -3.1097]</td>
+                    <td>-4.4086</td>
+                    <td>-2.7679</td>
+                    <td>0.32 ms</td>
+                    <td>100.0%</td>
+                    <td>100.0%</td>
+                    <td>0.00%</td>
+                </tr>
+                <tr>
+                    <td><strong>GREEDY</strong></td>
+                    <td>-3.4125</td>
+                    <td>-3.3679</td>
+                    <td>0.6125</td>
+                    <td>[-3.8504, -2.9746]</td>
+                    <td>-4.1776</td>
+                    <td>-2.5287</td>
+                    <td>1.02 ms</td>
+                    <td>100.0%</td>
+                    <td>80.0%</td>
+                    <td>4.22%</td>
+                </tr>
+                <tr>
+                    <td><strong>SA</strong></td>
+                    <td>-3.5650</td>
+                    <td>-3.5650</td>
+                    <td>0.6362</td>
+                    <td>[-4.0203, -3.1097]</td>
+                    <td>-4.4086</td>
+                    <td>-2.7679</td>
+                    <td>125.8 ms</td>
+                    <td>100.0%</td>
+                    <td>100.0%</td>
+                    <td>0.00%</td>
+                </tr>
+                <tr>
+                    <td><strong>HYBRID QAOA</strong></td>
+                    <td>-3.5650</td>
+                    <td>-3.5650</td>
+                    <td>0.6362</td>
+                    <td>[-4.0203, -3.1097]</td>
+                    <td>-4.4086</td>
+                    <td>-2.7679</td>
+                    <td>134.4 ms</td>
+                    <td>100.0%</td>
+                    <td>100.0%</td>
+                    <td>0.00%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

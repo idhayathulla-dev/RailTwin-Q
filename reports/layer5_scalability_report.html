@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Layer 5 Scalability Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; font-family: 'Outfit', sans-serif; padding: 40px; }
+        .header { font-size: 2.2rem; font-weight:700; color: #f59e0b; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom:15px; margin-bottom:30px; }
+        .card { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius:16px; padding:30px; margin-bottom:25px; backdrop-filter: blur(8px); }
+        th, td { padding: 12px; text-align:left; border-bottom:1px solid rgba(255,255,255,0.1); }
+    </style>
+</head>
+<body>
+    <div class="header">Layer 5 Scalability Analysis (N = 5 to 100 Qubits)</div>
+    
+    <div class="card">
+        <h2>Sizing Sweeps Summary</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>N Variables</th>
+                    <th>Greedy Solver</th>
+                    <th>Simulated Annealing</th>
+                    <th>QAOA (Simulated)</th>
+                    <th>Hybrid QAOA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>N=5</strong></td>
+                    <td>-1.9520 (1.00ms)</td>
+                    <td>-1.9520 (131ms)</td>
+                    <td>-1.9520 (56ms)</td>
+                    <td>-1.9520 (56ms)</td>
+                </tr>
+                <tr>
+                    <td><strong>N=10</strong></td>
+                    <td>-2.7679 (1.02ms)</td>
+                    <td>-3.3679 (125ms)</td>
+                    <td>-3.3172 (127ms)</td>
+                    <td>-3.3679 (129ms)</td>
+                </tr>
+                <tr>
+                    <td><strong>N=20</strong></td>
+                    <td>-5.5287 (3.02ms)</td>
+                    <td>-5.7488 (384ms)</td>
+                    <td>-1.6859 (204s)</td>
+                    <td>-4.4478 (204s)</td>
+                </tr>
+                <tr>
+                    <td><strong>N=30</strong></td>
+                    <td>-6.1128 (6.74ms)</td>
+                    <td>-7.1480 (486ms)</td>
+                    <td style='color:#ef4444;'>ABORTED (Safeguard)</td>
+                    <td style='color:#ef4444;'>ABORTED (Safeguard)</td>
+                </tr>
+                <tr>
+                    <td><strong>N=100</strong></td>
+                    <td>-11.4896 (389ms)</td>
+                    <td>-12.6676 (3842ms)</td>
+                    <td style='color:#ef4444;'>ABORTED (Safeguard)</td>
+                    <td style='color:#ef4444;'>ABORTED (Safeguard)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

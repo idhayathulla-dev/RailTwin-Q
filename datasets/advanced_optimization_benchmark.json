@@ -1,0 +1,528 @@
+{
+    "metadata": {
+        "experiment_id": "exp_1784736868",
+        "timestamp": "2026-07-22T16:14:28Z",
+        "random_seed": 42,
+        "qubo_size": 8,
+        "qaoa_depth": 2,
+        "shots": 1024,
+        "backend": "NumPyStatevector",
+        "noise_model": "CustomDepolarizingReadoutBitFlip",
+        "objective_weights": {
+            "delay": 0.4,
+            "congestion": 0.15,
+            "passenger": 0.15,
+            "risk": 0.15,
+            "energy": 0.05,
+            "operational_cost": 0.05,
+            "schedule_stability": 0.05
+        },
+        "software_versions": {
+            "qiskit": "2.5.0",
+            "numpy": "2.2.6",
+            "scipy": "1.15.3"
+        }
+    },
+    "statistical_benchmark": {
+        "exact": {
+            "mean_energy": -2.9826,
+            "median_energy": -3.0805,
+            "std_energy": 0.4488,
+            "best_energy": -3.7541,
+            "worst_energy": -2.2336,
+            "ci_95": [
+                -3.2608,
+                -2.7044
+            ],
+            "mean_runtime_ms": 0.1,
+            "std_runtime_ms": 0.32,
+            "success_rate_percent": 100.0,
+            "optimum_hit_rate_percent": 100.0,
+            "mean_optimality_gap_percent": 0.0
+        },
+        "greedy": {
+            "mean_energy": -2.9159,
+            "median_energy": -3.0018,
+            "std_energy": 0.4937,
+            "best_energy": -3.7541,
+            "worst_energy": -2.1648,
+            "ci_95": [
+                -3.2219,
+                -2.6099
+            ],
+            "mean_runtime_ms": 0.0,
+            "std_runtime_ms": 0.0,
+            "success_rate_percent": 100.0,
+            "optimum_hit_rate_percent": 60.0,
+            "mean_optimality_gap_percent": 2.39
+        },
+        "simulated_annealing": {
+            "mean_energy": -2.9826,
+            "median_energy": -3.0805,
+            "std_energy": 0.4488,
+            "best_energy": -3.7541,
+            "worst_energy": -2.2336,
+            "ci_95": [
+                -3.2608,
+                -2.7044
+            ],
+            "mean_runtime_ms": 88.85,
+            "std_runtime_ms": 5.74,
+            "success_rate_percent": 100.0,
+            "optimum_hit_rate_percent": 100.0,
+            "mean_optimality_gap_percent": 0.0
+        },
+        "qaoa": {
+            "mean_energy": -2.3481,
+            "median_energy": -2.506,
+            "std_energy": 0.893,
+            "best_energy": -3.7541,
+            "worst_energy": -0.8105,
+            "ci_95": [
+                -2.9016,
+                -1.7946
+            ],
+            "mean_runtime_ms": 56.61,
+            "std_runtime_ms": 11.97,
+            "success_rate_percent": 100.0,
+            "optimum_hit_rate_percent": 30.0,
+            "mean_optimality_gap_percent": 23.44,
+            "avg_approximation_ratio": 0.7656
+        },
+        "hybrid_qaoa": {
+            "mean_energy": -2.9826,
+            "median_energy": -3.0805,
+            "std_energy": 0.4488,
+            "best_energy": -3.7541,
+            "worst_energy": -2.2336,
+            "ci_95": [
+                -3.2608,
+                -2.7044
+            ],
+            "mean_runtime_ms": 57.68,
+            "std_runtime_ms": 12.11,
+            "success_rate_percent": 100.0,
+            "optimum_hit_rate_percent": 100.0,
+            "mean_optimality_gap_percent": 0.0
+        }
+    },
+    "depth_experiment": [
+        {
+            "p": 1,
+            "energy": -1.7225,
+            "approximation_ratio": 0.7767,
+            "circuit_depth": 12,
+            "gate_count": 15,
+            "two_qubit_gate_count": 6,
+            "runtime_seconds": 0.0254
+        },
+        {
+            "p": 2,
+            "energy": -2.2176,
+            "approximation_ratio": 1.0,
+            "circuit_depth": 24,
+            "gate_count": 30,
+            "two_qubit_gate_count": 12,
+            "runtime_seconds": 0.0325
+        },
+        {
+            "p": 3,
+            "energy": -2.2176,
+            "approximation_ratio": 1.0,
+            "circuit_depth": 36,
+            "gate_count": 45,
+            "two_qubit_gate_count": 18,
+            "runtime_seconds": 0.0902
+        },
+        {
+            "p": 4,
+            "energy": -2.2176,
+            "approximation_ratio": 1.0,
+            "circuit_depth": 48,
+            "gate_count": 60,
+            "two_qubit_gate_count": 24,
+            "runtime_seconds": 0.0617
+        }
+    ],
+    "noise_experiment": {
+        "depolarizing": [
+            {
+                "level": 0.0,
+                "noisy_energy": -2.2176,
+                "noisy_ratio": 1.0,
+                "hybrid_energy": -2.2176,
+                "hybrid_ratio": 1.0
+            },
+            {
+                "level": 0.001,
+                "noisy_energy": -2.2176,
+                "noisy_ratio": 1.0,
+                "hybrid_energy": -2.2176,
+                "hybrid_ratio": 1.0
+            },
+            {
+                "level": 0.005,
+                "noisy_energy": -2.2176,
+                "noisy_ratio": 1.0,
+                "hybrid_energy": -2.2176,
+                "hybrid_ratio": 1.0
+            },
+            {
+                "level": 0.01,
+                "noisy_energy": -2.2176,
+                "noisy_ratio": 1.0,
+                "hybrid_energy": -2.2176,
+                "hybrid_ratio": 1.0
+            },
+            {
+                "level": 0.02,
+                "noisy_energy": -2.2176,
+                "noisy_ratio": 1.0,
+                "hybrid_energy": -2.2176,
+                "hybrid_ratio": 1.0
+            },
+            {
+                "level": 0.05,
+                "noisy_energy": -2.2176,
+                "noisy_ratio": 1.0,
+                "hybrid_energy": -2.2176,
+                "hybrid_ratio": 1.0
+            }
+        ],
+        "bit_flip": [
+            {
+                "level": 0.0,
+                "noisy_energy": -2.2176,
+                "noisy_ratio": 1.0,
+                "hybrid_energy": -2.2176,
+                "hybrid_ratio": 1.0
+            },
+            {
+                "level": 0.001,
+                "noisy_energy": -2.2176,
+                "noisy_ratio": 1.0,
+                "hybrid_energy": -2.2176,
+                "hybrid_ratio": 1.0
+            },
+            {
+                "level": 0.005,
+                "noisy_energy": -2.2176,
+                "noisy_ratio": 1.0,
+                "hybrid_energy": -2.2176,
+                "hybrid_ratio": 1.0
+            },
+            {
+                "level": 0.01,
+                "noisy_energy": -2.2176,
+                "noisy_ratio": 1.0,
+                "hybrid_energy": -2.2176,
+                "hybrid_ratio": 1.0
+            },
+            {
+                "level": 0.02,
+                "noisy_energy": -2.2176,
+                "noisy_ratio": 1.0,
+                "hybrid_energy": -2.2176,
+                "hybrid_ratio": 1.0
+            },
+            {
+                "level": 0.05,
+                "noisy_energy": -2.2176,
+                "noisy_ratio": 1.0,
+                "hybrid_energy": -2.2176,
+                "hybrid_ratio": 1.0
+            }
+        ],
+        "readout": [
+            {
+                "level": 0.0,
+                "noisy_energy": -2.2176,
+                "noisy_ratio": 1.0,
+                "hybrid_energy": -2.2176,
+                "hybrid_ratio": 1.0
+            },
+            {
+                "level": 0.01,
+                "noisy_energy": -2.2176,
+                "noisy_ratio": 1.0,
+                "hybrid_energy": -2.2176,
+                "hybrid_ratio": 1.0
+            },
+            {
+                "level": 0.02,
+                "noisy_energy": -2.2176,
+                "noisy_ratio": 1.0,
+                "hybrid_energy": -2.2176,
+                "hybrid_ratio": 1.0
+            },
+            {
+                "level": 0.05,
+                "noisy_energy": -2.2176,
+                "noisy_ratio": 1.0,
+                "hybrid_energy": -2.2176,
+                "hybrid_ratio": 1.0
+            },
+            {
+                "level": 0.1,
+                "noisy_energy": -2.2176,
+                "noisy_ratio": 1.0,
+                "hybrid_energy": -2.2176,
+                "hybrid_ratio": 1.0
+            }
+        ]
+    },
+    "closed_loop_calibration": {
+        "database": {
+            "REROUTE": {
+                "HEAVY_RAIN": {
+                    "predicted": 3.2,
+                    "actual": 1.89,
+                    "runs": [
+                        {
+                            "pred": 3.2836560790747304,
+                            "act": 1.7475032265668
+                        },
+                        {
+                            "pred": 3.065017591021472,
+                            "act": 1.8069632214446467
+                        },
+                        {
+                            "pred": 3.3418827284984074,
+                            "act": 1.9430098462268732
+                        },
+                        {
+                            "pred": 3.4353077406229073,
+                            "act": 1.7660816497888248
+                        },
+                        {
+                            "pred": 3.1531530918111623,
+                            "act": 1.748939165831421
+                        },
+                        {
+                            "pred": 3.031182784882162,
+                            "act": 1.8916065864310085
+                        },
+                        {
+                            "pred": 2.915921581810318,
+                            "act": 1.7996512952059944
+                        },
+                        {
+                            "pred": 3.289930662667714,
+                            "act": 1.9034824441809648
+                        },
+                        {
+                            "pred": 3.032264373224418,
+                            "act": 1.9167797051627726
+                        },
+                        {
+                            "pred": 3.3856582740066963,
+                            "act": 1.7419496279034181
+                        }
+                    ],
+                    "calibration_factor": 0.5738,
+                    "sample_count": 10
+                },
+                "NORMAL": {
+                    "predicted": 5.0,
+                    "actual": 4.1,
+                    "runs": [
+                        {
+                            "pred": 5.183491551099685,
+                            "act": 4.159441818496468
+                        },
+                        {
+                            "pred": 4.904150309910795,
+                            "act": 3.996643849943534
+                        },
+                        {
+                            "pred": 5.274327843324069,
+                            "act": 4.050978363533788
+                        },
+                        {
+                            "pred": 4.7556475060280885,
+                            "act": 3.979014913050039
+                        },
+                        {
+                            "pred": 5.208496619808476,
+                            "act": 4.131117809410067
+                        },
+                        {
+                            "pred": 5.184276963964628,
+                            "act": 4.168919536008145
+                        },
+                        {
+                            "pred": 5.02173685487282,
+                            "act": 4.241934729193811
+                        },
+                        {
+                            "pred": 4.927120626325012,
+                            "act": 4.1156121893819675
+                        },
+                        {
+                            "pred": 5.197642798551797,
+                            "act": 4.135555925709274
+                        },
+                        {
+                            "pred": 5.217024140186466,
+                            "act": 4.123205643577029
+                        }
+                    ],
+                    "calibration_factor": 0.8085,
+                    "sample_count": 10
+                }
+            },
+            "PLATFORM_SWAP": {
+                "SEVERE_CONGESTION": {
+                    "predicted": 2.5,
+                    "actual": 1.15,
+                    "runs": [
+                        {
+                            "pred": 2.622743101728954,
+                            "act": 1.0137473150966985
+                        },
+                        {
+                            "pred": 2.336738965390928,
+                            "act": 1.0868163890806322
+                        },
+                        {
+                            "pred": 2.2478751861541766,
+                            "act": 1.0698372659083089
+                        },
+                        {
+                            "pred": 2.2606008576458376,
+                            "act": 1.0833920809330275
+                        },
+                        {
+                            "pred": 2.5814106665586403,
+                            "act": 1.1094496536910252
+                        },
+                        {
+                            "pred": 2.4221085802701294,
+                            "act": 1.0628521092314462
+                        },
+                        {
+                            "pred": 2.360186693229468,
+                            "act": 1.2809963763137482
+                        },
+                        {
+                            "pred": 2.588821231147956,
+                            "act": 1.1827393017000964
+                        },
+                        {
+                            "pred": 2.3026831889188584,
+                            "act": 1.2187380393851046
+                        },
+                        {
+                            "pred": 2.298041496257157,
+                            "act": 1.1138366325272941
+                        }
+                    ],
+                    "calibration_factor": 0.4689,
+                    "sample_count": 10
+                },
+                "MEDIUM_CONGESTION": {
+                    "predicted": 1.8,
+                    "actual": 1.45,
+                    "runs": [
+                        {
+                            "pred": 2.0937140103819574,
+                            "act": 1.4919999279562277
+                        },
+                        {
+                            "pred": 1.8341698462647877,
+                            "act": 1.5053842752969624
+                        },
+                        {
+                            "pred": 2.0057111521138857,
+                            "act": 1.5327999734638733
+                        },
+                        {
+                            "pred": 1.6374288431784627,
+                            "act": 1.3096300731712114
+                        },
+                        {
+                            "pred": 1.6892718288354491,
+                            "act": 1.3803222627927108
+                        },
+                        {
+                            "pred": 1.626589706151796,
+                            "act": 1.5828729143005162
+                        },
+                        {
+                            "pred": 2.025820575883601,
+                            "act": 1.3944033642395433
+                        },
+                        {
+                            "pred": 1.893263199176928,
+                            "act": 1.4186895703181992
+                        },
+                        {
+                            "pred": 2.048728553844326,
+                            "act": 1.4376555557762196
+                        },
+                        {
+                            "pred": 1.6589280998988316,
+                            "act": 1.373988252308195
+                        }
+                    ],
+                    "calibration_factor": 0.7855,
+                    "sample_count": 10
+                }
+            }
+        },
+        "validation_runs": [
+            {
+                "action": "REROUTE",
+                "context": "HEAVY_RAIN",
+                "pred": 3.4,
+                "actual": 1.92,
+                "pred_after": 1.9509,
+                "error_before": 1.48,
+                "error_after": 0.0309
+            },
+            {
+                "action": "REROUTE",
+                "context": "NORMAL",
+                "pred": 4.8,
+                "actual": 3.95,
+                "pred_after": 3.8808,
+                "error_before": 0.85,
+                "error_after": 0.0692
+            },
+            {
+                "action": "PLATFORM_SWAP",
+                "context": "SEVERE_CONGESTION",
+                "pred": 2.6,
+                "actual": 1.25,
+                "pred_after": 1.2191,
+                "error_before": 1.35,
+                "error_after": 0.0309
+            },
+            {
+                "action": "PLATFORM_SWAP",
+                "context": "MEDIUM_CONGESTION",
+                "pred": 1.95,
+                "actual": 1.55,
+                "pred_after": 1.5317,
+                "error_before": 0.4,
+                "error_after": 0.0183
+            }
+        ],
+        "metrics": {
+            "before": {
+                "MAE": 1.02,
+                "RMSE": 1.1063,
+                "MAPE_percent": 58.1
+            },
+            "after": {
+                "MAE": 0.0373,
+                "RMSE": 0.0419,
+                "MAPE_percent": 1.75
+            },
+            "improvements": {
+                "MAE_reduction_percent": 96.34,
+                "RMSE_reduction_percent": 96.21
+            }
+        }
+    }
+}

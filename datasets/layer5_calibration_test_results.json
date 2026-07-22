@@ -1,0 +1,228 @@
+{
+    "metadata": {
+        "experiment_id": "exp_final_1784737365",
+        "timestamp": "2026-07-22T16:22:45Z",
+        "random_seed": 42,
+        "qubo_size": 8,
+        "qaoa_depth": 2,
+        "shots": 1024,
+        "backend": "NumPyStatevector",
+        "noise_model": "CustomDepolarizingReadoutBitFlip",
+        "objective_weights": {
+            "delay": 0.4,
+            "congestion": 0.15,
+            "passenger": 0.15,
+            "risk": 0.15,
+            "energy": 0.05,
+            "operational_cost": 0.05,
+            "schedule_stability": 0.05
+        },
+        "software_versions": {
+            "qiskit": "2.5.0",
+            "numpy": "2.2.6",
+            "scipy": "1.15.3"
+        }
+    },
+    "calibration": {
+        "calibration_database": {
+            "REROUTE": {
+                "HEAVY_RAIN": {
+                    "calibration_factor": 0.4343,
+                    "sample_count": 12
+                },
+                "NORMAL": {
+                    "calibration_factor": 0.5466,
+                    "sample_count": 12
+                },
+                "SEVERE_CONGESTION": {
+                    "calibration_factor": 0.5606,
+                    "sample_count": 11
+                }
+            },
+            "PLATFORM_SWAP": {
+                "SEVERE_CONGESTION": {
+                    "calibration_factor": 0.7624,
+                    "sample_count": 12
+                },
+                "HEAVY_RAIN": {
+                    "calibration_factor": 0.6509,
+                    "sample_count": 12
+                },
+                "NORMAL": {
+                    "calibration_factor": 0.7797,
+                    "sample_count": 11
+                }
+            }
+        },
+        "test_runs": [
+            {
+                "scenario_id": 86,
+                "action_type": "PLATFORM_SWAP",
+                "context": "SEVERE_CONGESTION",
+                "actual": 8.45,
+                "predicted_before": 11.45,
+                "predicted_after": 8.7295,
+                "error_before": 3.0,
+                "error_after": 0.2795
+            },
+            {
+                "scenario_id": 87,
+                "action_type": "REROUTE",
+                "context": "NORMAL",
+                "actual": 5.02,
+                "predicted_before": 9.63,
+                "predicted_after": 5.2638,
+                "error_before": 4.61,
+                "error_after": 0.2438
+            },
+            {
+                "scenario_id": 88,
+                "action_type": "PLATFORM_SWAP",
+                "context": "HEAVY_RAIN",
+                "actual": 6.6,
+                "predicted_before": 11.1,
+                "predicted_after": 7.225,
+                "error_before": 4.5,
+                "error_after": 0.625
+            },
+            {
+                "scenario_id": 89,
+                "action_type": "REROUTE",
+                "context": "SEVERE_CONGESTION",
+                "actual": 6.27,
+                "predicted_before": 11.6,
+                "predicted_after": 6.503,
+                "error_before": 5.33,
+                "error_after": 0.233
+            },
+            {
+                "scenario_id": 90,
+                "action_type": "PLATFORM_SWAP",
+                "context": "NORMAL",
+                "actual": 10.79,
+                "predicted_before": 14.3,
+                "predicted_after": 11.1497,
+                "error_before": 3.51,
+                "error_after": 0.3597
+            },
+            {
+                "scenario_id": 91,
+                "action_type": "REROUTE",
+                "context": "HEAVY_RAIN",
+                "actual": 3.02,
+                "predicted_before": 7.75,
+                "predicted_after": 3.3658,
+                "error_before": 4.73,
+                "error_after": 0.3458
+            },
+            {
+                "scenario_id": 92,
+                "action_type": "PLATFORM_SWAP",
+                "context": "SEVERE_CONGESTION",
+                "actual": 11.43,
+                "predicted_before": 14.17,
+                "predicted_after": 10.8032,
+                "error_before": 2.74,
+                "error_after": 0.6268
+            },
+            {
+                "scenario_id": 93,
+                "action_type": "REROUTE",
+                "context": "NORMAL",
+                "actual": 3.92,
+                "predicted_before": 6.84,
+                "predicted_after": 3.7387,
+                "error_before": 2.92,
+                "error_after": 0.1813
+            },
+            {
+                "scenario_id": 94,
+                "action_type": "PLATFORM_SWAP",
+                "context": "HEAVY_RAIN",
+                "actual": 8.16,
+                "predicted_before": 12.99,
+                "predicted_after": 8.4552,
+                "error_before": 4.83,
+                "error_after": 0.2952
+            },
+            {
+                "scenario_id": 95,
+                "action_type": "REROUTE",
+                "context": "SEVERE_CONGESTION",
+                "actual": 5.15,
+                "predicted_before": 9.83,
+                "predicted_after": 5.5107,
+                "error_before": 4.68,
+                "error_after": 0.3607
+            },
+            {
+                "scenario_id": 96,
+                "action_type": "PLATFORM_SWAP",
+                "context": "NORMAL",
+                "actual": 4.31,
+                "predicted_before": 5.02,
+                "predicted_after": 3.9141,
+                "error_before": 0.71,
+                "error_after": 0.3959
+            },
+            {
+                "scenario_id": 97,
+                "action_type": "REROUTE",
+                "context": "HEAVY_RAIN",
+                "actual": 6.25,
+                "predicted_before": 13.9,
+                "predicted_after": 6.0368,
+                "error_before": 7.65,
+                "error_after": 0.2132
+            },
+            {
+                "scenario_id": 98,
+                "action_type": "PLATFORM_SWAP",
+                "context": "SEVERE_CONGESTION",
+                "actual": 5.88,
+                "predicted_before": 7.73,
+                "predicted_after": 5.8934,
+                "error_before": 1.85,
+                "error_after": 0.0134
+            },
+            {
+                "scenario_id": 99,
+                "action_type": "REROUTE",
+                "context": "NORMAL",
+                "actual": 6.99,
+                "predicted_before": 11.99,
+                "predicted_after": 6.5537,
+                "error_before": 5.0,
+                "error_after": 0.4363
+            },
+            {
+                "scenario_id": 100,
+                "action_type": "PLATFORM_SWAP",
+                "context": "HEAVY_RAIN",
+                "actual": 8.87,
+                "predicted_before": 13.76,
+                "predicted_after": 8.9564,
+                "error_before": 4.89,
+                "error_after": 0.0864
+            }
+        ],
+        "metrics": {
+            "before": {
+                "MAE": 4.0633,
+                "RMSE": 4.3683,
+                "MAPE_percent": 67.68,
+                "R2": -2.4762
+            },
+            "after": {
+                "MAE": 0.3131,
+                "RMSE": 0.3535,
+                "MAPE_percent": 5.13,
+                "R2": 0.9772
+            },
+            "improvements": {
+                "MAE_reduction_percent": 92.3,
+                "RMSE_reduction_percent": 91.91
+            }
+        }
+    }
+}

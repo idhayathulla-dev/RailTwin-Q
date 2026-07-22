@@ -1,0 +1,337 @@
+{
+    "metadata": {
+        "experiment_id": "exp_final_1784737365",
+        "timestamp": "2026-07-22T16:22:45Z",
+        "random_seed": 42,
+        "qubo_size": 8,
+        "qaoa_depth": 2,
+        "shots": 1024,
+        "backend": "NumPyStatevector",
+        "noise_model": "CustomDepolarizingReadoutBitFlip",
+        "objective_weights": {
+            "delay": 0.4,
+            "congestion": 0.15,
+            "passenger": 0.15,
+            "risk": 0.15,
+            "energy": 0.05,
+            "operational_cost": 0.05,
+            "schedule_stability": 0.05
+        },
+        "software_versions": {
+            "qiskit": "2.5.0",
+            "numpy": "2.2.6",
+            "scipy": "1.15.3"
+        }
+    },
+    "scalability": {
+        "5": {
+            "qubits": 5,
+            "gate_count": 20,
+            "circuit_depth": 15,
+            "solvers": {
+                "greedy": {
+                    "energy": -1.952,
+                    "runtime": 0.0,
+                    "opt_gap": 0.0
+                },
+                "simulated_annealing": {
+                    "energy": -1.952,
+                    "runtime": 0.0748,
+                    "opt_gap": 0.0
+                },
+                "qaoa": {
+                    "energy": -1.952,
+                    "runtime": 0.0409,
+                    "opt_gap": 0.0
+                },
+                "hybrid_qaoa": {
+                    "energy": -1.952,
+                    "runtime": 0.0409,
+                    "opt_gap": 0.0
+                }
+            }
+        },
+        "8": {
+            "qubits": 8,
+            "gate_count": 26,
+            "circuit_depth": 24,
+            "solvers": {
+                "greedy": {
+                    "energy": -3.078,
+                    "runtime": 0.0,
+                    "opt_gap": 0.0
+                },
+                "simulated_annealing": {
+                    "energy": -3.078,
+                    "runtime": 0.0856,
+                    "opt_gap": 0.0
+                },
+                "qaoa": {
+                    "energy": -2.4876,
+                    "runtime": 0.0422,
+                    "opt_gap": 19.18
+                },
+                "hybrid_qaoa": {
+                    "energy": -3.078,
+                    "runtime": 0.0442,
+                    "opt_gap": 0.0
+                }
+            }
+        },
+        "10": {
+            "qubits": 10,
+            "gate_count": 30,
+            "circuit_depth": 30,
+            "solvers": {
+                "greedy": {
+                    "energy": -2.7679,
+                    "runtime": 0.0,
+                    "opt_gap": 17.82
+                },
+                "simulated_annealing": {
+                    "energy": -3.3679,
+                    "runtime": 0.112,
+                    "opt_gap": 0.0
+                },
+                "qaoa": {
+                    "energy": -3.3172,
+                    "runtime": 0.0961,
+                    "opt_gap": 1.51
+                },
+                "hybrid_qaoa": {
+                    "energy": -3.3679,
+                    "runtime": 0.0971,
+                    "opt_gap": 0.0
+                }
+            }
+        },
+        "15": {
+            "qubits": 15,
+            "gate_count": 40,
+            "circuit_depth": 45,
+            "solvers": {
+                "greedy": {
+                    "energy": -4.1776,
+                    "runtime": 0.001,
+                    "opt_gap": 5.24
+                },
+                "simulated_annealing": {
+                    "energy": -4.4086,
+                    "runtime": 0.1223,
+                    "opt_gap": 0.0
+                },
+                "qaoa": {
+                    "energy": -3.9836,
+                    "runtime": 2.3462,
+                    "opt_gap": 9.64
+                },
+                "hybrid_qaoa": {
+                    "energy": -4.4086,
+                    "runtime": 2.3572,
+                    "opt_gap": 0.0
+                }
+            }
+        },
+        "20": {
+            "qubits": 20,
+            "gate_count": 50,
+            "circuit_depth": 60,
+            "solvers": {
+                "greedy": {
+                    "energy": -5.5287,
+                    "runtime": 0.002,
+                    "opt_gap": 3.83
+                },
+                "simulated_annealing": {
+                    "energy": -5.7488,
+                    "runtime": 0.2908,
+                    "opt_gap": 0.0
+                },
+                "qaoa": {
+                    "energy": 0.0,
+                    "runtime": 0.0,
+                    "opt_gap": 100.0
+                },
+                "hybrid_qaoa": {
+                    "energy": -5.7488,
+                    "runtime": 0.3075,
+                    "opt_gap": 0.0
+                }
+            }
+        },
+        "25": {
+            "qubits": 25,
+            "gate_count": 60,
+            "circuit_depth": 75,
+            "solvers": {
+                "greedy": {
+                    "energy": -6.011,
+                    "runtime": 0.0035,
+                    "opt_gap": 0.0
+                },
+                "simulated_annealing": {
+                    "energy": -6.3082,
+                    "runtime": 0.3981,
+                    "opt_gap": 0.0
+                },
+                "qaoa": {
+                    "energy": null,
+                    "runtime": null,
+                    "opt_gap": null,
+                    "status": "ABORTED (Statevector Memory Safeguard)"
+                },
+                "hybrid_qaoa": {
+                    "energy": null,
+                    "runtime": null,
+                    "opt_gap": null,
+                    "status": "ABORTED (Statevector Memory Safeguard)"
+                }
+            }
+        },
+        "30": {
+            "qubits": 30,
+            "gate_count": 70,
+            "circuit_depth": 90,
+            "solvers": {
+                "greedy": {
+                    "energy": -6.1128,
+                    "runtime": 0.0098,
+                    "opt_gap": 0.0
+                },
+                "simulated_annealing": {
+                    "energy": -7.148,
+                    "runtime": 0.594,
+                    "opt_gap": 0.0
+                },
+                "qaoa": {
+                    "energy": null,
+                    "runtime": null,
+                    "opt_gap": null,
+                    "status": "ABORTED (Statevector Memory Safeguard)"
+                },
+                "hybrid_qaoa": {
+                    "energy": null,
+                    "runtime": null,
+                    "opt_gap": null,
+                    "status": "ABORTED (Statevector Memory Safeguard)"
+                }
+            }
+        },
+        "40": {
+            "qubits": 40,
+            "gate_count": 90,
+            "circuit_depth": 120,
+            "solvers": {
+                "greedy": {
+                    "energy": -8.8515,
+                    "runtime": 0.0282,
+                    "opt_gap": 0.0
+                },
+                "simulated_annealing": {
+                    "energy": -9.3703,
+                    "runtime": 0.9101,
+                    "opt_gap": 0.0
+                },
+                "qaoa": {
+                    "energy": null,
+                    "runtime": null,
+                    "opt_gap": null,
+                    "status": "ABORTED (Statevector Memory Safeguard)"
+                },
+                "hybrid_qaoa": {
+                    "energy": null,
+                    "runtime": null,
+                    "opt_gap": null,
+                    "status": "ABORTED (Statevector Memory Safeguard)"
+                }
+            }
+        },
+        "50": {
+            "qubits": 50,
+            "gate_count": 110,
+            "circuit_depth": 150,
+            "solvers": {
+                "greedy": {
+                    "energy": -10.3527,
+                    "runtime": 0.0747,
+                    "opt_gap": 0.0
+                },
+                "simulated_annealing": {
+                    "energy": -10.5905,
+                    "runtime": 1.109,
+                    "opt_gap": 0.0
+                },
+                "qaoa": {
+                    "energy": null,
+                    "runtime": null,
+                    "opt_gap": null,
+                    "status": "ABORTED (Statevector Memory Safeguard)"
+                },
+                "hybrid_qaoa": {
+                    "energy": null,
+                    "runtime": null,
+                    "opt_gap": null,
+                    "status": "ABORTED (Statevector Memory Safeguard)"
+                }
+            }
+        },
+        "75": {
+            "qubits": 75,
+            "gate_count": 160,
+            "circuit_depth": 225,
+            "solvers": {
+                "greedy": {
+                    "energy": -9.6525,
+                    "runtime": 0.1686,
+                    "opt_gap": 0.0
+                },
+                "simulated_annealing": {
+                    "energy": -10.372,
+                    "runtime": 2.1715,
+                    "opt_gap": 0.0
+                },
+                "qaoa": {
+                    "energy": null,
+                    "runtime": null,
+                    "opt_gap": null,
+                    "status": "ABORTED (Statevector Memory Safeguard)"
+                },
+                "hybrid_qaoa": {
+                    "energy": null,
+                    "runtime": null,
+                    "opt_gap": null,
+                    "status": "ABORTED (Statevector Memory Safeguard)"
+                }
+            }
+        },
+        "100": {
+            "qubits": 100,
+            "gate_count": 210,
+            "circuit_depth": 300,
+            "solvers": {
+                "greedy": {
+                    "energy": -11.4896,
+                    "runtime": 0.3493,
+                    "opt_gap": 0.0
+                },
+                "simulated_annealing": {
+                    "energy": -12.6676,
+                    "runtime": 3.7343,
+                    "opt_gap": 0.0
+                },
+                "qaoa": {
+                    "energy": null,
+                    "runtime": null,
+                    "opt_gap": null,
+                    "status": "ABORTED (Statevector Memory Safeguard)"
+                },
+                "hybrid_qaoa": {
+                    "energy": null,
+                    "runtime": null,
+                    "opt_gap": null,
+                    "status": "ABORTED (Statevector Memory Safeguard)"
+                }
+            }
+        }
+    }
+}

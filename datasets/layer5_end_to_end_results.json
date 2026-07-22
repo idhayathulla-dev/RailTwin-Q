@@ -1,0 +1,32 @@
+{
+    "metadata": {
+        "experiment_id": "exp_final_1784737365",
+        "timestamp": "2026-07-22T16:22:45Z",
+        "random_seed": 42,
+        "qubo_size": 8,
+        "qaoa_depth": 2,
+        "shots": 1024,
+        "backend": "NumPyStatevector",
+        "noise_model": "CustomDepolarizingReadoutBitFlip",
+        "objective_weights": {
+            "delay": 0.4,
+            "congestion": 0.15,
+            "passenger": 0.15,
+            "risk": 0.15,
+            "energy": 0.05,
+            "operational_cost": 0.05,
+            "schedule_stability": 0.05
+        },
+        "software_versions": {
+            "qiskit": "2.5.0",
+            "numpy": "2.2.6",
+            "scipy": "1.15.3"
+        }
+    },
+    "end_to_end": {
+        "baseline_delay": 58.989999999999995,
+        "exact_delay": 58.73,
+        "delay_saved": 0.259999999999998,
+        "delay_saved_percent": 0.44
+    }
+}

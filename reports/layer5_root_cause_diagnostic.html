@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Layer 5 Root-Cause Diagnostic Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-purple: #8b5cf6;
+            --accent-indigo: #6366f1;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 40px;
+        }
+        .header {
+            background: linear-gradient(135deg, var(--accent-indigo), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+        }
+        h2 {
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 12px;
+            color: var(--text-muted);
+        }
+        li strong {
+            color: var(--text-main);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            background-color: rgba(255, 255, 255, 0.05);
+            font-weight: 600;
+            color: var(--accent-purple);
+        }
+        td {
+            color: var(--text-muted);
+        }
+        .badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .badge-success { background: rgba(16, 185, 129, 0.2); color: var(--accent-green); }
+        .badge-danger { background: rgba(239, 68, 68, 0.2); color: var(--accent-red); }
+        .badge-yellow { background: rgba(245, 158, 11, 0.2); color: var(--accent-yellow); }
+        .highlight {
+            color: var(--accent-purple);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Layer 5 Root-Cause Diagnostic &amp; Validation Report</div>
+    
+    <div class="card">
+        <h2>1. Diagnostic Root-Cause Findings</h2>
+        <ul>
+            <li><strong>Objective Coefficient Key Mismatch:</strong> The function `calculate_linear_coefficients` was fetching the normalized value `delay_saved` (which was a scaled metric like `-0.7`) instead of the actual unnormalized delay minutes saved (such as `-14.0`). Since all other operational penalty costs (energy, risk, crew) are positive, the small normalized delay benefit was mathematically dominated by positive costs, producing positive linear costs (e.g. `+0.085`).</li>
+            <li><strong>Optimality of Null Solution:</strong> Because every individual action had a positive overall weight and action conflicts added positive quadratic penalty terms, the Exact solver mathematically selected the zero bitstring `[0, 0, 0, 0, 0]` as the unique global minimum (cost of 0.0).</li>
+            <li><strong>Simulator Holding Defect:</strong> The holding mechanism set `t_obj.speed = 0.0` at the start of ticks. However, `MovementEngine.tick` recalculated speeds based on track configurations, overwriting the speed to positive values. We bypassed this by setting `base_speed = 1e-6`, which forces simulated speed to `0.0` without triggering division by zero errors in the scheduler.</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h2>2. Controlled Disruption Validation Benchmark</h2>
+        <p><strong>Bottleneck Setup:</strong> Severe platform congestion at Katpadi (platforms = platforms_occupied = 5), with Chennai Mail (12623) and Sapthagiri Express (16057) waiting at Arakkonam (station ID 2).</p>
+        <p><strong>Validation Constraints:</strong> 2 Conflict Constraints (1 vs 3, 2 vs 3), 1 Dependency (5 requires 4), capacity constraints, and spacing headway limits. All coefficients were scaled properly using actual minutes saved, resulting in negative linear costs and a non-trivial optimization space.</p>
+    </div>
+
+    <div class="card">
+        <h2>3. Solver Performance &amp; Alignment</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Solver Name</th>
+                    <th>Selected Bitstring</th>
+                    <th>QUBO Energy</th>
+                    <th>Actual Delay Reduction</th>
+                    <th>Feasibility Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="highlight">EXACT</td>
+                    <td><code>[1, 1, 0, 1, 1]</code></td>
+                    <td>-0.9550</td>
+                    <td style="color:var(--accent-green);">2.49%</td>
+                    <td><span class="badge badge-success">PASSED</span></td>
+                </tr>
+                <tr>
+                    <td class="highlight">GREEDY</td>
+                    <td><code>[1, 1, 0, 1, 1]</code></td>
+                    <td>-0.9550</td>
+                    <td style="color:var(--accent-green);">2.49%</td>
+                    <td><span class="badge badge-success">PASSED</span></td>
+                </tr>
+                <tr>
+                    <td class="highlight">LOCAL SEARCH</td>
+                    <td><code>[0, 0, 1, 1, 1]</code></td>
+                    <td>-0.5000</td>
+                    <td style="color:var(--accent-red);">-3.41%</td>
+                    <td><span class="badge badge-success">PASSED</span></td>
+                </tr>
+                <tr>
+                    <td class="highlight">SIMULATED ANNEALING</td>
+                    <td><code>[1, 1, 0, 1, 1]</code></td>
+                    <td>-0.9550</td>
+                    <td style="color:var(--accent-green);">2.49%</td>
+                    <td><span class="badge badge-success">PASSED</span></td>
+                </tr>
+                <tr>
+                    <td class="highlight">QAOA</td>
+                    <td><code>[0, 0, 1, 1, 1]</code></td>
+                    <td>-0.5000</td>
+                    <td style="color:var(--accent-red);">-3.41%</td>
+                    <td><span class="badge badge-success">PASSED</span></td>
+                </tr>
+                <tr>
+                    <td class="highlight">HYBRID QAOA</td>
+                    <td><code>[1, 1, 0, 1, 1]</code></td>
+                    <td>-0.9550</td>
+                    <td style="color:var(--accent-red);">2.49%</td>
+                    <td><span class="badge badge-success">PASSED</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

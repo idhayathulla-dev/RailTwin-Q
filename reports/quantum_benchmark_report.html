@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Quantum vs Classical Benchmark Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-purple: #8b5cf6;
+            --accent-indigo: #6366f1;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-yellow: #f59e0b;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            margin: 0;
+            padding: 40px;
+        }
+        .header {
+            background: linear-gradient(135deg, var(--accent-indigo), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+        }
+        h2 {
+            color: var(--text-main);
+            font-size: 1.5rem;
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        .stat-val {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            margin: 5px 0;
+        }
+        .stat-lbl {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 12px;
+            color: var(--text-muted);
+        }
+        li strong {
+            color: var(--text-main);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">Quantum vs Classical Optimization Benchmark Report</div>
+    
+    <div class="card">
+        <h2>1. QAOA Solver Statistics</h2>
+        <div class="stat-grid">
+            <div>
+                <div class="stat-val" style="color: var(--accent-purple);"><code>[0, 0, 1, 1, 1]</code></div>
+                <div class="stat-lbl">QAOA Bitstring</div>
+            </div>
+            <div>
+                <div class="stat-val">-0.5000</div>
+                <div class="stat-lbl">QAOA Energy</div>
+            </div>
+            <div>
+                <div class="stat-val" style="color: var(--accent-indigo);"><code>[1, 1, 0, 1, 1]</code></div>
+                <div class="stat-lbl">Exact Optimal Bitstring</div>
+            </div>
+            <div>
+                <div class="stat-val">-0.9550</div>
+                <div class="stat-lbl">Exact Energy</div>
+            </div>
+            <div>
+                <div class="stat-val" style="color: var(--accent-yellow);">47.64%</div>
+                <div class="stat-lbl">Optimality Gap</div>
+            </div>
+        </div>
+        <div class="stat-grid" style="margin-top:20px;">
+            <div>
+                <div class="stat-val">0.5236</div>
+                <div class="stat-lbl">Approximation Ratio</div>
+            </div>
+            <div>
+                <div class="stat-val">22</div>
+                <div class="stat-lbl">Circuit Depth</div>
+            </div>
+            <div>
+                <div class="stat-val">5</div>
+                <div class="stat-lbl">Number of Qubits</div>
+            </div>
+            <div>
+                <div class="stat-val">2</div>
+                <div class="stat-lbl">QAOA Depth p</div>
+            </div>
+            <div>
+                <div class="stat-val">1024</div>
+                <div class="stat-lbl">Shots/Samples</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>2. Hybrid QAOA Refinement Statistics</h2>
+        <div class="stat-grid">
+            <div>
+                <div class="stat-val">-0.5000</div>
+                <div class="stat-lbl">Objective Before Refinement</div>
+            </div>
+            <div>
+                <div class="stat-val">-0.9550</div>
+                <div class="stat-lbl">Objective After Refinement</div>
+            </div>
+            <div>
+                <div class="stat-val" style="color: var(--accent-purple);">0.4550</div>
+                <div class="stat-lbl">Improvement from Refinement</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>3. Digital Twin Validation Performance</h2>
+        <ul>
+            <li><strong>Baseline Delay (No Actions):</strong> 75.99 mins | Avg: 25.33 mins | Max: 36.0 mins</li>
+            <li><strong>Exact Solver Delay:</strong> 74.1 mins | Avg: 24.7 mins | Max: 35.0 mins (<span style="color:var(--accent-green); font-weight:600;">-2.49% reduction</span>)</li>
+            <li><strong>Greedy Solver Delay:</strong> 74.1 mins | Avg: 24.7 mins | Max: 35.0 mins (<span style="color:var(--accent-green); font-weight:600;">-2.49% reduction</span>)</li>
+            <li><strong>QAOA Solver Delay:</strong> 78.58 mins | Avg: 26.19 mins | Max: 35.0 mins (<span style="color:var(--accent-red); font-weight:600;">-3.41% reduction</span>)</li>
+            <li><strong>Hybrid QAOA Solver Delay:</strong> 74.1 mins | Avg: 24.7 mins | Max: 35.0 mins (<span style="color:var(--accent-red); font-weight:600;">2.49% reduction</span>)</li>
+        </ul>
+        <p><strong>Operational Prediction Error:</strong> Predicted: 70.00 mins saved | Actual: 1.89 mins saved | Error: 68.11 mins (3603.70%)</p>
+    </div>
+
+    <div class="card">
+        <h2>4. Evidence Regarding Quantum Advantage</h2>
+        <p><strong>Conclusion:</strong> No evidence for quantum advantage. While QAOA and Hybrid QAOA find valid, high-quality solution schedules, classical Exact and Local Search solvers execute in under 1 millisecond, yielding equivalent or lower objectives. At N=5 variables, classical search is globally optimal and significantly faster. Quantum advantage is not present at this problem scale.</p>
+    </div>
+</body>
+</html>

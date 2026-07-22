@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Quantum Advantage Readiness Scorecard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; font-family: 'Outfit', sans-serif; padding: 40px; }
+        .header { font-size: 2.2rem; font-weight:700; color: #6366f1; border-bottom: 2px solid rgba(255,255,255,0.1); padding-bottom:15px; margin-bottom:30px; }
+        .card { background: rgba(30, 41, 59, 0.7); border: 1px solid rgba(255,255,255,0.1); border-radius:16px; padding:30px; margin-bottom:25px; backdrop-filter: blur(8px); }
+        table { width:100%; border-collapse:collapse; margin-top:20px; }
+        th, td { padding: 12px 15px; text-align:left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        th { background: rgba(255,255,255,0.05); color: #6366f1; font-weight:600; }
+        td { color: #e2e8f0; }
+        .badge { background-color: #f59e0b; padding: 5px 12px; border-radius:12px; font-weight:600; color: #fff; }
+    </style>
+</head>
+<body>
+    <div class="header">Quantum Advantage Readiness Scorecard Dashboard</div>
+    
+    <div class="card">
+        <h2>Quantum Readiness Evaluation Scorecard</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Readiness Metric</th>
+                    <th>Classical Solver</th>
+                    <th>Ideal QAOA</th>
+                    <th>Hybrid QAOA</th>
+                    <th>Classification Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Solution Quality</strong></td>
+                    <td>100.0% (Exact)</td>
+                    <td>70.0% (Suboptimal)</td>
+                    <td>100.0% (Refined)</td>
+                    <td>Classical Advantage</td>
+                </tr>
+                <tr>
+                    <td><strong>Execution Runtime</strong></td>
+                    <td>Under 1.0ms</td>
+                    <td>131.2ms</td>
+                    <td>134.4ms</td>
+                    <td>Classical Advantage</td>
+                </tr>
+                <tr>
+                    <td><strong>Scalability Limits</strong></td>
+                    <td>N = 100 (Greedy/SA)</td>
+                    <td>N &lt; 25 (Statevector memory)</td>
+                    <td>N &lt; 25 (Statevector memory)</td>
+                    <td>Classical Advantage</td>
+                </tr>
+                <tr>
+                    <td><strong>Noise Robustness</strong></td>
+                    <td>100.0% (Immune)</td>
+                    <td>Degrades to 45% Approx Ratio</td>
+                    <td>100.0% (Refined robust)</td>
+                    <td>Classical Advantage</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>Final Readiness Classification</h2>
+        <p>Based on the experimental data sweeps:</p>
+        <span class="badge">Quantum Potential / No Demonstrated Quantum Advantage</span>
+        <p style="margin-top:15px; color:#94a3b8;">
+            <strong>Conclusion Statement:</strong> Hybrid quantum-classical optimization demonstrated reliable optimum recovery and robustness against QAOA local minima, while quantum advantage was not observed at the tested problem sizes.
+        </p>
+    </div>
+</body>
+</html>

@@ -319,6 +319,59 @@ def generate_web_dashboard(network, tick: int, sim_time_str: str, active_events:
         variables_count = 0
         readiness_status = "PENDING"
 
+    l5_html = ""
+    opt_res_path = os.path.join("datasets", "optimization_result.json")
+    if os.path.exists(opt_res_path):
+        try:
+            with open(opt_res_path, "r", encoding="utf-8") as f:
+                l5_data = json.load(f)
+            
+            comp_rows = ""
+            for name, details in l5_data.get("solver_comparison", {}).items():
+                comp_rows += f"<tr style='border-bottom: 1px dashed rgba(255,255,255,0.05);'><td>{name.upper().replace('_', ' ')}</td><td style='text-align:right;'>{details['energy']:.2f}</td><td style='text-align:right;'>{details['optimality_gap_percent']:.1f}%</td></tr>"
+            
+            sel_act_list = ""
+            for act in l5_data.get("selected_actions", []):
+                sel_act_list += f"<li><b>[{act['action']}]</b> {act['target']}</li>"
+            if not sel_act_list:
+                sel_act_list = "<li>No active intervention plan</li>"
+                
+            q_metrics = l5_data.get("quantum_metrics", {})
+            
+            l5_html = f"""
+            <div style="background: rgba(0,0,0,0.2); border: 1px solid var(--border-color); border-radius: 8px; padding: 15px; display: flex; flex-direction: column; margin-top: 20px;">
+                <h3 style="margin-top: 0; border-bottom: 1px solid var(--border-color); padding-bottom: 6px; color: var(--accent-purple); font-size: 0.95rem;">Layer 5: Quantum Optimization</h3>
+                
+                <p style="margin: 0 0 10px 0; font-size: 0.75rem; color: var(--text-muted); line-height: 1.4;">
+                    <b>QAOA Status:</b> <span style="color:var(--accent-green);">{q_metrics.get('status', 'UNAVAILABLE')}</span> ({q_metrics.get('backend', 'None')})<br>
+                    <b>Qubits:</b> {q_metrics.get('qubits', 0)} | <b>Circuit Depth:</b> {q_metrics.get('circuit_depth', 0)}<br>
+                    <b>Selected Solver:</b> <span style="color:var(--accent-indigo); font-weight:bold;">{l5_data.get('selected_solver', 'NONE')}</span>
+                </p>
+                
+                <h4 style="margin: 0 0 4px 0; font-size: 0.8rem; color: var(--text-main);">Optimized Action Plan</h4>
+                <ul style="list-style: none; padding: 0; margin: 0 0 12px 0; font-size: 0.75rem; line-height: 1.4; color: var(--text-muted);">
+                    {sel_act_list}
+                </ul>
+                
+                <h4 style="margin: 0 0 4px 0; font-size: 0.8rem; color: var(--text-main);">Optimality Benchmarks</h4>
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.7rem; text-align: left; margin-bottom: 12px; color: var(--text-muted);">
+                    <tr style="border-bottom: 1px solid var(--border-color);">
+                        <th>Solver</th>
+                        <th style="text-align:right;">Cost</th>
+                        <th style="text-align:right;">Gap</th>
+                    </tr>
+                    {comp_rows}
+                </table>
+                
+                <h4 style="margin: 0 0 4px 0; font-size: 0.8rem; color: var(--text-main);">Verification Actual Impact</h4>
+                <div style="font-size: 0.75rem; color: var(--accent-green); font-weight: bold; background: rgba(16,185,129,0.1); border: 1px solid var(--accent-green); border-radius: 4px; padding: 5px; text-align: center;">
+                    -{l5_data.get('counterfactual_results', {}).get('delay_reduction_percent', 0.0)}% Delay | -{l5_data.get('counterfactual_results', {}).get('congestion_reduction_percent', 0.0)}% Congestion
+                </div>
+            </div>
+            """
+        except Exception:
+            pass
+
     html_content = f"""<!DOCTYPE html>
 <html>
 <head>
@@ -802,6 +855,7 @@ def generate_web_dashboard(network, tick: int, sim_time_str: str, active_events:
                 <div style="background: rgba(0,0,0,0.2); padding: 8px; border-radius: 6px; font-size: 0.75rem; overflow-y: auto; max-height: 120px; line-height: 1.3;">
                     {timeline_html}
                 </div>
+                {l5_html}
             </div>
         </div>
     </div>
@@ -865,6 +919,7 @@ def main():
     if os.path.exists(decision_log_path): os.remove(decision_log_path)
     if os.path.exists(congestion_history_path): os.remove(congestion_history_path)
     if os.path.exists(congestion_decision_path): os.remove(congestion_decision_path)
+    if os.path.exists("datasets/optimization_result.json"): os.remove("datasets/optimization_result.json")
 
     # Delay tracking buffers
     pred_buffer_15 = {}
@@ -924,6 +979,35 @@ def main():
         preds_delay = delay_predictor.get_predictions_for_tick(network, tick, sim_time_str, active_events)
         preds_congestion = congestion_predictor.get_predictions_for_tick(network, tick, sim_time_str, active_events, preds_delay)
         preds_propagation = propagation_predictor.get_predictions_for_tick(network, tick, sim_time_str, active_events, preds_delay, preds_congestion)
+
+        # -------------------------------------------------------------
+        # RUN LAYER 5 QUANTUM OPTIMIZATION ENGINE
+        # -------------------------------------------------------------
+        from ai.quantum_optimization.quantum_orchestrator import QuantumOrchestrator
+        orchestrator = QuantumOrchestrator()
+        baseline_rec_time = preds_propagation.get("expected_recovery", {}).get("expected_recovery_time_mins", 0)
+        quantum_results = orchestrator.optimize_network(network, active_events, tick, baseline_rec_time)
+
+        # Apply optimal action modifications back to the main Digital Twin simulation
+        if quantum_results.get("selected_actions"):
+            for act in quantum_results["selected_actions"]:
+                train_name = act.get("target", "")
+                action_type = act.get("action", "")
+
+                train_obj = network.get_train_by_no(train_name)
+                if not train_obj:
+                    for t_obj in network.trains:
+                        if t_obj.name == train_name:
+                            train_obj = t_obj
+                            break
+                
+                if train_obj:
+                    if action_type == "SPEED_ADJUST":
+                        train_obj.base_speed = min(train_obj.base_speed * 1.02, train_obj.max_speed)
+                    elif action_type == "PLATFORM_SWAP":
+                        train_obj.is_priority_train = True
+                    elif action_type == "HOLD":
+                        train_obj.dwell_time_remaining = max(train_obj.dwell_time_remaining, 1)
 
         # Log Delay Decisions
         for p in preds_delay:
