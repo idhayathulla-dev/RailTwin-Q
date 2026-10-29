@@ -579,6 +579,9 @@ class FrontendGenerator:
         
         .btn-quantum {{ background: #f97316; color: white; border: none; padding: 12px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 14px rgba(249, 115, 22, 0.15); transition: all 0.2s; }}
         .btn-quantum:hover {{ background: #ea580c; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(249, 115, 22, 0.25); }}
+        .btn-export {{ background: #ffffff; color: #334155; border: 1px solid #cbd5e1; padding: 4px 12px; border-radius: 6px; font-weight: 600; font-size: 11px; cursor: pointer; transition: all 0.2s; }}
+        .btn-export:hover {{ background: #f97316; border-color: #f97316; color: #ffffff; }}
+        .export-select {{ background: #ffffff; color: #334155; border: 1px solid #cbd5e1; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 600; }}
         
         .nav-item i, .nav-item svg {{ width: 16px; height: 16px; stroke-width: 2px; flex-shrink: 0; }}
         .topbar i, .topbar svg {{ width: 16px; height: 16px; }}
@@ -701,6 +704,17 @@ class FrontendGenerator:
         <div style="background: #ffffff; border-bottom: 1px solid #e2e8f0; padding: 10px 22px; display: flex; align-items: center;">
             <span style="font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase; margin-right: 8px;">Methodology:</span>
             <code style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 4px 10px; font-family: ui-monospace, SFMono-Regular, monospace; font-size: 11px; color: #64748b;">QAOA probabilistic sampling + classical local refinement</code>
+            <div style="margin-left: auto; display: flex; align-items: center; gap: 6px;">
+                <span style="font-size: 11px; color: #64748b; font-weight: 600; text-transform: uppercase;">Export:</span>
+                <select id="export-dataset" class="export-select" aria-label="Dataset to export">
+                    <option value="trains">Trains</option>
+                    <option value="stations">Stations</option>
+                    <option value="tracks">Tracks</option>
+                    <option value="dispatch">Dispatch Actions</option>
+                </select>
+                <button type="button" class="btn-export" id="export-csv-btn" onclick="exportDashboardData('csv')">&#11015; CSV</button>
+                <button type="button" class="btn-export" id="export-json-btn" onclick="exportDashboardData('json')">&#11015; JSON</button>
+            </div>
         </div>
 
         <main class="dashboard-content">
@@ -2428,6 +2442,71 @@ x4   0.00  0.00  0.00 -0.12</pre>
                 `;
             }});
             container.innerHTML = html;
+        }}
+
+        // ---- Export CSV / JSON (client-side only, no backend request) ----
+        function getExportRows(dataset, state) {{
+            state = state || current_state || EMBEDDED_STATE;
+            if (dataset === "stations") return state.stations || [];
+            if (dataset === "tracks") return state.tracks || [];
+            if (dataset === "dispatch") {{
+                const active = state.active_interventions || [];
+                return (state.qubit_mappings || []).map(function (m) {{
+                    const selected = active.some(function (ai) {{ return ai.target == m.target && ai.type == m.action; }});
+                    return Object.assign({{}}, m, {{ status: selected ? "Selected" : "Candidate" }});
+                }});
+            }}
+            return state.trains || [];
+        }}
+
+        function csvCell(v) {{
+            if (v === null || v === undefined) return "";
+            if (Array.isArray(v)) v = v.join("; ");
+            else if (typeof v === "object") v = JSON.stringify(v);
+            v = String(v);
+            return /[",\\r\\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
+        }}
+
+        function rowsToCSV(rows) {{
+            const cols = [];
+            rows.forEach(function (r) {{
+                Object.keys(r).forEach(function (k) {{ if (cols.indexOf(k) === -1) cols.push(k); }});
+            }});
+            const lines = [cols.map(csvCell).join(",")];
+            rows.forEach(function (r) {{
+                lines.push(cols.map(function (c) {{ return csvCell(r[c]); }}).join(","));
+            }});
+            return lines.join("\\r\\n");
+        }}
+
+        function downloadFile(filename, mime, text) {{
+            const blob = new Blob([text], {{ type: mime }});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            setTimeout(function () {{ URL.revokeObjectURL(url); }}, 1000);
+        }}
+
+        function exportDashboardData(format) {{
+            const sel = document.getElementById("export-dataset");
+            const dataset = sel ? sel.value : "trains";
+            const state = current_state || EMBEDDED_STATE;
+            const rows = getExportRows(dataset, state);
+            if (!rows.length) {{
+                alert("No " + dataset + " data to export right now.");
+                return;
+            }}
+            const base = "railtwin_" + dataset + "_tick" + state.tick;
+            if (format === "csv") {{
+                downloadFile(base + ".csv", "text/csv;charset=utf-8", "\\uFEFF" + rowsToCSV(rows));
+            }} else {{
+                const payload = {{ tick: state.tick, sim_time: state.sim_time_str, dataset: dataset, count: rows.length, data: rows }};
+                downloadFile(base + ".json", "application/json", JSON.stringify(payload, null, 2));
+            }}
         }}
 
         // Main Dashboard Update Loop
