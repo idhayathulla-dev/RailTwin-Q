@@ -2445,18 +2445,27 @@ x4   0.00  0.00  0.00 -0.12</pre>
         }}
 
         // ---- Export CSV / JSON (client-side only, no backend request) ----
-        function getExportRows(dataset, state) {{
-            state = state || current_state || EMBEDDED_STATE;
-            if (dataset === "stations") return state.stations || [];
-            if (dataset === "tracks") return state.tracks || [];
+
+        function getSafeState() {{
+                if (typeof state !== 'undefined' && state) return state;
+                if (typeof current_state !== 'undefined' && current_state) return current_state;
+                if (typeof EMBEDDED_STATE !== 'undefined' && EMBEDDED_STATE) return EMBEDDED_STATE;
+                return null;
+        }}
+
+       function getExportRows(dataset, state) {{
+            const s = state || getSafeState();
+            if (!s) return [];
+            if (dataset === "stations") return s.stations || [];
+            if (dataset === "tracks") return s.tracks || [];
             if (dataset === "dispatch") {{
-                const active = state.active_interventions || [];
-                return (state.qubit_mappings || []).map(function (m) {{
+                const active = s.active_interventions || [];
+                return (s.qubit_mappings || []).map(function (m) {{
                     const selected = active.some(function (ai) {{ return ai.target == m.target && ai.type == m.action; }});
                     return Object.assign({{}}, m, {{ status: selected ? "Selected" : "Candidate" }});
                 }});
             }}
-            return state.trains || [];
+            return s.trains || [];
         }}
 
         function csvCell(v) {{
@@ -2464,6 +2473,7 @@ x4   0.00  0.00  0.00 -0.12</pre>
             if (Array.isArray(v)) v = v.join("; ");
             else if (typeof v === "object") v = JSON.stringify(v);
             v = String(v);
+            if (/^[=+@-]/.test(v) && isNaN(Number(v))) v = "'" + v;
             return /[",\\r\\n]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
         }}
 
@@ -2494,17 +2504,22 @@ x4   0.00  0.00  0.00 -0.12</pre>
         function exportDashboardData(format) {{
             const sel = document.getElementById("export-dataset");
             const dataset = sel ? sel.value : "trains";
-            const state = current_state || EMBEDDED_STATE;
+            const state = getSafeState();
+            if (!state) {{
+                alert("No simulation data available to export yet.");
+                return;
+            }}
             const rows = getExportRows(dataset, state);
             if (!rows.length) {{
                 alert("No " + dataset + " data to export right now.");
                 return;
             }}
-            const base = "railtwin_" + dataset + "_tick" + state.tick;
+            const tick = state.tick ?? 0;
+            const base = "railtwin_" + dataset + "_tick" + tick;
             if (format === "csv") {{
                 downloadFile(base + ".csv", "text/csv;charset=utf-8", "\\uFEFF" + rowsToCSV(rows));
             }} else {{
-                const payload = {{ tick: state.tick, sim_time: state.sim_time_str, dataset: dataset, count: rows.length, data: rows }};
+                const payload = {{ tick: tick, sim_time: state.sim_time_str || "", dataset: dataset, count: rows.length, data: rows }};
                 downloadFile(base + ".json", "application/json", JSON.stringify(payload, null, 2));
             }}
         }}
